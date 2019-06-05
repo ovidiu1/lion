@@ -96,6 +96,14 @@ export const FormatMixin = dedupeMixin(
        */
 
       /**
+       * @param {String} value - the raw value from the <input> after keyUp/Down event
+       * @returns {String} preprocessedValue: the result of preprocessing for invalid input
+       */
+      preprocessor(v) {
+        return v;
+      }
+
+      /**
        * Converts formattedValue to modelValue
        * For instance, a localized date to a Date Object
        * @param {String} value - formattedValue: the formatted value inside <input>
@@ -170,6 +178,10 @@ export const FormatMixin = dedupeMixin(
         this.__preventRecursiveTrigger = false;
       }
 
+      __callPreprocessor(value = this.value) {
+        return this.preprocessor(value, this.preprocessOptions);
+      }
+
       __callParser(value = this.formattedValue) {
         let result;
         if (typeof value === 'string') {
@@ -232,6 +244,10 @@ export const FormatMixin = dedupeMixin(
       _syncValueUpwards() {
         // Downwards syncing should only happen for <lion-field>.value changes from 'above'
         this.__preventDownwardsSync = true;
+
+        // Preprocess the changed <input> value for invalid characters
+        this.value = this.__callPreprocessor(this.value);
+
         // This triggers _onModelValueChanged and connects user input to the
         // parsing/formatting/serializing loop
         this.modelValue = this.__callParser(this.value);
