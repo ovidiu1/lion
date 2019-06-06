@@ -63,6 +63,10 @@ export const FormatMixin = dedupeMixin(
             type: String,
           },
 
+          value: {
+            type: String,
+          },
+
           /**
            * Event that will trigger formatting (more precise, visual update of the view, so the
            * user sees the formatted value)
@@ -88,6 +92,14 @@ export const FormatMixin = dedupeMixin(
           _onSerializedValueChanged: ['serializedValue'],
           _onFormattedValueChanged: ['formattedValue'],
         };
+      }
+
+      _requestUpdate(name, oldValue) {
+        super._requestUpdate(name, oldValue);
+
+        if (name === 'value') {
+          this._onValueChanged({ value: this.value });
+        }
       }
 
       /**
@@ -175,7 +187,7 @@ export const FormatMixin = dedupeMixin(
         if (typeof value === 'string') {
           result = this.parser(value, this.formatOptions);
         }
-        return typeof result !== 'undefined' ? result : new Unparseable(value);
+        return result !== undefined ? result : new Unparseable(value);
       }
 
       __callFormatter() {
@@ -188,7 +200,6 @@ export const FormatMixin = dedupeMixin(
         return this.formatter(this.modelValue, this.formatOptions);
       }
 
-      /** Observer Handlers */
       _onModelValueChanged(...args) {
         this._calculateValues({ source: 'model' });
         this._dispatchModelValueChangedEvent(...args);
@@ -226,6 +237,49 @@ export const FormatMixin = dedupeMixin(
         this._calculateValues({ source: 'serialized' });
       }
 
+      _onValueChanged({ value }) {
+        if (super._onValueChanged) super._onValueChanged();
+
+        // Delegate to inputElement
+        if (this.inputElement) {
+          this._setValueAndPreserveCaret(value);
+        }
+
+        // Hook into the parse/format loop of FormatMixin
+        if (!this.__preventUpwardsSync) {
+          this._syncValueUpwards();
+        }
+
+        // For styling purposes, make it known the input field is not empty
+        this.classList[value ? 'add' : 'remove']('state-filled');
+      }
+
+      /**
+       * Restores the cursor to its original position after updating the value.
+       * @param {string} newValue The value that should be saved.
+       */
+      _setValueAndPreserveCaret(newValue) {
+        // Only preserve caret if focused (changing selectionStart will move focus in Safari)
+        if (this.focused) {
+          // Not all elements might have selection, and even if they have the
+          // right properties, accessing them might throw an exception (like for
+          // <input type=number>)
+          try {
+            const start = this.inputElement.selectionStart;
+            this.inputElement.value = newValue;
+            // The cursor automatically jumps to the end after re-setting the value,
+            // so restore it to its original position.
+            this.inputElement.selectionStart = start;
+            this.inputElement.selectionEnd = start;
+          } catch (error) {
+            // Just set the value and give up on the caret.
+            this.inputElement.value = newValue;
+          }
+        } else {
+          this.inputElement.value = newValue;
+        }
+      }
+
       /**
        * Synchronization from <input>.value to <lion-field>.formattedValue
        */
@@ -247,7 +301,9 @@ export const FormatMixin = dedupeMixin(
         // inputElement
         if (!this.__preventDownwardsSync) {
           // Text 'undefined' should not end up in <input>
-          this.value = typeof this.formattedValue !== 'undefined' ? this.formattedValue : '';
+          this.__preventUpwardsSync = true;
+          this.value = this.formattedValue !== undefined ? this.formattedValue : '';
+          this.__preventUpwardsSync = false;
         }
       }
 
@@ -265,9 +321,11 @@ export const FormatMixin = dedupeMixin(
         );
       }
 
+      /**
+       * Upwards syncing. Most properties are delegated right away, value is synced to
+       * <lion-field>, to be able to act on (imperatively set) value changes
+       */
       _onUserInputChanged() {
-        // Upwards syncing. Most properties are delegated right away, value is synced to <lion-field>,
-        // to be able to act on (imperatively set) value changes
         this._syncValueUpwards();
       }
 
@@ -298,6 +356,18 @@ export const FormatMixin = dedupeMixin(
           this._syncValueUpwards();
         }
         this._reflectBackFormattedValueToUser();
+      }
+
+      // Needed for choice-inputs and select (IE11) as an alternative to the input event.
+      // TODO: add in FormatMixin and remove here and in lion-select
+      _onChange() {
+        if (super._onChange) super._onChange();
+        this.dispatchEvent(
+          new CustomEvent('user-input-changed', {
+            bubbles: true,
+            composed: true,
+          }),
+        );
       }
 
       disconnectedCallback() {

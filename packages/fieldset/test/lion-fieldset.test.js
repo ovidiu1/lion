@@ -6,22 +6,38 @@ import {
   triggerFocusFor,
   triggerBlurFor,
   nextFrame,
+  defineCE,
 } from '@open-wc/testing';
 import sinon from 'sinon';
 import { localizeTearDown } from '@lion/localize/test-helpers.js';
-import '@lion/input/lion-input.js';
+import { LionInput } from '@lion/input';
 
 import '../lion-fieldset.js';
 
+const complexInputTagString = defineCE(
+  class extends LionInput {
+    parser() {
+      return this.modelValue;
+    }
+
+    formatter(mv) {
+      return mv && mv.value !== undefined ? mv.value : mv;
+    }
+  },
+);
+
 const tagString = 'lion-fieldset';
 const tag = unsafeStatic(tagString);
-const inputSlotString = `
-  <lion-input name="gender[]"></lion-input>
-  <lion-input name="gender[]"></lion-input>
-  <lion-input name="color"></lion-input>
-  <lion-input name="hobbies[]"></lion-input>
-  <lion-input name="hobbies[]"></lion-input>
+const complexInputTag = unsafeStatic(complexInputTagString);
+
+const inputSlot = html`
+  <${complexInputTag} name="gender[]"></${complexInputTag}>
+  <${complexInputTag} name="gender[]"></${complexInputTag}>
+  <${complexInputTag} name="color"></${complexInputTag}>
+  <${complexInputTag} name="hobbies[]"></${complexInputTag}>
+  <${complexInputTag} name="hobbies[]"></${complexInputTag}>
 `;
+
 const nonPrefilledModelValue = '';
 const prefilledModelValue = 'prefill';
 
@@ -30,8 +46,8 @@ beforeEach(() => {
 });
 
 describe('<lion-fieldset>', () => {
-  it(`${tagString} has an up to date list of every form element in #formElements`, async () => {
-    const fieldset = await fixture(`<${tagString}>${inputSlotString}</${tagString}>`);
+  it(`${tag} has an up to date list of every form element in #formElements`, async () => {
+    const fieldset = await fixture(html`<${tag}>${inputSlot}</${tag}>`);
     await nextFrame();
     expect(Object.keys(fieldset.formElements).length).to.equal(3);
     expect(fieldset.formElements['hobbies[]'].length).to.equal(2);
@@ -41,7 +57,7 @@ describe('<lion-fieldset>', () => {
   });
 
   it(`supports in html wrapped form elements`, async () => {
-    const el = await fixture(`
+    const el = await fixture(html`
       <lion-fieldset>
         <div>
           <lion-input name="foo"></lion-input>
@@ -55,7 +71,10 @@ describe('<lion-fieldset>', () => {
   });
 
   it('handles names with ending [] as an array', async () => {
-    const fieldset = await fixture(`<${tagString}>${inputSlotString}</${tagString}>`);
+    const fieldset = await fixture(html`
+      <${tag}>
+        ${inputSlot}
+      </${tag}>`);
     await nextFrame();
     fieldset.formElements['gender[]'][0].modelValue = { value: 'male' };
     fieldset.formElements['hobbies[]'][0].modelValue = { checked: false, value: 'chess' };
@@ -63,8 +82,10 @@ describe('<lion-fieldset>', () => {
 
     expect(Object.keys(fieldset.formElements).length).to.equal(3);
     expect(fieldset.formElements['hobbies[]'].length).to.equal(2);
+
     expect(fieldset.formElements['hobbies[]'][0].modelValue.value).to.equal('chess');
     expect(fieldset.formElements['gender[]'][0].modelValue.value).to.equal('male');
+
     expect(fieldset.modelValue['hobbies[]']).to.deep.equal([
       { checked: false, value: 'chess' },
       { checked: false, value: 'rugby' },
@@ -76,7 +97,11 @@ describe('<lion-fieldset>', () => {
     console.info = () => {};
 
     let error = false;
-    const el = await fixture(`<lion-fieldset></lion-fieldset>`);
+    const el = await fixture(
+      html`
+        <lion-fieldset></lion-fieldset>
+      `,
+    );
     try {
       // we need to use the private api here as errors thrown from a web component are in a
       // different context and we can not catch them here => register fake elements
@@ -97,7 +122,11 @@ describe('<lion-fieldset>', () => {
     console.info = () => {};
 
     let error = false;
-    const el = await fixture(`<lion-fieldset name="foo"></lion-fieldset>`);
+    const el = await fixture(
+      html`
+        <lion-fieldset name="foo"></lion-fieldset>
+      `,
+    );
     try {
       // we need to use the private api here as errors thrown from a web component are in a
       // different context and we can not catch them here => register fake elements
@@ -118,7 +147,11 @@ describe('<lion-fieldset>', () => {
     console.info = () => {};
 
     let error = false;
-    const el = await fixture(`<lion-fieldset></lion-fieldset>`);
+    const el = await fixture(
+      html`
+        <lion-fieldset></lion-fieldset>
+      `,
+    );
     try {
       // we need to use the private api here as errors thrown from a web component are in a
       // different context and we can not catch them here => register fake elements
@@ -143,8 +176,12 @@ describe('<lion-fieldset>', () => {
   /* eslint-enable no-console */
 
   it('can dynamically add/remove elements', async () => {
-    const fieldset = await fixture(`<${tagString}>${inputSlotString}</${tagString}>`);
-    const newField = await fixture(`<lion-input name="lastName"></lion-input>`);
+    const fieldset = await fixture(html`<${tag}>${inputSlot}</${tag}>`);
+    const newField = await fixture(
+      html`
+        <lion-input name="lastName"></lion-input>
+      `,
+    );
     await nextFrame();
 
     expect(Object.keys(fieldset.formElements).length).to.equal(3);
@@ -158,11 +195,11 @@ describe('<lion-fieldset>', () => {
   });
 
   it('can read/write all values (of every input) via this.modelValue', async () => {
-    const fieldset = await fixture(`
-      <lion-fieldset>
-        <lion-input name="lastName"></lion-input>
-        <${tagString} name="newfieldset">${inputSlotString}</${tagString}>
-      </lion-fieldset>
+    const fieldset = await fixture(html`
+      <${tag}>
+        <${complexInputTag} name="lastName"></${complexInputTag}>
+        <${tag} name="newfieldset">${inputSlot}</${tag}>
+      </${tag}>
     `);
     await nextFrame();
     const newFieldset = fieldset.querySelector('lion-fieldset');
@@ -222,7 +259,7 @@ describe('<lion-fieldset>', () => {
   });
 
   it('disables/enables all its formElements if it becomes disabled/enabled', async () => {
-    const el = await fixture(`<${tagString} disabled>${inputSlotString}</${tagString}>`);
+    const el = await fixture(html`<${tag} disabled>${inputSlot}</${tag}>`);
     await nextFrame();
     expect(el.formElements.color.disabled).to.equal(true);
     expect(el.formElements['hobbies[]'][0].disabled).to.equal(true);
@@ -237,7 +274,7 @@ describe('<lion-fieldset>', () => {
 
   it('does not propagate/override inital disabled value on nested form elements', async () => {
     const el = await fixture(
-      `<${tagString}><${tagString} name="sub" disabled>${inputSlotString}</${tagString}></${tagString}>`,
+      html`<${tag}><${tag} name="sub" disabled>${inputSlot}</${tag}></${tag}>`,
     );
     await nextFrame();
 
@@ -266,7 +303,7 @@ describe('<lion-fieldset>', () => {
     });
 
     it('validates when a value changes', async () => {
-      const fieldset = await fixture(`<${tagString}>${inputSlotString}</${tagString}>`);
+      const fieldset = await fixture(html`<${tag}>${inputSlot}</${tag}>`);
       await nextFrame();
       const spy = sinon.spy(fieldset, 'validate');
       fieldset.formElements.color.modelValue = { checked: true, value: 'red' };
@@ -280,10 +317,10 @@ describe('<lion-fieldset>', () => {
 
       const el = await fixture(html`
         <${tag}>
-          <lion-input name="color"
+          <${complexInputTag} name="color"
             .errorValidators=${[[isCat]]}
             .modelValue=${'blue'}
-          ></lion-input>
+          ></${complexInputTag}>
         </${tag}>
       `);
       await nextFrame();
@@ -297,7 +334,7 @@ describe('<lion-fieldset>', () => {
 
   describe('interaction states', () => {
     it('has false states (dirty, touched, prefilled) on init', async () => {
-      const fieldset = await fixture(`<${tagString}>${inputSlotString}</${tagString}>`);
+      const fieldset = await fixture(html`<${tag}>${inputSlot}</${tag}>`);
       await nextFrame();
       expect(fieldset.dirty).to.equal(false, 'dirty');
       expect(fieldset.touched).to.equal(false, 'touched');
@@ -305,14 +342,14 @@ describe('<lion-fieldset>', () => {
     });
 
     it('sets dirty when value changed', async () => {
-      const fieldset = await fixture(`<${tagString}>${inputSlotString}</${tagString}>`);
+      const fieldset = await fixture(html`<${tag}>${inputSlot}</${tag}>`);
       await nextFrame();
       fieldset.formElements['hobbies[]'][0].modelValue = { checked: true, value: 'football' };
       expect(fieldset.dirty).to.equal(true);
     });
 
     it('sets touched when field left after focus', async () => {
-      const fieldset = await fixture(`<${tagString}>${inputSlotString}</${tagString}>`);
+      const fieldset = await fixture(html`<${tag}>${inputSlot}</${tag}>`);
       await nextFrame();
       await triggerFocusFor(fieldset.formElements['gender[]'][0].inputElement);
       await triggerBlurFor(fieldset.formElements['gender[]'][0].inputElement);
@@ -320,7 +357,7 @@ describe('<lion-fieldset>', () => {
     });
 
     it('sets a class "state-(touched|dirty)"', async () => {
-      const fieldset = await fixture(`<${tagString}>${inputSlotString}</${tagString}>`);
+      const fieldset = await fixture(html`<${tag}>${inputSlot}</${tag}>`);
       await nextFrame();
       fieldset.formElements.color.touched = true;
       await fieldset.updateComplete;
@@ -335,7 +372,7 @@ describe('<lion-fieldset>', () => {
     });
 
     it('sets prefilled when field left and value non-empty', async () => {
-      const fieldset = await fixture(`<${tagString}>${inputSlotString}</${tagString}>`);
+      const fieldset = await fixture(html`<${tag}>${inputSlot}</${tag}>`);
       await nextFrame();
       fieldset.formElements['hobbies[]'][0].modelValue = { checked: false, value: 'chess' };
       fieldset.formElements['hobbies[]'][1].modelValue = { checked: false, value: 'football' };
@@ -356,7 +393,7 @@ describe('<lion-fieldset>', () => {
 
     it('sets prefilled once instantiated', async () => {
       // no prefilled when nothing has value
-      const fieldsetNotPrefilled = await fixture(html`<${tag}>${inputSlotString}</${tag}>`);
+      const fieldsetNotPrefilled = await fixture(html`<${tag}>${inputSlot}</${tag}>`);
       expect(fieldsetNotPrefilled.prefilled).to.equal(false, 'not prefilled on init');
 
       // prefilled when at least one child has value
@@ -376,7 +413,7 @@ describe('<lion-fieldset>', () => {
 
   describe('serialize', () => {
     it('use form elements serializedValue', async () => {
-      const fieldset = await fixture(`<${tagString}>${inputSlotString}</${tagString}>`);
+      const fieldset = await fixture(html`<${tag}>${inputSlot}</${tag}>`);
       await nextFrame();
       fieldset.formElements['hobbies[]'][0].serializer = v => `${v.value}-serialized`;
       fieldset.formElements['hobbies[]'][0].modelValue = { checked: false, value: 'Bar' };
@@ -393,7 +430,7 @@ describe('<lion-fieldset>', () => {
     });
 
     it('form elements which are not disabled', async () => {
-      const fieldset = await fixture(`<${tagString}>${inputSlotString}</${tagString}>`);
+      const fieldset = await fixture(html`<${tag}>${inputSlot}</${tag}>`);
       await nextFrame();
       fieldset.formElements.color.modelValue = { checked: false, value: 'blue' };
       fieldset.formElements['hobbies[]'][0].modelValue = { checked: true, value: 'football' };
@@ -416,10 +453,10 @@ describe('<lion-fieldset>', () => {
     });
 
     it('allows for nested fieldsets', async () => {
-      const fieldset = await fixture(`
+      const fieldset = await fixture(html`
         <lion-fieldset name="userData">
           <lion-input name="comment"></lion-input>
-          <${tagString} name="newfieldset">${inputSlotString}</${tagString}>
+          <${tag} name="newfieldset">${inputSlot}</${tag}>
         </lion-fieldset>
       `);
       await nextFrame();
@@ -443,10 +480,10 @@ describe('<lion-fieldset>', () => {
     });
 
     it('will exclude form elements within an disabled fieldset', async () => {
-      const fieldset = await fixture(`
+      const fieldset = await fixture(html`
         <lion-fieldset name="userData">
           <lion-input name="comment"></lion-input>
-          <${tagString} name="newfieldset">${inputSlotString}</${tagString}>
+          <${tag} name="newfieldset">${inputSlot}</${tag}>
         </lion-fieldset>
       `);
       await nextFrame();
@@ -480,7 +517,7 @@ describe('<lion-fieldset>', () => {
     });
 
     it('treats names with ending [] as arrays', async () => {
-      const fieldset = await fixture(`<${tagString}>${inputSlotString}</${tagString}>`);
+      const fieldset = await fixture(html`<${tag}>${inputSlot}</${tag}>`);
       await nextFrame();
       fieldset.formElements['hobbies[]'][0].modelValue = { checked: false, value: 'chess' };
       fieldset.formElements['hobbies[]'][1].modelValue = { checked: false, value: 'rugby' };
@@ -495,7 +532,7 @@ describe('<lion-fieldset>', () => {
     });
 
     it('does not serialize undefined values (nb radios/checkboxes are always serialized)', async () => {
-      const fieldset = await fixture(`
+      const fieldset = await fixture(html`
         <lion-fieldset>
           <lion-input name="custom[]"></lion-input>
           <lion-input name="custom[]"></lion-input>
@@ -578,7 +615,7 @@ describe('<lion-fieldset>', () => {
     });
 
     it('clears interaction state', async () => {
-      const fieldset = await fixture(`<${tagString}>${inputSlotString}</${tagString}>`);
+      const fieldset = await fixture(html`<${tag}>${inputSlot}</${tag}>`);
       await nextFrame();
       // Safety check initially
       fieldset._setValueForAllFormElements('dirty', true);
@@ -607,7 +644,7 @@ describe('<lion-fieldset>', () => {
     });
 
     it('clears submitted state', async () => {
-      const fieldset = await fixture(`<${tagString}>${inputSlotString}</${tagString}>`);
+      const fieldset = await fixture(html`<${tag}>${inputSlot}</${tag}>`);
       await nextFrame();
       fieldset.submitted = true;
       fieldset.resetGroup();
@@ -623,7 +660,7 @@ describe('<lion-fieldset>', () => {
         containsA: modelValues.color.value ? modelValues.color.value.indexOf('a') > -1 : false,
       });
 
-      const fieldset = await fixture(`<${tagString}>${inputSlotString}</${tagString}>`);
+      const fieldset = await fixture(html`<${tag}>${inputSlot}</${tag}>`);
       await nextFrame();
       fieldset.formElements.color.modelValue = { value: 'onlyb' };
       fieldset.errorValidators = [[containsA]];
@@ -652,7 +689,7 @@ describe('<lion-fieldset>', () => {
     // });
 
     it('has role="group" set', async () => {
-      const fieldset = await fixture(`<${tagString}>${inputSlotString}</${tagString}>`);
+      const fieldset = await fixture(html`<${tag}>${inputSlot}</${tag}>`);
       await nextFrame();
       fieldset.formElements['hobbies[]'][0].modelValue = { checked: false, value: 'chess' };
       fieldset.formElements['hobbies[]'][1].modelValue = { checked: false, value: 'rugby' };
@@ -664,11 +701,11 @@ describe('<lion-fieldset>', () => {
     });
 
     it('has an aria-labelledby from element with slot="label"', async () => {
-      const el = await fixture(`
-        <${tagString}>
+      const el = await fixture(html`
+        <${tag}>
           <label slot="label">My Label</label>
-          ${inputSlotString}
-        </${tagString}>
+          ${inputSlot}
+        </${tag}>
       `);
       const label = el.querySelector('[slot="label"]');
       expect(el.hasAttribute('aria-labelledby')).to.equal(true);
@@ -690,7 +727,7 @@ describe('<lion-fieldset>', () => {
         childAriaFixture = async (
           msgSlotType = 'feedback', // eslint-disable-line no-shadow
         ) => {
-          const dom = fixture(`
+          const dom = fixture(html`
             <lion-fieldset name="l1_g">
               <lion-input name="l1_fa">
                 <div slot="${msgSlotType}" id="msg_l1_fa"></div>
