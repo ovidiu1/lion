@@ -1,3 +1,5 @@
+import Popper from 'popper.js/dist/popper.min.js';
+
 import { render, html } from '@lion/core';
 import { managePosition } from './utils/manage-position.js';
 import { containFocus } from './utils/contain-focus.js';
@@ -102,9 +104,26 @@ export class LocalOverlayController {
       this.contentNode.id = this.contentId;
       this.invokerNode.setAttribute('aria-expanded', true);
 
-      managePosition(this.contentNode, this.invokerNode, {
-        placement: this.placement,
-        position: this.position,
+      // managePosition(this.contentNode, this.invokerNode, {
+      //   placement: this.placement,
+      //   position: this.position,
+      // });
+      const arrowEl = document.createElement('div');
+      arrowEl.style = 'position:absolute;width:10px; height:10px; border: 1px solid blue;';
+      // arrowEl.setAttribute('x-arrow', '');
+      this.contentNode.prepend(arrowEl);
+      new Popper(this.invokerNode, this.contentNode, { // eslint-disable-line
+        placement: 'bottom-start', // this.placement,
+        modifiers: {
+          // preventOverflow: { enabled: false },
+          arrow: { 
+            enabled : true, 
+            element: arrowEl,
+          },
+          flip: {
+            behavior: ['left', 'bottom', 'top']
+          },
+        }
       });
 
       if (this.trapsKeyboardFocus) this._setupTrapsKeyboardFocus();
