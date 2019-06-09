@@ -41,4 +41,14 @@ storiesOf('Forms|Textarea', module)
       <p>To have a fixed size provide rows and maxRows with the same value</p>
       <lion-textarea label="Non Growing" rows="3" max-rows="3"></lion-textarea>
     `,
+  )
+  .add(
+    'Blocked after exceeding maximum characters',
+    () => html`
+      <lion-textarea
+        label="Maximum 200 characters"
+        help-text="Blocks you from inputting more than the maximum"
+        .preprocessor=${v => v.substring(0, 200)}
+      ></lion-textarea>
+    `,
   );

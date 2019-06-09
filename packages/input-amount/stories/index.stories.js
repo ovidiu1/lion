@@ -56,4 +56,14 @@ storiesOf('Forms|Input Amount', module)
       >
       </lion-input-amount>
     `,
+  )
+  .add(
+    'Blocking non-digits',
+    () => html`
+      <lion-input-amount
+        label="Amount"
+        help-text="This will block the user from writing non-digits"
+        .preprocessor=${v => v.replace(/[^0-9,. ]/g, '')}
+      ></lion-input-amount>
+    `,
   );
