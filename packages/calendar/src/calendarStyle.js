@@ -42,12 +42,18 @@ export const calendarStyle = css`
   }
 
   .calendar__day-button {
+    display: inline-block;
     background-color: #fff;
     border: 0;
+    cursor: default;
     color: black;
     padding: 0;
     min-width: 40px;
     min-height: 40px;
+  }
+
+  div[role='button'] {
+    box-sizing: border-box;
   }
 
   .calendar__day-button[today] {
@@ -68,8 +74,7 @@ export const calendarStyle = css`
   }
 
   .calendar__day-button[disabled] {
-    background-color: #fff;
-    color: #eee;
-    outline: none;
+    background-color: #f2f2f2;
+    color: #6e6e6e;
   }
 `;

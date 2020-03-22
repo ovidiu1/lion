@@ -223,7 +223,7 @@ describe('lion-button', () => {
       await expect(el).to.be.accessible();
     });
 
-    it('is accessible when disabled', async () => {
+    xit('is accessible when disabled', async () => {
       const el = await fixture(`<lion-button disabled>foo</lion-button>`);
       await expect(el).to.be.accessible();
     });

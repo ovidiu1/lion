@@ -52,70 +52,77 @@ export default html`
       <tbody>
         <tr role="row">
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="25 November 2018 Sunday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               25
             </button>
           </td>
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="26 November 2018 Monday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               26
             </button>
           </td>
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="27 November 2018 Tuesday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               27
             </button>
           </td>
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="28 November 2018 Wednesday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               28
             </button>
           </td>
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="29 November 2018 Thursday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               29
             </button>
           </td>
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="30 November 2018 Friday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               30
             </button>
           </td>
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="1 December 2018 Saturday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               1
@@ -124,70 +131,77 @@ export default html`
         </tr>
         <tr role="row">
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="2 December 2018 Sunday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               2
             </button>
           </td>
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="3 December 2018 Monday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               3
             </button>
           </td>
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="4 December 2018 Tuesday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               4
             </button>
           </td>
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="5 December 2018 Wednesday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               5
             </button>
           </td>
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="6 December 2018 Thursday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               6
             </button>
           </td>
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="7 December 2018 Friday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               7
             </button>
           </td>
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="8 December 2018 Saturday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               8
@@ -196,70 +210,77 @@ export default html`
         </tr>
         <tr role="row">
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="9 December 2018 Sunday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               9
             </button>
           </td>
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="10 December 2018 Monday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               10
             </button>
           </td>
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="11 December 2018 Tuesday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               11
             </button>
           </td>
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="12 December 2018 Wednesday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               12
             </button>
           </td>
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="13 December 2018 Thursday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               13
             </button>
           </td>
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="14 December 2018 Friday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               14
             </button>
           </td>
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="15 December 2018 Saturday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               15
@@ -268,70 +289,77 @@ export default html`
         </tr>
         <tr role="row">
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="16 December 2018 Sunday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               16
             </button>
           </td>
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="17 December 2018 Monday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               17
             </button>
           </td>
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="18 December 2018 Tuesday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               18
             </button>
           </td>
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="19 December 2018 Wednesday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               19
             </button>
           </td>
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="20 December 2018 Thursday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               20
             </button>
           </td>
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="21 December 2018 Friday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               21
             </button>
           </td>
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="22 December 2018 Saturday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               22
@@ -340,70 +368,77 @@ export default html`
         </tr>
         <tr role="row">
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="23 December 2018 Sunday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               23
             </button>
           </td>
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="24 December 2018 Monday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               24
             </button>
           </td>
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="25 December 2018 Tuesday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               25
             </button>
           </td>
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="26 December 2018 Wednesday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               26
             </button>
           </td>
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="27 December 2018 Thursday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               27
             </button>
           </td>
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="28 December 2018 Friday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               28
             </button>
           </td>
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="29 December 2018 Saturday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               29
@@ -412,70 +447,77 @@ export default html`
         </tr>
         <tr role="row">
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="30 December 2018 Sunday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               30
             </button>
           </td>
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="31 December 2018 Monday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               31
             </button>
           </td>
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="1 January 2019 Tuesday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               1
             </button>
           </td>
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="2 January 2019 Wednesday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               2
             </button>
           </td>
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="3 January 2019 Thursday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               3
             </button>
           </td>
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="4 January 2019 Friday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               4
             </button>
           </td>
           <td class="calendar__day-cell" role="gridcell">
-            <button
+            <div
               aria-label="5 January 2019 Saturday"
               aria-pressed="false"
               class="calendar__day-button"
+              role="button"
               tabindex="-1"
             >
               5

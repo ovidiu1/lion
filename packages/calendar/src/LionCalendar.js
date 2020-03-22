@@ -180,7 +180,7 @@ export class LionCalendar extends LocalizeMixin(LitElement) {
   }
 
   focusCentralDate() {
-    const button = this.shadowRoot.querySelector('button[tabindex="0"]');
+    const button = this.shadowRoot.querySelector('div[tabindex="0"]');
     button.focus();
     this.__focusedDate = this.centralDate;
   }
@@ -407,9 +407,10 @@ export class LionCalendar extends LocalizeMixin(LitElement) {
     );
   }
 
+  // TODO: Rethink
   __centralDateChanged() {
     if (this.__connectedCallbackDone) {
-      this.__ensureValidCentralDate();
+      // this.__ensureValidCentralDate();
     }
   }
 

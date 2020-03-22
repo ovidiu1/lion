@@ -20,15 +20,18 @@ export function dayTemplate(day, { weekdays, monthsLabels = defaultMonthLabels }
   const monthName = monthsLabels[day.date.getMonth()];
   const year = day.date.getFullYear();
   const weekdayName = weekdays[day.weekOrder];
+
   return html`
     <td role="gridcell" class="calendar__day-cell">
-      <button
+      <div
+        role="button"
         .date=${day.date}
         class="calendar__day-button"
         tabindex=${day.tabindex}
         aria-label=${`${dayNumber} ${monthName} ${year} ${weekdayName}`}
         aria-pressed=${day.ariaPressed}
         aria-current=${ifDefined(day.ariaCurrent)}
+        aria-disabled=${ifDefined(day.disabled ? 'true' : undefined)}
         ?disabled=${day.disabled}
         ?selected=${day.selected}
         ?past=${day.past}
@@ -39,7 +42,7 @@ export function dayTemplate(day, { weekdays, monthsLabels = defaultMonthLabels }
         ?next-month=${day.nextMonth}
       >
         ${day.date.getDate()}
-      </button>
+      </div>
     </td>
   `;
 }
