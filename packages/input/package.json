@@ -1,46 +1,45 @@
 {
   "name": "@lion/input",
-  "version": "0.5.19",
+  "version": "0.7.13",
   "description": "It enhances the functionality of the native `<input>` element",
+  "license": "MIT",
   "author": "ing-bank",
   "homepage": "https://github.com/ing-bank/lion/",
-  "license": "MIT",
-  "publishConfig": {
-    "access": "public"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/ing-bank/lion.git",
     "directory": "packages/input"
   },
-  "scripts": {
-    "prepublishOnly": "../../scripts/npm-prepublish.js",
-    "test": "cd ../../ && yarn test --grep \"packages/input/test/**/*.test.js\"",
-    "test:watch": "cd ../../ && yarn test:watch --grep \"packages/input/test/**/*.test.js\""
-  },
-  "keywords": [
-    "lion",
-    "web-components",
-    "input"
-  ],
   "main": "index.js",
   "module": "index.js",
   "files": [
+    "*.d.ts",
+    "*.js",
     "docs",
     "src",
-    "stories",
     "test",
+    "test-helpers",
     "translations",
-    "*.js"
+    "types"
+  ],
+  "scripts": {
+    "prepublishOnly": "../../scripts/npm-prepublish.js",
+    "test": "cd ../../ && yarn test:browser --grep \"packages/input/test/**/*.test.js\"",
+    "test:watch": "cd ../../ && yarn test:browser:watch --grep \"packages/input/test/**/*.test.js\""
+  },
+  "sideEffects": [
+    "lion-input.js"
   ],
   "dependencies": {
-    "@lion/core": "0.4.5",
-    "@lion/field": "0.11.4"
+    "@lion/core": "0.8.0",
+    "@lion/form-core": "0.2.6"
   },
-  "devDependencies": {
-    "@lion/localize": "0.8.10",
-    "@lion/validate": "0.8.0",
-    "@open-wc/demoing-storybook": "^1.10.4",
-    "@open-wc/testing": "^2.5.0"
+  "keywords": [
+    "input",
+    "lion",
+    "web-components"
+  ],
+  "publishConfig": {
+    "access": "public"
   }
 }

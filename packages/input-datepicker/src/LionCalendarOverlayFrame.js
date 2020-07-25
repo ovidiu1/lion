@@ -11,6 +11,10 @@ export class LionCalendarOverlayFrame extends LocalizeMixin(LitElement) {
           position: relative;
         }
 
+        :host([hidden]) {
+          display: none;
+        }
+
         .calendar-overlay__header {
           display: flex;
         }
@@ -81,7 +85,7 @@ export class LionCalendarOverlayFrame extends LocalizeMixin(LitElement) {
             case 'zh-CN':
               return import('@lion/overlays/translations/zh.js');
             default:
-              return import(`@lion/overlays/translations/${locale}.js`);
+              return import('@lion/overlays/translations/en.js');
           }
         },
       },
@@ -111,7 +115,10 @@ export class LionCalendarOverlayFrame extends LocalizeMixin(LitElement) {
             <slot name="close-icon">&times;</slot>
           </button>
         </div>
-        <slot name="content"></slot>
+        <slot name="_overlay-shadow-outlet"></slot>
+        <div id="overlay-content-node-wrapper">
+          <slot name="content"></slot>
+        </div>
       </div>
     `;
   }

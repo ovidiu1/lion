@@ -1,6 +1,12 @@
+[//]: # 'AUTO INSERT HEADER PREPUBLISH'
+
 # Overlay System
 
-[//]: # 'AUTO INSERT HEADER PREPUBLISH'
+```js script
+export default {
+  title: 'Overlays/Intro',
+};
+```
 
 Supports different types of overlays like dialogs, toasts, tooltips, dropdown, etc.
 
@@ -8,18 +14,21 @@ Manages their position on the screen relative to other elements, including other
 
 Its purpose is to make it easy to use our Overlay System declaratively. It can be easily extended where needed, to override event listeners and more.
 
-See [lion-dialog](../dialog) and [lion-tooltip](../tooltip) for example Web Component implementations using the Overlay System.
+See [lion-dialog](?path=/docs/overlays-dialog--main#dialog) and [lion-tooltip](?path=/docs/overlays-tooltip--main#tooltip) for example Web Component implementations using the Overlay System.
 
 ## Features
 
+- local rendering (at dom location)
+  - positioning with popper.js
+- global rendering (at body level)
+- fully accessible
+- flexible to build multiple overlay components
 - lion-overlay web component:
-
   - Show content when clicking the invoker
   - Have a `.config` object to set or update the OverlayController's configuration
-
-- [**OverlaysManager**](./docs/OverlaysManager.md), a global repository keeping track of all different types of overlays
-- [**OverlayController**](./docs/OverlayController.md), a single controller class for handling overlays
-- **OverlayMixin**, a mixin that can be used to create webcomponents that use the OverlayController under the hood
+- [**OverlaysManager**](?path=/docs/overlays-system-overview--overlay-manager#overlaysmanager), a global repository keeping track of all different types of overlays
+- [**OverlayController**](?path=/docs/overlays-system-overview--overlay-manager#overlaycontroller), a single controller class for handling overlays
+- [**OverlayMixin**](?path=/docs/overlays-system-overview--overlay-manager#overlaymixin), a mixin that can be used to create webcomponents that use the OverlayController under the hood
 
 ## How to use
 
@@ -27,7 +36,8 @@ Usually you will use `lion-dialog` (or `lion-tooltip` if this makes more sense).
 
 ### Installation
 
-```sh
+```bash
+npm i --save @lion/overlays
 npm i --save @lion/dialog
 ```
 
@@ -55,10 +65,6 @@ html`
 ```
 
 Or by creating a controller yourself
-
-```sh
-npm i --save @lion/overlays
-```
 
 ```js
 import { OverlayController } from '@lion/overlays';
@@ -105,8 +111,10 @@ class MyOverlayComponent extends LitElement {
   render() {
     return html`
       <slot name="invoker"></slot>
-      <slot name="content"></slot>
       <slot name="_overlay-shadow-outlet"></slot>
+      <div id="overlay-content-node-wrapper">
+        <slot name="content"></slot>
+      </div>
     `;
   }
 }

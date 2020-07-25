@@ -1,4 +1,4 @@
-import { ChoiceInputMixin } from '@lion/choice-input';
+import { ChoiceInputMixin } from '@lion/form-core';
 import { LionInput } from '@lion/input';
 
 /**
@@ -17,7 +17,6 @@ import { LionInput } from '@lion/input';
  * You can preselect an option by setting marking an lion-radio checked.
  *   Example:
  *   <lion-radio checked>
- *
  *
  * @customElement lion-radio
  * @extends {LionInput}

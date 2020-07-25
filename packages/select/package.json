@@ -1,45 +1,45 @@
 {
   "name": "@lion/select",
-  "version": "0.5.19",
+  "version": "0.7.13",
   "description": "Provide a set of options where you can select one",
+  "license": "MIT",
   "author": "ing-bank",
   "homepage": "https://github.com/ing-bank/lion/",
-  "license": "MIT",
-  "publishConfig": {
-    "access": "public"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/ing-bank/lion.git",
     "directory": "packages/select"
   },
-  "scripts": {
-    "prepublishOnly": "../../scripts/npm-prepublish.js",
-    "test": "cd ../../ && yarn test --grep \"packages/select/test/**/*.test.js\"",
-    "test:watch": "cd ../../ && yarn test:watch --grep \"packages/select/test/**/*.test.js\""
-  },
-  "keywords": [
-    "lion",
-    "web-components",
-    "select"
-  ],
   "main": "index.js",
   "module": "index.js",
   "files": [
+    "*.d.ts",
+    "*.js",
     "docs",
     "src",
-    "stories",
     "test",
+    "test-helpers",
     "translations",
-    "*.js"
+    "types"
+  ],
+  "scripts": {
+    "prepublishOnly": "../../scripts/npm-prepublish.js",
+    "test": "cd ../../ && yarn test:browser --grep \"packages/select/test/**/*.test.js\"",
+    "test:watch": "cd ../../ && yarn test:browser:watch --grep \"packages/select/test/**/*.test.js\""
+  },
+  "sideEffects": [
+    "lion-select.js"
   ],
   "dependencies": {
-    "@lion/core": "0.4.5",
-    "@lion/field": "0.11.4"
+    "@lion/core": "0.8.0",
+    "@lion/form-core": "0.2.6"
   },
-  "devDependencies": {
-    "@lion/validate": "0.8.0",
-    "@open-wc/demoing-storybook": "^1.10.4",
-    "@open-wc/testing": "^2.5.0"
+  "keywords": [
+    "lion",
+    "select",
+    "web-components"
+  ],
+  "publishConfig": {
+    "access": "public"
   }
 }

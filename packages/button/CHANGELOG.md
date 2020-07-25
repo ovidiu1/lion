@@ -3,6 +3,135 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.8](https://github.com/ing-bank/lion/compare/@lion/button@0.7.7...@lion/button@0.7.8) (2020-07-13)
+
+**Note:** Version bump only for package @lion/button
+
+
+
+
+
+## [0.7.7](https://github.com/ing-bank/lion/compare/@lion/button@0.7.6...@lion/button@0.7.7) (2020-07-06)
+
+
+### Bug Fixes
+
+* **button:** add mouseupHandler also on 'this', remove iron test helpers ([9f9d49e](https://github.com/ing-bank/lion/commit/9f9d49ebcf0bcb8edfe5d0e0a9e1fe2a59488655))
+
+
+
+
+
+## [0.7.6](https://github.com/ing-bank/lion/compare/@lion/button@0.7.5...@lion/button@0.7.6) (2020-06-24)
+
+
+### Bug Fixes
+
+* **button:** prevent scrolling when repeating space key ([7eec6f3](https://github.com/ing-bank/lion/commit/7eec6f37651d16cc94f77d86f891d19137cfd427))
+
+
+
+
+
+## [0.7.5](https://github.com/ing-bank/lion/compare/@lion/button@0.7.4...@lion/button@0.7.5) (2020-06-18)
+
+**Note:** Version bump only for package @lion/button
+
+
+
+
+
+## [0.7.4](https://github.com/ing-bank/lion/compare/@lion/button@0.7.3...@lion/button@0.7.4) (2020-06-10)
+
+**Note:** Version bump only for package @lion/button
+
+
+
+
+
+## [0.7.3](https://github.com/ing-bank/lion/compare/@lion/button@0.7.2...@lion/button@0.7.3) (2020-06-08)
+
+**Note:** Version bump only for package @lion/button
+
+
+
+
+
+## [0.7.2](https://github.com/ing-bank/lion/compare/@lion/button@0.7.1...@lion/button@0.7.2) (2020-06-03)
+
+
+### Bug Fixes
+
+* remove all stories folders from npm ([1e04d06](https://github.com/ing-bank/lion/commit/1e04d06921f9d5e1a446b6d14045154ff83771c3))
+
+
+
+
+
+## [0.7.1](https://github.com/ing-bank/lion/compare/@lion/button@0.7.0...@lion/button@0.7.1) (2020-06-02)
+
+
+### Bug Fixes
+
+* **button:** aria-disabled for button and switch ([31ccb4a](https://github.com/ing-bank/lion/commit/31ccb4a10f6b14e93ddaca825d5e6bf2db8dd1ee))
+
+
+
+
+
+# [0.7.0](https://github.com/ing-bank/lion/compare/@lion/button@0.6.0...@lion/button@0.7.0) (2020-05-29)
+
+
+### Features
+
+* use markdown javascript (mdjs) for documentation ([bcd074d](https://github.com/ing-bank/lion/commit/bcd074d1fbce8754d428538df723ba402603e2c8))
+
+
+
+
+
+# [0.6.0](https://github.com/ing-bank/lion/compare/@lion/button@0.5.12...@lion/button@0.6.0) (2020-05-18)
+
+
+### Features
+
+* use singleton manager to support nested npm installations ([e2eb0e0](https://github.com/ing-bank/lion/commit/e2eb0e0077b9efed9382701461753778f63cad48))
+
+
+
+
+
+## [0.5.12](https://github.com/ing-bank/lion/compare/@lion/button@0.5.11...@lion/button@0.5.12) (2020-04-29)
+
+
+### Bug Fixes
+
+* add display:none for hidden ([#692](https://github.com/ing-bank/lion/issues/692)) ([9731771](https://github.com/ing-bank/lion/commit/9731771c23a5ed8661558e62cb5e34b62cc2b8b7))
+* **button:** adjust button to more sensible default styling ([#674](https://github.com/ing-bank/lion/issues/674)) ([78cd503](https://github.com/ing-bank/lion/commit/78cd503b5ef4c54cce5bae5008397e1ce1242133))
+
+
+
+
+
+## [0.5.11](https://github.com/ing-bank/lion/compare/@lion/button@0.5.10...@lion/button@0.5.11) (2020-04-02)
+
+**Note:** Version bump only for package @lion/button
+
+
+
+
+
+## [0.5.10](https://github.com/ing-bank/lion/compare/@lion/button@0.5.9...@lion/button@0.5.10) (2020-03-25)
+
+
+### Bug Fixes
+
+* **button:** prevent clickarea from blocking sibling content ([2b2d6b3](https://github.com/ing-bank/lion/commit/2b2d6b34aa9d8d61f01302480f280ec502da8765))
+
+
+
+
+
 ## [0.5.9](https://github.com/ing-bank/lion/compare/@lion/button@0.5.8...@lion/button@0.5.9) (2020-03-05)
 
 **Note:** Version bump only for package @lion/button

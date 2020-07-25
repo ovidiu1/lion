@@ -1,23 +1,13 @@
 import { browserDetection } from '@lion/core';
 import { aTimeout, expect, fixture, html, oneEvent } from '@open-wc/testing';
-import {
-  down,
-  keyDownOn,
-  keyUpOn,
-  makeMouseEvent,
-  pressEnter,
-  pressSpace,
-  up,
-} from '@polymer/iron-test-helpers/mock-interactions.js';
 import sinon from 'sinon';
 import '../lion-button.js';
 
-function getTopElement(el) {
-  const { left, top, width, height } = el.getBoundingClientRect();
-  // to support elementFromPoint() in polyfilled browsers we have to use document
-  const crossBrowserRoot =
-    el.shadowRoot && el.shadowRoot.elementFromPoint ? el.shadowRoot : document;
-  return crossBrowserRoot.elementFromPoint(left + width / 2, top + height / 2);
+function getClickArea(el) {
+  if (el.shadowRoot) {
+    return el.shadowRoot.querySelector('.click-area');
+  }
+  return undefined;
 }
 
 describe('lion-button', () => {
@@ -49,32 +39,39 @@ describe('lion-button', () => {
     expect(window.getComputedStyle(el._nativeButtonNode).clip).to.equal('rect(0px, 0px, 0px, 0px)');
   });
 
+  it('is hidden when attribute hidden is true', async () => {
+    const el = await fixture(`<lion-button hidden>foo</lion-button>`);
+    expect(el).not.to.be.displayed;
+  });
+
   it('can be disabled imperatively', async () => {
     const el = await fixture(`<lion-button disabled>foo</lion-button>`);
     expect(el.getAttribute('tabindex')).to.equal('-1');
+    expect(el.getAttribute('aria-disabled')).to.equal('true');
 
     el.disabled = false;
     await el.updateComplete;
     expect(el.getAttribute('tabindex')).to.equal('0');
+    expect(el.getAttribute('aria-disabled')).to.equal('false');
     expect(el.hasAttribute('disabled')).to.equal(false);
 
     el.disabled = true;
     await el.updateComplete;
     expect(el.getAttribute('tabindex')).to.equal('-1');
+    expect(el.getAttribute('aria-disabled')).to.equal('true');
     expect(el.hasAttribute('disabled')).to.equal(true);
   });
 
   describe('active', () => {
     it('updates "active" attribute on host when mousedown/mouseup on button', async () => {
       const el = await fixture(`<lion-button>foo</lion-button>`);
-      const topEl = getTopElement(el);
+      el.dispatchEvent(new Event('mousedown'));
 
-      down(topEl);
       expect(el.active).to.be.true;
       await el.updateComplete;
       expect(el.hasAttribute('active')).to.be.true;
 
-      up(topEl);
+      el.dispatchEvent(new Event('mouseup'));
       expect(el.active).to.be.false;
       await el.updateComplete;
       expect(el.hasAttribute('active')).to.be.false;
@@ -82,14 +79,13 @@ describe('lion-button', () => {
 
     it('updates "active" attribute on host when mousedown on button and mouseup anywhere else', async () => {
       const el = await fixture(`<lion-button>foo</lion-button>`);
-      const topEl = getTopElement(el);
 
-      down(topEl);
+      el.dispatchEvent(new Event('mousedown'));
       expect(el.active).to.be.true;
       await el.updateComplete;
       expect(el.hasAttribute('active')).to.be.true;
 
-      up(document.body);
+      document.dispatchEvent(new Event('mouseup'));
       expect(el.active).to.be.false;
       await el.updateComplete;
       expect(el.hasAttribute('active')).to.be.false;
@@ -97,14 +93,13 @@ describe('lion-button', () => {
 
     it('updates "active" attribute on host when space keydown/keyup on button', async () => {
       const el = await fixture(`<lion-button>foo</lion-button>`);
-      const topEl = getTopElement(el);
 
-      keyDownOn(topEl, 32);
+      el.dispatchEvent(new KeyboardEvent('keydown', { keyCode: 32 }));
       expect(el.active).to.be.true;
       await el.updateComplete;
       expect(el.hasAttribute('active')).to.be.true;
 
-      keyUpOn(topEl, 32);
+      el.dispatchEvent(new KeyboardEvent('keyup', { keyCode: 32 }));
       expect(el.active).to.be.false;
       await el.updateComplete;
       expect(el.hasAttribute('active')).to.be.false;
@@ -112,14 +107,13 @@ describe('lion-button', () => {
 
     it('updates "active" attribute on host when space keydown on button and space keyup anywhere else', async () => {
       const el = await fixture(`<lion-button>foo</lion-button>`);
-      const topEl = getTopElement(el);
 
-      keyDownOn(topEl, 32);
+      el.dispatchEvent(new KeyboardEvent('keydown', { keyCode: 32 }));
       expect(el.active).to.be.true;
       await el.updateComplete;
       expect(el.hasAttribute('active')).to.be.true;
 
-      keyUpOn(document.body, 32);
+      el.dispatchEvent(new KeyboardEvent('keyup', { keyCode: 32 }));
       expect(el.active).to.be.false;
       await el.updateComplete;
       expect(el.hasAttribute('active')).to.be.false;
@@ -127,14 +121,13 @@ describe('lion-button', () => {
 
     it('updates "active" attribute on host when enter keydown/keyup on button', async () => {
       const el = await fixture(`<lion-button>foo</lion-button>`);
-      const topEl = getTopElement(el);
 
-      keyDownOn(topEl, 13);
+      el.dispatchEvent(new KeyboardEvent('keydown', { keyCode: 13 }));
       expect(el.active).to.be.true;
       await el.updateComplete;
       expect(el.hasAttribute('active')).to.be.true;
 
-      keyUpOn(topEl, 13);
+      el.dispatchEvent(new KeyboardEvent('keyup', { keyCode: 13 }));
       expect(el.active).to.be.false;
       await el.updateComplete;
       expect(el.hasAttribute('active')).to.be.false;
@@ -142,14 +135,13 @@ describe('lion-button', () => {
 
     it('updates "active" attribute on host when enter keydown on button and space keyup anywhere else', async () => {
       const el = await fixture(`<lion-button>foo</lion-button>`);
-      const topEl = getTopElement(el);
 
-      keyDownOn(topEl, 13);
+      el.dispatchEvent(new KeyboardEvent('keydown', { keyCode: 13 }));
       expect(el.active).to.be.true;
       await el.updateComplete;
       expect(el.hasAttribute('active')).to.be.true;
 
-      keyUpOn(document.body, 13);
+      document.body.dispatchEvent(new KeyboardEvent('keyup', { keyCode: 13 }));
       expect(el.active).to.be.false;
       await el.updateComplete;
       expect(el.hasAttribute('active')).to.be.false;
@@ -239,7 +231,7 @@ describe('lion-button', () => {
         `);
 
         const button = form.querySelector('lion-button');
-        getTopElement(button).click();
+        getClickArea(button).click();
 
         expect(formSubmitSpy.callCount).to.equal(1);
       });
@@ -252,10 +244,11 @@ describe('lion-button', () => {
           </form>
         `);
 
-        pressSpace(form.querySelector('lion-button'));
+        form
+          .querySelector('lion-button')
+          .dispatchEvent(new KeyboardEvent('keyup', { keyCode: 32 }));
         await aTimeout();
         await aTimeout();
-
         expect(formSubmitSpy.callCount).to.equal(1);
       });
 
@@ -267,7 +260,9 @@ describe('lion-button', () => {
           </form>
         `);
 
-        pressEnter(form.querySelector('lion-button'));
+        form
+          .querySelector('lion-button')
+          .dispatchEvent(new KeyboardEvent('keyup', { keyCode: 13 }));
         await aTimeout();
         await aTimeout();
 
@@ -308,7 +303,9 @@ describe('lion-button', () => {
           </form>
         `);
 
-        pressEnter(form.querySelector('input[name="foo2"]'));
+        form
+          .querySelector('input[name="foo2"]')
+          .dispatchEvent(new KeyboardEvent('keyup', { key: 13 }));
         await aTimeout();
         await aTimeout();
 
@@ -326,7 +323,7 @@ describe('lion-button', () => {
         `);
 
         const button = form.querySelector('lion-button');
-        getTopElement(button).click();
+        getClickArea(button).click();
 
         expect(formButtonClickedSpy.callCount).to.equal(1);
       });
@@ -339,7 +336,9 @@ describe('lion-button', () => {
           </form>
         `);
 
-        pressSpace(form.querySelector('lion-button'));
+        form
+          .querySelector('lion-button')
+          .dispatchEvent(new KeyboardEvent('keyup', { keyCode: 32 }));
         await aTimeout();
         await aTimeout();
 
@@ -354,7 +353,9 @@ describe('lion-button', () => {
           </form>
         `);
 
-        pressEnter(form.querySelector('lion-button'));
+        form
+          .querySelector('lion-button')
+          .dispatchEvent(new KeyboardEvent('keyup', { keyCode: 13 }));
         await aTimeout();
         await aTimeout();
 
@@ -372,7 +373,9 @@ describe('lion-button', () => {
           </form>
         `);
 
-        pressEnter(form.querySelector('input[name="foo2"]'));
+        form
+          .querySelector('input[name="foo2"]')
+          .dispatchEvent(new KeyboardEvent('keyup', { key: 13 }));
         await aTimeout();
         await aTimeout();
 
@@ -384,13 +387,9 @@ describe('lion-button', () => {
   describe('click event', () => {
     it('is fired once', async () => {
       const clickSpy = sinon.spy();
-      const el = await fixture(
-        html`
-          <lion-button @click="${clickSpy}">foo</lion-button>
-        `,
-      );
+      const el = await fixture(html`<lion-button @click="${clickSpy}">foo</lion-button>`);
 
-      getTopElement(el).click();
+      getClickArea(el).click();
 
       // trying to wait for other possible redispatched events
       await aTimeout();
@@ -402,7 +401,11 @@ describe('lion-button', () => {
     describe('native button behavior', async () => {
       async function prepareClickEvent(el) {
         setTimeout(() => {
-          makeMouseEvent('click', { x: 11, y: 11 }, getTopElement(el));
+          if (getClickArea(el)) {
+            getClickArea(el).click();
+          } else {
+            el.click();
+          }
         });
         return oneEvent(el, 'click');
       }

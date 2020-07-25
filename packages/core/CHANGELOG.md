@@ -3,6 +3,87 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/ing-bank/lion/compare/@lion/core@0.7.2...@lion/core@0.8.0) (2020-07-13)
+
+
+### Features
+
+* **core:** fix types and export type definition files for core ([ec65da5](https://github.com/ing-bank/lion/commit/ec65da5da6ae9096c546fc46583ad3a99458d8e6))
+
+
+
+
+
+## [0.7.2](https://github.com/ing-bank/lion/compare/@lion/core@0.7.1...@lion/core@0.7.2) (2020-06-18)
+
+**Note:** Version bump only for package @lion/core
+
+
+
+
+
+## [0.7.1](https://github.com/ing-bank/lion/compare/@lion/core@0.7.0...@lion/core@0.7.1) (2020-06-08)
+
+**Note:** Version bump only for package @lion/core
+
+
+
+
+
+# [0.7.0](https://github.com/ing-bank/lion/compare/@lion/core@0.6.0...@lion/core@0.7.0) (2020-06-03)
+
+
+### Bug Fixes
+
+* remove all stories folders from npm ([1e04d06](https://github.com/ing-bank/lion/commit/1e04d06921f9d5e1a446b6d14045154ff83771c3))
+
+
+### Features
+
+* use markdown javascript (mdjs) for documentation ([bcd074d](https://github.com/ing-bank/lion/commit/bcd074d1fbce8754d428538df723ba402603e2c8))
+
+
+
+
+
+# [0.6.0](https://github.com/ing-bank/lion/compare/@lion/core@0.5.2...@lion/core@0.6.0) (2020-05-18)
+
+
+### Features
+
+* use singleton manager to support nested npm installations ([e2eb0e0](https://github.com/ing-bank/lion/commit/e2eb0e0077b9efed9382701461753778f63cad48))
+
+
+
+
+
+## [0.5.2](https://github.com/ing-bank/lion/compare/@lion/core@0.5.1...@lion/core@0.5.2) (2020-04-29)
+
+**Note:** Version bump only for package @lion/core
+
+
+
+
+
+## [0.5.1](https://github.com/ing-bank/lion/compare/@lion/core@0.5.0...@lion/core@0.5.1) (2020-04-02)
+
+**Note:** Version bump only for package @lion/core
+
+
+
+
+
+# [0.5.0](https://github.com/ing-bank/lion/compare/@lion/core@0.4.5...@lion/core@0.5.0) (2020-03-25)
+
+
+### Features
+
+* update to stable @open-wc/scoped-elements ([10bac56](https://github.com/ing-bank/lion/commit/10bac5672b406d3f08a89a795ee295f5028ca6d0))
+
+
+
+
+
 ## [0.4.5](https://github.com/ing-bank/lion/compare/@lion/core@0.4.4...@lion/core@0.4.5) (2020-03-05)
 
 

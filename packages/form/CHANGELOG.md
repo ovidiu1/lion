@@ -3,6 +3,184 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.13](https://github.com/ing-bank/lion/compare/@lion/form@0.6.12...@lion/form@0.6.13) (2020-07-16)
+
+**Note:** Version bump only for package @lion/form
+
+
+
+
+
+## [0.6.12](https://github.com/ing-bank/lion/compare/@lion/form@0.6.11...@lion/form@0.6.12) (2020-07-13)
+
+**Note:** Version bump only for package @lion/form
+
+
+
+
+
+## [0.6.11](https://github.com/ing-bank/lion/compare/@lion/form@0.6.10...@lion/form@0.6.11) (2020-07-09)
+
+**Note:** Version bump only for package @lion/form
+
+
+
+
+
+## [0.6.10](https://github.com/ing-bank/lion/compare/@lion/form@0.6.9...@lion/form@0.6.10) (2020-07-09)
+
+**Note:** Version bump only for package @lion/form
+
+
+
+
+
+## [0.6.9](https://github.com/ing-bank/lion/compare/@lion/form@0.6.8...@lion/form@0.6.9) (2020-07-09)
+
+**Note:** Version bump only for package @lion/form
+
+
+
+
+
+## [0.6.8](https://github.com/ing-bank/lion/compare/@lion/form@0.6.7...@lion/form@0.6.8) (2020-07-07)
+
+**Note:** Version bump only for package @lion/form
+
+
+
+
+
+## [0.6.7](https://github.com/ing-bank/lion/compare/@lion/form@0.6.6...@lion/form@0.6.7) (2020-07-06)
+
+**Note:** Version bump only for package @lion/form
+
+
+
+
+
+## [0.6.6](https://github.com/ing-bank/lion/compare/@lion/form@0.6.5...@lion/form@0.6.6) (2020-06-18)
+
+**Note:** Version bump only for package @lion/form
+
+
+
+
+
+## [0.6.5](https://github.com/ing-bank/lion/compare/@lion/form@0.6.4...@lion/form@0.6.5) (2020-06-10)
+
+**Note:** Version bump only for package @lion/form
+
+
+
+
+
+## [0.6.4](https://github.com/ing-bank/lion/compare/@lion/form@0.6.3...@lion/form@0.6.4) (2020-06-09)
+
+**Note:** Version bump only for package @lion/form
+
+
+
+
+
+## [0.6.3](https://github.com/ing-bank/lion/compare/@lion/form@0.6.2...@lion/form@0.6.3) (2020-06-08)
+
+**Note:** Version bump only for package @lion/form
+
+
+
+
+
+## [0.6.2](https://github.com/ing-bank/lion/compare/@lion/form@0.6.1...@lion/form@0.6.2) (2020-06-08)
+
+**Note:** Version bump only for package @lion/form
+
+
+
+
+
+## [0.6.1](https://github.com/ing-bank/lion/compare/@lion/form@0.6.0...@lion/form@0.6.1) (2020-06-03)
+
+
+### Bug Fixes
+
+* remove all stories folders from npm ([1e04d06](https://github.com/ing-bank/lion/commit/1e04d06921f9d5e1a446b6d14045154ff83771c3))
+
+
+
+
+
+# [0.6.0](https://github.com/ing-bank/lion/compare/@lion/form@0.5.3...@lion/form@0.6.0) (2020-05-29)
+
+
+### Features
+
+* merge field/validate/choice-input/form-group into @lion/form-core ([6170374](https://github.com/ing-bank/lion/commit/6170374ee8c058cb95fff79b4953b0535219e9b4))
+* use markdown javascript (mdjs) for documentation ([bcd074d](https://github.com/ing-bank/lion/commit/bcd074d1fbce8754d428538df723ba402603e2c8))
+
+
+
+
+
+## [0.5.3](https://github.com/ing-bank/lion/compare/@lion/form@0.5.2...@lion/form@0.5.3) (2020-05-27)
+
+**Note:** Version bump only for package @lion/form
+
+
+
+
+
+## [0.5.2](https://github.com/ing-bank/lion/compare/@lion/form@0.5.1...@lion/form@0.5.2) (2020-05-27)
+
+**Note:** Version bump only for package @lion/form
+
+
+
+
+
+## [0.5.1](https://github.com/ing-bank/lion/compare/@lion/form@0.5.0...@lion/form@0.5.1) (2020-05-25)
+
+**Note:** Version bump only for package @lion/form
+
+
+
+
+
+# [0.5.0](https://github.com/ing-bank/lion/compare/@lion/form@0.4.23...@lion/form@0.5.0) (2020-05-18)
+
+
+### Features
+
+* use singleton manager to support nested npm installations ([e2eb0e0](https://github.com/ing-bank/lion/commit/e2eb0e0077b9efed9382701461753778f63cad48))
+
+
+
+
+
+## [0.4.23](https://github.com/ing-bank/lion/compare/@lion/form@0.4.22...@lion/form@0.4.23) (2020-04-29)
+
+**Note:** Version bump only for package @lion/form
+
+
+
+
+
+## [0.4.22](https://github.com/ing-bank/lion/compare/@lion/form@0.4.21...@lion/form@0.4.22) (2020-04-02)
+
+**Note:** Version bump only for package @lion/form
+
+
+
+
+
+## [0.4.21](https://github.com/ing-bank/lion/compare/@lion/form@0.4.20...@lion/form@0.4.21) (2020-03-25)
+
+**Note:** Version bump only for package @lion/form
+
+
+
+
+
 ## [0.4.20](https://github.com/ing-bank/lion/compare/@lion/form@0.4.19...@lion/form@0.4.20) (2020-03-19)
 
 

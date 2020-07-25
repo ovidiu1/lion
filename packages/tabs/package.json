@@ -1,44 +1,45 @@
 {
   "name": "@lion/tabs",
-  "version": "0.2.6",
+  "version": "0.5.0",
   "description": "Allows users to quickly move between a small number of equally important views.",
+  "license": "MIT",
   "author": "ing-bank",
   "homepage": "https://github.com/ing-bank/lion/",
-  "license": "MIT",
-  "publishConfig": {
-    "access": "public"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/ing-bank/lion.git",
     "directory": "packages/tabs"
   },
-  "scripts": {
-    "prepublishOnly": "../../scripts/npm-prepublish.js",
-    "test": "cd ../../ && yarn test --grep \"packages/tabs/test/**/*.test.js\"",
-    "test:watch": "cd ../../ && yarn test:watch --grep \"packages/tabs/test/**/*.test.js\""
-  },
-  "keywords": [
-    "lion",
-    "web-components",
-    "tabs"
-  ],
   "main": "index.js",
   "module": "index.js",
   "files": [
+    "*.d.ts",
+    "*.js",
     "docs",
     "src",
-    "stories",
     "test",
+    "test-helpers",
     "translations",
-    "*.js"
+    "types"
+  ],
+  "scripts": {
+    "prepublishOnly": "../../scripts/npm-prepublish.js",
+    "start": "cd ../../ && yarn dev-server --open packages/tabs/README.md",
+    "test": "cd ../../ && yarn test:browser --grep \"packages/tabs/test/**/*.test.js\"",
+    "test:watch": "cd ../../ && yarn test:browser:watch --grep \"packages/tabs/test/**/*.test.js\""
+  },
+  "sideEffects": [
+    "lion-tabs.js"
   ],
   "dependencies": {
-    "@lion/core": "0.4.5"
+    "@lion/core": "0.8.0"
   },
-  "devDependencies": {
-    "@open-wc/demoing-storybook": "^1.10.4",
-    "@open-wc/testing": "^2.5.0",
-    "sinon": "^7.2.2"
+  "keywords": [
+    "lion",
+    "tabs",
+    "web-components"
+  ],
+  "publishConfig": {
+    "access": "public"
   }
 }

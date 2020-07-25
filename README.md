@@ -1,5 +1,11 @@
 # Lion Web Components
 
+```js script
+export default {
+  title: 'Intro/Lion Web Components',
+};
+```
+
 Lion web components is a set of highly performant, accessible and flexible Web Components.
 They provide an unopinionated, white label layer that can be extended to your own layer of components.
 
@@ -11,55 +17,71 @@ For some more details see the [announcement blog post](https://medium.com/ing-bl
 
 We do have a [live Storybook](http://lion-web-components.netlify.com) which shows all our components.
 
-**Please note:** This project uses Yarn [Workspaces](https://classic.yarnpkg.com/en/docs/workspaces). If you want to run all demos locally you need to get [Yarn](https://classic.yarnpkg.com/en/docs/install) and install all depencies by executing `yarn install`.
+**Please note:** This project uses Yarn [Workspaces](https://classic.yarnpkg.com/en/docs/workspaces). If you want to run all demos locally you need to get [Yarn](https://classic.yarnpkg.com/en/docs/install) and install all dependencies by executing `yarn install`.
+
+## Features
+
+- pure es modules
+- exposes functions/classes and web components
+- provides pure functionality
+- fully accessible
+- built to be extended
+
+> Note: These demos may look a little bland but that is on purpose. They only come with functional stylings.
+> This makes sense as the main use case is to extend those components and if you do you do not want to override existing stylings.
+
+## Content
+
+Lion web components is logically organized in groups of systems.
+
+The accessibility column indicates whether the functionality is accessible in its core. Aspects like styling and content determine actual accessibility in usage.
+
+| Package                                                                                                       | Version                                                                                                                                 | Description                                                                                    | Accessibility              |
+| ------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | -------------------------- |
+| **-- [Form System](https://lion-web-components.netlify.app/?path=/docs/forms-intro--page) --**                |                                                                                                                                         | A system that lets you make complex forms with ease, including: validation, translations.      | ✔️                         |
+| [form](https://lion-web-components.netlify.app/?path=/docs/forms-form-overview--main)                         | [![form](https://img.shields.io/npm/v/@lion/form.svg)](https://www.npmjs.com/package/@lion/form)                                        | Wrapper for multiple form elements                                                             | ✔️                         |
+| [form-core](https://lion-web-components.netlify.app/?path=/docs/forms-system-overview--page)                  | [![form-core](https://img.shields.io/npm/v/@lion/form-core.svg)](https://www.npmjs.com/package/@lion/form-core)                         | Core functionality for all form controls                                                       | ✔️                         |
+| [form-integrations](https://lion-web-components.netlify.app/?path=/docs/forms-features-overview--main)        | [![form-integrations](https://img.shields.io/npm/v/@lion/form-integrations.svg)](https://www.npmjs.com/package/@lion/form-integrations) | Shows form elements in an integrated way                                                       | ✔️                         |
+| [fieldset](https://lion-web-components.netlify.app/?path=/docs/forms-fieldset-overview--main)                 | [![fieldset](https://img.shields.io/npm/v/@lion/fieldset.svg)](https://www.npmjs.com/package/@lion/fieldset)                            | Group for form inputs                                                                          | ✔️                         |
+| [checkbox-group](https://lion-web-components.netlify.app/?path=/docs/forms-checkbox-group--main)              | [![checkbox-group](https://img.shields.io/npm/v/@lion/checkbox-group.svg)](https://www.npmjs.com/package/@lion/checkbox-group)          | Group of checkboxes                                                                            | ✔️                         |
+| [input](https://lion-web-components.netlify.app/?path=/docs/forms-input--main)                                | [![input](https://img.shields.io/npm/v/@lion/input.svg)](https://www.npmjs.com/package/@lion/input)                                     | Input element for strings                                                                      | ✔️                         |
+| [input-amount](https://lion-web-components.netlify.app/?path=/docs/forms-input-amount--main)                  | [![input-amount](https://img.shields.io/npm/v/@lion/input-amount.svg)](https://www.npmjs.com/package/@lion/input-amount)                | Input element for amounts                                                                      | ✔️                         |
+| [input-date](https://lion-web-components.netlify.app/?path=/docs/forms-input-date--main)                      | [![input-date](https://img.shields.io/npm/v/@lion/input-date.svg)](https://www.npmjs.com/package/@lion/input-date)                      | Input element for dates                                                                        | ✔️                         |
+| [input-datepicker](https://lion-web-components.netlify.app/?path=/docs/forms-input-datepicker--main)          | [![input-datepicker](https://img.shields.io/npm/v/@lion/input-datepicker.svg)](https://www.npmjs.com/package/@lion/input-datepicker)    | Input element for dates with a datepicker                                                      | ✔️                         |
+| [input-email](https://lion-web-components.netlify.app/?path=/docs/forms-input-email--main)                    | [![input-email](https://img.shields.io/npm/v/@lion/input-email.svg)](https://www.npmjs.com/package/@lion/input-email)                   | Input element for e-mails                                                                      | ✔️                         |
+| [input-iban](https://lion-web-components.netlify.app/?path=/docs/forms-input-iban--main)                      | [![input-iban](https://img.shields.io/npm/v/@lion/input-iban.svg)](https://www.npmjs.com/package/@lion/input-iban)                      | Input element for IBANs                                                                        | ✔️                         |
+| [input-range](https://lion-web-components.netlify.app/?path=/docs/forms-input-range--main)                    | [![input-range](https://img.shields.io/npm/v/@lion/input-range.svg)](https://www.npmjs.com/package/@lion/input-range)                   | Input element for a range of values                                                            | ✔️                         |
+| [radio-group](https://lion-web-components.netlify.app/?path=/docs/forms-radio-group--main)                    | [![radio-group](https://img.shields.io/npm/v/@lion/radio-group.svg)](https://www.npmjs.com/package/@lion/radio-group)                   | Group of radios                                                                                | ✔️                         |
+| [select](https://lion-web-components.netlify.app/?path=/docs/forms-select--main)                              | [![select](https://img.shields.io/npm/v/@lion/select.svg)](https://www.npmjs.com/package/@lion/select)                                  | Simple native dropdown element                                                                 | ✔️                         |
+| [select-rich](https://lion-web-components.netlify.app/?path=/docs/forms-select-rich--main)                    | [![select-rich](https://img.shields.io/npm/v/@lion/select-rich.svg)](https://www.npmjs.com/package/@lion/select-rich)                   | 'rich' version of the native dropdown element                                                  | [#243][i243]               |
+| [textarea](https://lion-web-components.netlify.app/?path=/docs/forms-textarea--main)                          | [![textarea](https://img.shields.io/npm/v/@lion/textarea.svg)](https://www.npmjs.com/package/@lion/textarea)                            | Multiline text input                                                                           | ✔️                         |
+| **-- [Button System](https://lion-web-components.netlify.app/?path=/docs/buttons-intro--page) --**            |                                                                                                                                         | These web components bring common UX patterns while still full integrated with (native) forms. |                            |
+| [button](https://lion-web-components.netlify.app/?path=/docs/buttons-button--main)                            | [![button](https://img.shields.io/npm/v/@lion/button.svg)](https://www.npmjs.com/package/@lion/button)                                  | Button                                                                                         | ✔️                         |
+| [switch](https://lion-web-components.netlify.app/?path=/docs/buttons-switch--main)                            | [![switch](https://img.shields.io/npm/v/@lion/switch.svg)](https://www.npmjs.com/package/@lion/switch)                                  | Switch                                                                                         | ✔️                         |
+| **-- [Overlay System](https://lion-web-components.netlify.app/?path=/docs/overlays-intro--page) --**          |                                                                                                                                         | If something needs to overlay content this is your place.                                      |                            |
+| [overlays](https://lion-web-components.netlify.app/?path=/docs/overlays-system-overview--main)                | [![overlays](https://img.shields.io/npm/v/@lion/overlays.svg)](https://www.npmjs.com/package/@lion/overlays)                            | Overlay System                                                                                 | ✔️                         |
+| [dialog](https://lion-web-components.netlify.app/?path=/docs/overlays-dialog--main)                           | [![dialog](https://img.shields.io/npm/v/@lion/dialog.svg)](https://www.npmjs.com/package/@lion/dialog)                                  | Dialog element                                                                                 | ✔️                         |
+| [tooltip](https://lion-web-components.netlify.app/?path=/docs/overlays-tooltip--main)                         | [![tooltip](https://img.shields.io/npm/v/@lion/tooltip.svg)](https://www.npmjs.com/package/@lion/tooltip)                               | Tooltip element                                                                                | [#175][i175]               |
+| **-- [Navigation System](https://lion-web-components.netlify.app/?path=/docs/navigation-intro--page) --**     |                                                                                                                                         | Components which are used to guide users                                                       |                            |
+| [accordion](https://lion-web-components.netlify.app/?path=/docs/navigation-accordion--main)                   | [![accordion](https://img.shields.io/npm/v/@lion/accordion.svg)](https://www.npmjs.com/package/@lion/accordion)                         | Accordion                                                                                      | ✔️                         |
+| [steps](https://lion-web-components.netlify.app/?path=/docs/navigation-steps--main)                           | [![steps](https://img.shields.io/npm/v/@lion/steps.svg)](https://www.npmjs.com/package/@lion/steps)                                     | Multi Step System                                                                              | n/a                        |
+| [tabs](https://lion-web-components.netlify.app/?path=/docs/navigation-tabs--main)                             | [![tBS](https://img.shields.io/npm/v/@lion/tabs.svg)](https://www.npmjs.com/package/@lion/tabs)                                         | Move between a small number of equally important views                                         | n/a                        |
+| **-- [localize System](https://lion-web-components.netlify.app/?path=/docs/localize-intro--page) --**         |                                                                                                                                         | Localize text, numbers, dates and a way to store/fetch these data.                             |                            |
+| [localize](https://lion-web-components.netlify.app/?path=/docs/localize-intro--page)                          | [![localize](https://img.shields.io/npm/v/@lion/localize.svg)](https://www.npmjs.com/package/@lion/localize)                            | Localize and translate your application/components                                             | n/a                        |
+| **-- [Icon System](https://lion-web-components.netlify.app/?path=/docs/icons-intro--page) --**                |                                                                                                                                         | Loading and displaying icons                                                                   |                            |
+| [icon](https://lion-web-components.netlify.app/?path=/docs/icons-icon--main)                                  | [![icon](https://img.shields.io/npm/v/@lion/icon.svg)](https://www.npmjs.com/package/@lion/icon)                                        | Display our svg icons                                                                          | [#173][i173], [#172][i172] |
+| **-- [Others](https://lion-web-components.netlify.app/?path=/docs/others-intro--page) --**                    |                                                                                                                                         | Features not fitting any other category                                                        |                            |
+| [core](https://lion-web-components.netlify.app/?path=/docs/others-system-core--page)                          | [![core](https://img.shields.io/npm/v/@lion/core.svg)](https://www.npmjs.com/package/@lion/core)                                        | Core System (exports LitElement, lit-html)                                                     | n/a                        |
+| [ajax](https://lion-web-components.netlify.app/?path=/docs/others-ajax--performing-get-requests)              | [![ajax](https://img.shields.io/npm/v/@lion/ajax.svg)](https://www.npmjs.com/package/@lion/ajax)                                        | Fetching data via ajax request                                                                 | n/a                        |
+| [calendar](https://lion-web-components.netlify.app/?path=/docs/others-calendar--main)                         | [![calendar](https://img.shields.io/npm/v/@lion/calendar.svg)](https://www.npmjs.com/package/@lion/calendar)                            | Standalone calendar                                                                            | [#195][i195], [#194][i194] |
+| **-- [Helpers](https://lion-web-components.netlify.app/?path=/docs/helpers-intro--page) --**                  | [![helpers](https://img.shields.io/npm/v/@lion/helpers.svg)](https://www.npmjs.com/package/@lion/helpers)                               | Helpers to make your and your life easier                                                      |                            |
+| [sb-action-logger](https://lion-web-components.netlify.app/?path=/docs/helpers-storybook-action-logger--main) |                                                                                                                                         | Storybook action logger                                                                        |
 
 ## How to install
 
 ```bash
 npm i @lion/<package-name>
 ```
-
-## Content
-
-The accessibility column indicates whether the functionality is accessible in its core. Aspects like styling and content determine actual accessibility in usage.
-
-| Package                                         | Version                                                                                                                              | Description                                            | Accessibility              |
-| ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------ | -------------------------- |
-| **-- Buttons --**                               |                                                                                                                                      |                                                        |                            |
-| [button](./packages/button)                     | [![button](https://img.shields.io/npm/v/@lion/button.svg)](https://www.npmjs.com/package/@lion/button)                               | Button                                                 | ✔️                         |
-| [switch](./packages/switch)                     | [![switch](https://img.shields.io/npm/v/@lion/switch.svg)](https://www.npmjs.com/package/@lion/switch)                               | Switch                                                 | ✔️                         |
-| **-- Forms --**                                 |                                                                                                                                      |                                                        |                            |
-| [form](./packages/form)                         | [![form](https://img.shields.io/npm/v/@lion/form.svg)](https://www.npmjs.com/package/@lion/form)                                     | Wrapper for multiple form elements                     | ✔️                         |
-| [field](./packages/field)                       | [![field](https://img.shields.io/npm/v/@lion/field.svg)](https://www.npmjs.com/package/@lion/field)                                  | Base Class for all inputs                              | ✔️                         |
-| [fieldset](./packages/fieldset)                 | [![fieldset](https://img.shields.io/npm/v/@lion/fieldset.svg)](https://www.npmjs.com/package/@lion/fieldset)                         | Group for form inputs                                  | ✔️                         |
-| [validate](./packages/validate)                 | [![validate](https://img.shields.io/npm/v/@lion/validate.svg)](https://www.npmjs.com/package/@lion/validate)                         | Validation for form components                         | n/a                        |
-| [checkbox](./packages/checkbox)                 | [![checkbox](https://img.shields.io/npm/v/@lion/checkbox.svg)](https://www.npmjs.com/package/@lion/checkbox)                         | Checkbox form element                                  | ✔️                         |
-| [checkbox-group](./packages/checkbox-group)     | [![checkbox-group](https://img.shields.io/npm/v/@lion/checkbox-group.svg)](https://www.npmjs.com/package/@lion/checkbox-group)       | Group of checkboxes                                    | ✔️                         |
-| [input](./packages/input)                       | [![input](https://img.shields.io/npm/v/@lion/input.svg)](https://www.npmjs.com/package/@lion/input)                                  | Input element for strings                              | ✔️                         |
-| [input-amount](./packages/input-amount)         | [![input-amount](https://img.shields.io/npm/v/@lion/input-amount.svg)](https://www.npmjs.com/package/@lion/input-amount)             | Input element for amounts                              | ✔️                         |
-| [input-date](./packages/input-date)             | [![input-date](https://img.shields.io/npm/v/@lion/input-date.svg)](https://www.npmjs.com/package/@lion/input-date)                   | Input element for dates                                | ✔️                         |
-| [input-datepicker](./packages/input-datepicker) | [![input-datepicker](https://img.shields.io/npm/v/@lion/input-datepicker.svg)](https://www.npmjs.com/package/@lion/input-datepicker) | Input element for dates with a datepicker              | ✔️                         |
-| [input-email](./packages/input-email)           | [![input-email](https://img.shields.io/npm/v/@lion/input-email.svg)](https://www.npmjs.com/package/@lion/input-email)                | Input element for e-mails                              | ✔️                         |
-| [input-iban](./packages/input-iban)             | [![input-iban](https://img.shields.io/npm/v/@lion/input-iban.svg)](https://www.npmjs.com/package/@lion/input-iban)                   | Input element for IBANs                                | ✔️                         |
-| [input-range](./packages/input-range)           | [![input-range](https://img.shields.io/npm/v/@lion/input-range.svg)](https://www.npmjs.com/package/@lion/input-range)                | Input element for a range of values                    | ✔️                         |
-| [radio](./packages/radio)                       | [![radio](https://img.shields.io/npm/v/@lion/radio.svg)](https://www.npmjs.com/package/@lion/radio)                                  | Radio from element                                     | ✔️                         |
-| [radio-group](./packages/radio-group)           | [![radio-group](https://img.shields.io/npm/v/@lion/radio-group.svg)](https://www.npmjs.com/package/@lion/radio-group)                | Group of radios                                        | ✔️                         |
-| [select](./packages/select)                     | [![select](https://img.shields.io/npm/v/@lion/select.svg)](https://www.npmjs.com/package/@lion/select)                               | Simple native dropdown element                         | ✔️                         |
-| [textarea](./packages/textarea)                 | [![textarea](https://img.shields.io/npm/v/@lion/textarea.svg)](https://www.npmjs.com/package/@lion/textarea)                         | Multiline text input                                   | ✔️                         |
-| **-- Overlays --**                              |                                                                                                                                      |                                                        |                            |
-| [overlays](./packages/overlays)                 | [![overlays](https://img.shields.io/npm/v/@lion/overlays.svg)](https://www.npmjs.com/package/@lion/overlays)                         | Overlay System                                         | ✔️                         |
-| [dialog](./packages/dialog)                     | [![dialog](https://img.shields.io/npm/v/@lion/dialog.svg)](https://www.npmjs.com/package/@lion/dialog)                               | Dialog element                                         | ✔️                         |
-| [tooltip](./packages/tooltip)                   | [![tooltip](https://img.shields.io/npm/v/@lion/tooltip.svg)](https://www.npmjs.com/package/@lion/tooltip)                            | Tooltip element                                        | [#175][i175]               |
-| **-- Icons --**                                 |                                                                                                                                      |                                                        |                            |
-| [icon](./packages/icon)                         | [![icon](https://img.shields.io/npm/v/@lion/icon.svg)](https://www.npmjs.com/package/@lion/icon)                                     | Display our svg icons                                  | [#173][i173], [#172][i172] |
-| **-- Navigation --**                            |                                                                                                                                      |                                                        |                            |
-| [steps](./packages/steps)                       | [![steps](https://img.shields.io/npm/v/@lion/steps.svg)](https://www.npmjs.com/package/@lion/steps)                                  | Multi Step System                                      | n/a                        |
-| [tabs](./packages/tabs)                         | [![tBS](https://img.shields.io/npm/v/@lion/tabs.svg)](https://www.npmjs.com/package/@lion/tabs)                                      | Move between a small number of equally important views | n/a                        |
-| **-- Others --**                                |                                                                                                                                      |                                                        |                            |
-| [core](./packages/core)                         | [![core](https://img.shields.io/npm/v/@lion/core.svg)](https://www.npmjs.com/package/@lion/core)                                     | Core System (exports LitElement, lit-html)             | n/a                        |
-| [calendar](./packages/calendar)                 | [![calendar](https://img.shields.io/npm/v/@lion/calendar.svg)](https://www.npmjs.com/package/@lion/calendar)                         | Standalone calendar                                    | [#195][i195], [#194][i194] |
-| [localize](./packages/localize)                 | [![localize](https://img.shields.io/npm/v/@lion/localize.svg)](https://www.npmjs.com/package/@lion/localize)                         | Localize and translate your application/components     | n/a                        |
-| [ajax](./packages/ajax)                         | [![ajax](https://img.shields.io/npm/v/@lion/ajax.svg)](https://www.npmjs.com/package/@lion/ajax)                                     | Fetching data via ajax request                         | n/a                        |
 
 ## How to use
 
@@ -126,108 +148,14 @@ context, supports many edge cases and is accessible in all relevant screen reade
 Lion aims to do the heavy lifting for you.
 This means you only have to apply your own Design System: by delivering styles, configuring components and adding a minimal set of custom logic on top.
 
-## Coding guidlines
+## Coding guidelines
 
-Check out our [coding guidelines](./docs/README.md) for more detailed information.
+Check out our [coding guidelines](https://lion-web-components.netlify.app/?path=/docs/guidelines-intro--page) for more detailed information.
 
 ## How to contribute
 
 Lion Web Components are only as good as its contributions.
-Read our [contribution guide](./CONTRIBUTING.md) and feel free to enhance/improve Lion. We keep feature requests closed while we're not working on them.
-
-## Scoped elements
-
-The [CustomElementRegistry](https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry) provides methods for registering custom elements. One of the limitations of working with this global registry is that multiple versions of the same element cannot co-exist. This causes bottlenecks in software delivery that should be managed by the teams and complex build systems. [Scoped Custom Element Registries](https://github.com/w3c/webcomponents/issues/716) is a proposal that will solve the problem. Since this functionality won't be available (especially not cross browser) anytime soon, we've adopted [OpenWC's Scoped Elements](https://open-wc.org/scoped-element).
-
-Whenever a lion component uses composition (meaning it uses another lion component inside), we
-apply ScopedElementsMixin to make sure it uses the right version of this internal component.
-
-```js
-import { ScopedElementsMixin, LitElement, html } from '@lion/core';
-
-import { LionInput } from '@lion/input';
-import { LionButton } from '@lion/button';
-
-class MyElement extends ScopedElementsMixin(LitElement) {
-  static get scopedElements() {
-    return {
-      'lion-input': LionInput,
-      'lion-button': LionButton,
-    };
-  }
-
-  render() {
-    return html`
-      <lion-input label="Greeting" name="greeting" .modelValue=${'Hello world'}></lion-input>
-      <lion-button>Save</lion-button>
-    `;
-  }
-}
-```
-
-### Query selectors
-
-Since Scoped Elements changes tagnames under the hood, a tagname querySelector should be written
-like this:
-
-```js
-this.querySelector(getTagName('lion-input', this.constructor.scopedElements));
-```
-
-### CSS selectors
-
-Avoid tagname css selectors (we already avoid query selectors internally in lion, but just be aware
-that a selector like `lion-input {...}` will stop working ).
-
-### Edge cases
-
-Sometimes we need to render parts of a template to light dom for [accessibility](https://wicg.github.io/aom/explainer.html). For instance we render a node via lit-html that we append to the host element, so
-it gets slotted in the right position.
-In this case, we should also make sure that we also scope the rendered element.
-
-We can do this as follows:
-
-```js
-_myLightTemplate() {
-  return html`
-    This template may be overridden by a Subclasser.
-    Even I don't end up in shadow root, I need to be scoped to constructor.scopedElements as well.
-    <div>
-      <lion-button>True</lion-button>
-      <lion-input label="xyz"></lion-input>
-    </div>
-  `;
-}
-
-__getLightDomNode() {
-  const renderParent = document.createElement('div');
-  this.constructor.render(this._myLightTemplate(), renderParent, {
-    scopeName: this.localName,
-    eventContext: this,
-  });
-  // this node will be appended to the host
-  return renderParent.firstElementChild;
-}
-
-connectedCallback() {
-  super.connectedCallback();
-  this.appendChild(this.__getLightDomNode());
-}
-```
-
-In a less complex case, we might just want to add a child node to the dom.
-
-```js
-import { ScopedElementsMixin, LitElement, getScopedTagNamegetScopedTagName  } from '@lion/core';
-
-...
-
-__getLightDomNode() {
-  return document.createElement(getScopedTagName('lion-input', this.constructor.scopedElements));
-}
-```
-
-We encourage you to have a look at [OpenWC's Scoped elements](https://open-wc.org/scoped-elements).
+Read our [contribution guide](https://github.com/ing-bank/lion/blob/master/CONTRIBUTING.md) and feel free to enhance/improve Lion. We keep feature requests closed while we're not working on them.
 
 ## Contact
 
@@ -236,13 +164,9 @@ You can also find us on the Polymer slack in the [#lion](https://polymer.slack.c
 
 You can join the Polymer slack by visiting [https://www.polymer-project.org/slack-invite](https://www.polymer-project.org/slack-invite).
 
-## Support and issues
-
-As stated above "support and issues time" is currently rather limited: feel free to open a discussion.
-However, we can not guarantee any response times.
-
 [i172]: https://github.com/ing-bank/lion/issues/172
 [i173]: https://github.com/ing-bank/lion/issues/173
 [i175]: https://github.com/ing-bank/lion/issues/175
 [i194]: https://github.com/ing-bank/lion/issues/194
 [i195]: https://github.com/ing-bank/lion/issues/195
+[i243]: https://github.com/ing-bank/lion/issues/243

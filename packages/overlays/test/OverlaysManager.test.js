@@ -1,23 +1,18 @@
-import { expect, html, fixture } from '@open-wc/testing';
-import { OverlaysManager } from '../src/OverlaysManager.js';
+import { expect, fixture, html } from '@open-wc/testing';
 import { OverlayController } from '../src/OverlayController.js';
+import { OverlaysManager } from '../src/OverlaysManager.js';
 
 describe('OverlaysManager', () => {
   let defaultOptions;
   let mngr;
 
-  before(async () => {
-    const contentNode = await fixture(html`
-      <p>my content</p>
-    `);
+  beforeEach(async () => {
+    const contentNode = await fixture(html`<p>my content</p>`);
 
     defaultOptions = {
       placementMode: 'global',
       contentNode,
     };
-  });
-
-  beforeEach(() => {
     mngr = new OverlaysManager();
   });
 

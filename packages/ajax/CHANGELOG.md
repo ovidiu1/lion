@@ -3,6 +3,87 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.4](https://github.com/ing-bank/lion/compare/@lion/ajax@0.4.3...@lion/ajax@0.4.4) (2020-07-13)
+
+**Note:** Version bump only for package @lion/ajax
+
+
+
+
+
+## [0.4.3](https://github.com/ing-bank/lion/compare/@lion/ajax@0.4.2...@lion/ajax@0.4.3) (2020-06-18)
+
+**Note:** Version bump only for package @lion/ajax
+
+
+
+
+
+## [0.4.2](https://github.com/ing-bank/lion/compare/@lion/ajax@0.4.1...@lion/ajax@0.4.2) (2020-06-08)
+
+**Note:** Version bump only for package @lion/ajax
+
+
+
+
+
+## [0.4.1](https://github.com/ing-bank/lion/compare/@lion/ajax@0.4.0...@lion/ajax@0.4.1) (2020-06-03)
+
+
+### Bug Fixes
+
+* remove all stories folders from npm ([1e04d06](https://github.com/ing-bank/lion/commit/1e04d06921f9d5e1a446b6d14045154ff83771c3))
+
+
+
+
+
+# [0.4.0](https://github.com/ing-bank/lion/compare/@lion/ajax@0.3.0...@lion/ajax@0.4.0) (2020-05-29)
+
+
+### Features
+
+* use markdown javascript (mdjs) for documentation ([bcd074d](https://github.com/ing-bank/lion/commit/bcd074d1fbce8754d428538df723ba402603e2c8))
+
+
+
+
+
+# [0.3.0](https://github.com/ing-bank/lion/compare/@lion/ajax@0.2.10...@lion/ajax@0.3.0) (2020-05-18)
+
+
+### Features
+
+* use singleton manager to support nested npm installations ([e2eb0e0](https://github.com/ing-bank/lion/commit/e2eb0e0077b9efed9382701461753778f63cad48))
+
+
+
+
+
+## [0.2.10](https://github.com/ing-bank/lion/compare/@lion/ajax@0.2.9...@lion/ajax@0.2.10) (2020-04-29)
+
+**Note:** Version bump only for package @lion/ajax
+
+
+
+
+
+## [0.2.9](https://github.com/ing-bank/lion/compare/@lion/ajax@0.2.8...@lion/ajax@0.2.9) (2020-04-02)
+
+**Note:** Version bump only for package @lion/ajax
+
+
+
+
+
+## [0.2.8](https://github.com/ing-bank/lion/compare/@lion/ajax@0.2.7...@lion/ajax@0.2.8) (2020-03-25)
+
+**Note:** Version bump only for package @lion/ajax
+
+
+
+
+
 ## [0.2.7](https://github.com/ing-bank/lion/compare/@lion/ajax@0.2.6...@lion/ajax@0.2.7) (2020-03-05)
 
 **Note:** Version bump only for package @lion/ajax

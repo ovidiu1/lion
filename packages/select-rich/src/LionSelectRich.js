@@ -1,24 +1,19 @@
-import { ChoiceGroupMixin } from '@lion/choice-input';
 import {
-  css,
-  html,
-  LitElement,
-  SlotMixin,
-  ScopedElementsMixin,
-  getScopedTagName,
-} from '@lion/core';
-import { FormControlMixin, FormRegistrarMixin, InteractionStateMixin } from '@lion/field';
-import { formRegistrarManager } from '@lion/field/src/registration/formRegistrarManager.js';
-import { OverlayMixin, withDropdownConfig } from '@lion/overlays';
-import { ValidateMixin } from '@lion/validate';
-import './differentKeyNamesShimIE.js';
+  ChoiceGroupMixin,
+  FormControlMixin,
+  FormRegistrarMixin,
+  InteractionStateMixin,
+  ValidateMixin,
+} from '@lion/form-core';
+import { css, html, LitElement, ScopedElementsMixin, SlotMixin } from '@lion/core';
 
+import { formRegistrarManager } from '@lion/form-core/src/registration/formRegistrarManager.js';
+import { OverlayMixin, withDropdownConfig } from '@lion/overlays';
+import './differentKeyNamesShimIE.js';
 import { LionSelectInvoker } from './LionSelectInvoker.js';
 
 function uuid() {
-  return Math.random()
-    .toString(36)
-    .substr(2, 10);
+  return Math.random().toString(36).substr(2, 10);
 }
 
 function detectInteractionMode() {
@@ -88,8 +83,15 @@ export class LionSelectRich extends ScopedElementsMixin(
         attribute: 'interaction-mode',
       },
 
-      name: {
-        type: String,
+      /**
+       * When setting this to true, on initial render, no option will be selected.
+       * It it advisable to override `_noSelectionTemplate` method in the select-invoker
+       * to render some kind of placeholder initially
+       */
+      hasNoDefaultSelected: {
+        type: Boolean,
+        reflect: true,
+        attribute: 'has-no-default-selected',
       },
     };
   }
@@ -99,6 +101,10 @@ export class LionSelectRich extends ScopedElementsMixin(
       css`
         :host {
           display: block;
+        }
+
+        :host([hidden]) {
+          display: none;
         }
 
         :host([disabled]) {
@@ -112,9 +118,7 @@ export class LionSelectRich extends ScopedElementsMixin(
     return {
       ...super.slots,
       invoker: () =>
-        document.createElement(
-          getScopedTagName('lion-select-invoker', this.constructor.scopedElements),
-        ),
+        document.createElement(this.constructor.getScopedTagName('lion-select-invoker')),
     };
   }
 
@@ -151,7 +155,6 @@ export class LionSelectRich extends ScopedElementsMixin(
     this.requestUpdate('modelValue');
   }
 
-  // TODO: quick and dirty fix. Should be possible to do it nicer on a higher layer
   get serializedValue() {
     return this.modelValue;
   }
@@ -198,33 +201,22 @@ export class LionSelectRich extends ScopedElementsMixin(
     // for interaction states
     this._listboxActiveDescendant = null;
     this.__hasInitialSelectedFormElement = false;
+    this.hasNoDefaultSelected = false;
     this._repropagationRole = 'choice-group'; // configures FormControlMixin
-    this.__setupEventListeners();
     this.__initInteractionStates();
-  }
-
-  connectedCallback() {
-    this._listboxNode.registrationTarget = this;
-    if (super.connectedCallback) {
-      super.connectedCallback();
-    }
-  }
-
-  disconnectedCallback() {
-    if (super.disconnectedCallback) {
-      super.disconnectedCallback();
-    }
-    this.__teardownEventListeners();
-    this.__teardownOverlay();
-    this.__teardownInvokerNode();
-    this.__teardownListboxNode();
   }
 
   firstUpdated(changedProperties) {
     super.firstUpdated(changedProperties);
-    this.__setupOverlay();
+
+    this._overlaySetupComplete.then(() => {
+      this.__setupOverlay();
+    });
+
     this.__setupInvokerNode();
     this.__setupListboxNode();
+    this.__setupEventListeners();
+    this._listboxNode.registrationTarget = this;
 
     formRegistrarManager.addEventListener('all-forms-open-for-registration', () => {
       // Now that we have rendered + registered our listbox, try setting the user defined modelValue again
@@ -262,7 +254,6 @@ export class LionSelectRich extends ScopedElementsMixin(
   get _inputNode() {
     // In FormControl, we get direct child [slot="input"]. This doesn't work, because the overlay
     // system wraps it in [slot="_overlay-shadow-outlet"]
-    // TODO: find a way to solve this by putting the wrapping part in shadow dom...
     return this.querySelector('[slot="input"]');
   }
 
@@ -276,6 +267,11 @@ export class LionSelectRich extends ScopedElementsMixin(
 
   updated(changedProperties) {
     super.updated(changedProperties);
+
+    if (this.formElements.length === 1) {
+      this.singleOption = true;
+      this._invokerNode.singleOption = true;
+    }
 
     if (changedProperties.has('disabled')) {
       if (this.disabled) {
@@ -325,7 +321,10 @@ export class LionSelectRich extends ScopedElementsMixin(
     return html`
       <div class="input-group__input">
         <slot name="invoker"></slot>
-        <slot name="input"></slot>
+        <slot name="_overlay-shadow-outlet"></slot>
+        <div id="overlay-content-node-wrapper">
+          <slot name="input"></slot>
+        </div>
       </div>
     `;
   }
@@ -349,14 +348,22 @@ export class LionSelectRich extends ScopedElementsMixin(
     }
 
     // the first elements checked by default
-    if (!this.__hasInitialSelectedFormElement && (!child.disabled || this.disabled)) {
+    if (
+      !this.hasNoDefaultSelected &&
+      !this.__hasInitialSelectedFormElement &&
+      (!child.disabled || this.disabled)
+    ) {
       child.active = true;
       child.checked = true;
       this.__hasInitialSelectedFormElement = true;
     }
 
+    // TODO: small perf improvement could be made if logic below would be scheduled to next update,
+    // so it occurs once for all options
     this.__setAttributeForAllFormElements('aria-setsize', this.formElements.length);
-    child.setAttribute('aria-posinset', this.formElements.length);
+    this.formElements.forEach((el, idx) => {
+      el.setAttribute('aria-posinset', idx + 1);
+    });
 
     this.__proxyChildModelValueChanged({ target: child });
     this.resetInteractionState();
@@ -568,7 +575,7 @@ export class LionSelectRich extends ScopedElementsMixin(
 
   __setupInvokerNodeEventListener() {
     this.__invokerOnClick = () => {
-      if (!this.disabled && !this.readOnly) {
+      if (!this.disabled && !this.readOnly && !this.singleOption) {
         this._overlayCtrl.toggle();
       }
     };
@@ -633,13 +640,34 @@ export class LionSelectRich extends ScopedElementsMixin(
     };
   }
 
+  /**
+   * With no selected element, we should override the inheritsReferenceWidth in most cases.
+   * By default, we will set it to 'min', and then set it back to what it was initially when
+   * something is selected.
+   * As a subclasser you can override this behavior.
+   */
+  _noDefaultSelectedInheritsWidth() {
+    if (this.checkedIndex === -1) {
+      this._overlayCtrl.inheritsReferenceWidth = 'min';
+    } else {
+      this._overlayCtrl.inheritsReferenceWidth = this._initialInheritsReferenceWidth;
+    }
+  }
+
   __setupOverlay() {
+    this._initialInheritsReferenceWidth = this._overlayCtrl.inheritsReferenceWidth;
+    this.__overlayBeforeShow = () => {
+      if (this.hasNoDefaultSelected) {
+        this._noDefaultSelectedInheritsWidth();
+      }
+    };
     this.__overlayOnShow = () => {
       if (this.checkedIndex != null) {
         this.activeIndex = this.checkedIndex;
       }
       this._listboxNode.focus();
     };
+    this._overlayCtrl.addEventListener('before-show', this.__overlayBeforeShow);
     this._overlayCtrl.addEventListener('show', this.__overlayOnShow);
 
     this.__overlayOnHide = () => {
@@ -651,10 +679,15 @@ export class LionSelectRich extends ScopedElementsMixin(
     this._scrollTargetNode.addEventListener('keydown', this.__preventScrollingWithArrowKeys);
   }
 
-  __teardownOverlay() {
+  _teardownOverlayCtrl() {
+    super._teardownOverlayCtrl();
     this._overlayCtrl.removeEventListener('show', this.__overlayOnShow);
+    this._overlayCtrl.removeEventListener('before-show', this.__overlayBeforeShow);
     this._overlayCtrl.removeEventListener('hide', this.__overlayOnHide);
     this._scrollTargetNode.removeEventListener('keydown', this.__overlayOnHide);
+    this.__teardownInvokerNode();
+    this.__teardownListboxNode();
+    this.__teardownEventListeners();
   }
 
   __preventScrollingWithArrowKeys(ev) {

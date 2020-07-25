@@ -3,6 +3,76 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.3](https://github.com/ing-bank/lion/compare/@lion/helpers@0.5.2...@lion/helpers@0.5.3) (2020-07-13)
+
+**Note:** Version bump only for package @lion/helpers
+
+
+
+
+
+## [0.5.2](https://github.com/ing-bank/lion/compare/@lion/helpers@0.5.1...@lion/helpers@0.5.2) (2020-06-18)
+
+**Note:** Version bump only for package @lion/helpers
+
+
+
+
+
+## [0.5.1](https://github.com/ing-bank/lion/compare/@lion/helpers@0.5.0...@lion/helpers@0.5.1) (2020-06-08)
+
+**Note:** Version bump only for package @lion/helpers
+
+
+
+
+
+# [0.5.0](https://github.com/ing-bank/lion/compare/@lion/helpers@0.4.0...@lion/helpers@0.5.0) (2020-06-03)
+
+
+### Features
+
+* use markdown javascript (mdjs) for documentation ([bcd074d](https://github.com/ing-bank/lion/commit/bcd074d1fbce8754d428538df723ba402603e2c8))
+
+
+
+
+
+# [0.4.0](https://github.com/ing-bank/lion/compare/@lion/helpers@0.3.6...@lion/helpers@0.4.0) (2020-05-18)
+
+
+### Features
+
+* use singleton manager to support nested npm installations ([e2eb0e0](https://github.com/ing-bank/lion/commit/e2eb0e0077b9efed9382701461753778f63cad48))
+
+
+
+
+
+## [0.3.6](https://github.com/ing-bank/lion/compare/@lion/helpers@0.3.5...@lion/helpers@0.3.6) (2020-04-29)
+
+**Note:** Version bump only for package @lion/helpers
+
+
+
+
+
+## [0.3.5](https://github.com/ing-bank/lion/compare/@lion/helpers@0.3.4...@lion/helpers@0.3.5) (2020-04-02)
+
+**Note:** Version bump only for package @lion/helpers
+
+
+
+
+
+## [0.3.4](https://github.com/ing-bank/lion/compare/@lion/helpers@0.3.3...@lion/helpers@0.3.4) (2020-03-25)
+
+**Note:** Version bump only for package @lion/helpers
+
+
+
+
+
 ## [0.3.3](https://github.com/ing-bank/lion/compare/@lion/helpers@0.3.2...@lion/helpers@0.3.3) (2020-03-05)
 
 **Note:** Version bump only for package @lion/helpers

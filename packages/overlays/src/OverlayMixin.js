@@ -3,7 +3,7 @@ import { OverlayController } from './OverlayController.js';
 
 /**
  * @type {Function()}
- * @polymerMixin
+ * @polymerMixinOverlayMixin
  * @mixinFunction
  */
 export const OverlayMixin = dedupeMixin(
@@ -23,6 +23,10 @@ export const OverlayMixin = dedupeMixin(
         super();
         this.opened = false;
         this.config = {};
+
+        this._overlaySetupComplete = new Promise(resolve => {
+          this.__overlaySetupCompleteResolve = resolve;
+        });
       }
 
       get config() {
@@ -50,11 +54,12 @@ export const OverlayMixin = dedupeMixin(
        * @returns {OverlayController}
        */
       // eslint-disable-next-line
-      _defineOverlay({ contentNode, invokerNode, backdropNode }) {
+      _defineOverlay({ contentNode, invokerNode, backdropNode, contentWrapperNode }) {
         return new OverlayController({
           contentNode,
           invokerNode,
           backdropNode,
+          contentWrapperNode,
           ...this._defineOverlayConfig(), // wc provided in the class as defaults
           ...this.config, // user provided (e.g. in template)
           popperConfig: {
@@ -86,10 +91,12 @@ export const OverlayMixin = dedupeMixin(
       updated(changedProperties) {
         super.updated(changedProperties);
 
-        if (changedProperties.has('opened')) {
-          if (this._overlayCtrl) {
-            this.__syncToOverlayController();
-          }
+        if (
+          changedProperties.has('opened') &&
+          this._overlayCtrl &&
+          !this.__blockSyncToOverlayCtrl
+        ) {
+          this.__syncToOverlayController();
         }
       }
 
@@ -126,19 +133,53 @@ export const OverlayMixin = dedupeMixin(
         }
       }
 
-      firstUpdated(changedProperties) {
-        super.firstUpdated(changedProperties);
-        // we setup in firstUpdated so we can use nodes from light and shadowDom
-        this._setupOverlayCtrl();
+      connectedCallback() {
+        if (super.connectedCallback) {
+          super.connectedCallback();
+        }
+
+        // Wait for DOM to be ready before setting up the overlay, else extensions like rich select breaks
+        this.updateComplete.then(() => {
+          if (!this.__isOverlaySetup) {
+            this._setupOverlayCtrl();
+          }
+        });
+
+        // When dom nodes are being moved around (meaning connected/disconnected are being fired
+        // repeatedly), we need to delay the teardown until we find a 'permanent disconnect'
+        if (this.__rejectOverlayDisconnectComplete) {
+          // makes sure _overlayDisconnectComplete never resolves: we don't want a teardown
+          this.__rejectOverlayDisconnectComplete();
+        }
       }
 
       disconnectedCallback() {
         if (super.disconnectedCallback) {
           super.disconnectedCallback();
         }
-        if (this._overlayCtrl) {
-          this._teardownOverlayCtrl();
+
+        if (!this._overlayCtrl) {
+          return;
         }
+
+        this._overlayDisconnectComplete = new Promise((resolve, reject) => {
+          this.__resolveOverlayDisconnectComplete = resolve;
+          this.__rejectOverlayDisconnectComplete = reject;
+        });
+
+        setTimeout(() => {
+          // we start the teardown below
+          this.__resolveOverlayDisconnectComplete();
+        });
+
+        // We need to prevent that we create a setup/teardown cycle during startup, where it
+        // is common that the overlay system moves around nodes. Therefore, we make the
+        // teardown async, so that it only happens when we are permanently disconnecting from dom
+        this._overlayDisconnectComplete
+          .then(() => {
+            this._teardownOverlayCtrl();
+          })
+          .catch(() => {});
       }
 
       get _overlayInvokerNode() {
@@ -150,22 +191,7 @@ export const OverlayMixin = dedupeMixin(
       }
 
       get _overlayContentNode() {
-        if (this._cachedOverlayContentNode) {
-          return this._cachedOverlayContentNode;
-        }
-
-        // (@jorenbroekema) This should shadow outlet in between the host and the content slot,
-        // is a problem.
-        // Should simply be Array.from(this.children).find(child => child.slot === 'content')
-        // Issue: https://github.com/ing-bank/lion/issues/382
-        const shadowOutlet = Array.from(this.children).find(
-          child => child.slot === '_overlay-shadow-outlet',
-        );
-        if (shadowOutlet) {
-          this._cachedOverlayContentNode = Array.from(shadowOutlet.children).find(
-            child => child.slot === 'content',
-          );
-        } else {
+        if (!this._cachedOverlayContentNode) {
           this._cachedOverlayContentNode = Array.from(this.children).find(
             child => child.slot === 'content',
           );
@@ -173,25 +199,42 @@ export const OverlayMixin = dedupeMixin(
         return this._cachedOverlayContentNode;
       }
 
-      get _overlayContentNodeWrapper() {
-        return this._overlayContentNode.parentElement;
+      get _overlayContentWrapperNode() {
+        return this.shadowRoot.querySelector('#overlay-content-node-wrapper');
       }
 
       _setupOverlayCtrl() {
         this._overlayCtrl = this._defineOverlay({
           contentNode: this._overlayContentNode,
+          contentWrapperNode: this._overlayContentWrapperNode,
           invokerNode: this._overlayInvokerNode,
           backdropNode: this._overlayBackdropNode,
         });
         this.__syncToOverlayController();
         this.__setupSyncFromOverlayController();
         this._setupOpenCloseListeners();
+        this.__overlaySetupCompleteResolve();
+        this.__isOverlaySetup = true;
       }
 
       _teardownOverlayCtrl() {
         this._teardownOpenCloseListeners();
         this.__teardownSyncFromOverlayController();
         this._overlayCtrl.teardown();
+        this.__isOverlaySetup = false;
+      }
+
+      /**
+       * When the opened state is changed by an Application Developer,cthe OverlayController is
+       * requested to show/hide. It might happen that this request is not honoured
+       * (intercepted in before-hide for instance), so that we need to sync the controller state
+       * to this webcomponent again, preventing eternal loops.
+       */
+      async _setOpenedWithoutPropertyEffects(newOpened) {
+        this.__blockSyncToOverlayCtrl = true;
+        this.opened = newOpened;
+        await this.updateComplete;
+        this.__blockSyncToOverlayCtrl = false;
       }
 
       __setupSyncFromOverlayController() {
@@ -207,6 +250,8 @@ export const OverlayMixin = dedupeMixin(
           const event = new CustomEvent('before-opened', { cancelable: true });
           this.dispatchEvent(event);
           if (event.defaultPrevented) {
+            // Check whether our current `.opened` state is not out of sync with overlayCtrl
+            this._setOpenedWithoutPropertyEffects(this._overlayCtrl.isShown);
             beforeShowEvent.preventDefault();
           }
         };
@@ -215,6 +260,8 @@ export const OverlayMixin = dedupeMixin(
           const event = new CustomEvent('before-closed', { cancelable: true });
           this.dispatchEvent(event);
           if (event.defaultPrevented) {
+            // Check whether our current `.opened` state is not out of sync with overlayCtrl
+            this._setOpenedWithoutPropertyEffects(this._overlayCtrl.isShown);
             beforeHideEvent.preventDefault();
           }
         };

@@ -3,6 +3,297 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.14.17](https://github.com/ing-bank/lion/compare/@lion/input-datepicker@0.14.16...@lion/input-datepicker@0.14.17) (2020-07-16)
+
+**Note:** Version bump only for package @lion/input-datepicker
+
+
+
+
+
+## [0.14.16](https://github.com/ing-bank/lion/compare/@lion/input-datepicker@0.14.15...@lion/input-datepicker@0.14.16) (2020-07-13)
+
+**Note:** Version bump only for package @lion/input-datepicker
+
+
+
+
+
+## [0.14.15](https://github.com/ing-bank/lion/compare/@lion/input-datepicker@0.14.14...@lion/input-datepicker@0.14.15) (2020-07-13)
+
+**Note:** Version bump only for package @lion/input-datepicker
+
+
+
+
+
+## [0.14.14](https://github.com/ing-bank/lion/compare/@lion/input-datepicker@0.14.13...@lion/input-datepicker@0.14.14) (2020-07-09)
+
+**Note:** Version bump only for package @lion/input-datepicker
+
+
+
+
+
+## [0.14.13](https://github.com/ing-bank/lion/compare/@lion/input-datepicker@0.14.12...@lion/input-datepicker@0.14.13) (2020-07-09)
+
+**Note:** Version bump only for package @lion/input-datepicker
+
+
+
+
+
+## [0.14.12](https://github.com/ing-bank/lion/compare/@lion/input-datepicker@0.14.11...@lion/input-datepicker@0.14.12) (2020-07-09)
+
+**Note:** Version bump only for package @lion/input-datepicker
+
+
+
+
+
+## [0.14.11](https://github.com/ing-bank/lion/compare/@lion/input-datepicker@0.14.10...@lion/input-datepicker@0.14.11) (2020-07-09)
+
+**Note:** Version bump only for package @lion/input-datepicker
+
+
+
+
+
+## [0.14.10](https://github.com/ing-bank/lion/compare/@lion/input-datepicker@0.14.9...@lion/input-datepicker@0.14.10) (2020-07-07)
+
+**Note:** Version bump only for package @lion/input-datepicker
+
+
+
+
+
+## [0.14.9](https://github.com/ing-bank/lion/compare/@lion/input-datepicker@0.14.8...@lion/input-datepicker@0.14.9) (2020-07-06)
+
+
+### Bug Fixes
+
+* **datepicker:** remove calendar id in calendar overlay frame ([781d74d](https://github.com/ing-bank/lion/commit/781d74d31a30383ca70f04de7195da82eda96d3d))
+
+
+
+
+
+## [0.14.8](https://github.com/ing-bank/lion/compare/@lion/input-datepicker@0.14.7...@lion/input-datepicker@0.14.8) (2020-06-24)
+
+**Note:** Version bump only for package @lion/input-datepicker
+
+
+
+
+
+## [0.14.7](https://github.com/ing-bank/lion/compare/@lion/input-datepicker@0.14.6...@lion/input-datepicker@0.14.7) (2020-06-23)
+
+**Note:** Version bump only for package @lion/input-datepicker
+
+
+
+
+
+## [0.14.6](https://github.com/ing-bank/lion/compare/@lion/input-datepicker@0.14.5...@lion/input-datepicker@0.14.6) (2020-06-18)
+
+**Note:** Version bump only for package @lion/input-datepicker
+
+
+
+
+
+## [0.14.5](https://github.com/ing-bank/lion/compare/@lion/input-datepicker@0.14.4...@lion/input-datepicker@0.14.5) (2020-06-10)
+
+**Note:** Version bump only for package @lion/input-datepicker
+
+
+
+
+
+## [0.14.4](https://github.com/ing-bank/lion/compare/@lion/input-datepicker@0.14.3...@lion/input-datepicker@0.14.4) (2020-06-09)
+
+**Note:** Version bump only for package @lion/input-datepicker
+
+
+
+
+
+## [0.14.3](https://github.com/ing-bank/lion/compare/@lion/input-datepicker@0.14.2...@lion/input-datepicker@0.14.3) (2020-06-08)
+
+**Note:** Version bump only for package @lion/input-datepicker
+
+
+
+
+
+## [0.14.2](https://github.com/ing-bank/lion/compare/@lion/input-datepicker@0.14.1...@lion/input-datepicker@0.14.2) (2020-06-08)
+
+**Note:** Version bump only for package @lion/input-datepicker
+
+
+
+
+
+## [0.14.1](https://github.com/ing-bank/lion/compare/@lion/input-datepicker@0.14.0...@lion/input-datepicker@0.14.1) (2020-06-03)
+
+
+### Bug Fixes
+
+* remove all stories folders from npm ([1e04d06](https://github.com/ing-bank/lion/commit/1e04d06921f9d5e1a446b6d14045154ff83771c3))
+
+
+
+
+
+# [0.14.0](https://github.com/ing-bank/lion/compare/@lion/input-datepicker@0.13.4...@lion/input-datepicker@0.14.0) (2020-05-29)
+
+
+### Features
+
+* merge field/validate/choice-input/form-group into @lion/form-core ([6170374](https://github.com/ing-bank/lion/commit/6170374ee8c058cb95fff79b4953b0535219e9b4))
+* use markdown javascript (mdjs) for documentation ([bcd074d](https://github.com/ing-bank/lion/commit/bcd074d1fbce8754d428538df723ba402603e2c8))
+
+
+
+
+
+## [0.13.4](https://github.com/ing-bank/lion/compare/@lion/input-datepicker@0.13.3...@lion/input-datepicker@0.13.4) (2020-05-27)
+
+**Note:** Version bump only for package @lion/input-datepicker
+
+
+
+
+
+## [0.13.3](https://github.com/ing-bank/lion/compare/@lion/input-datepicker@0.13.2...@lion/input-datepicker@0.13.3) (2020-05-25)
+
+**Note:** Version bump only for package @lion/input-datepicker
+
+
+
+
+
+## [0.13.2](https://github.com/ing-bank/lion/compare/@lion/input-datepicker@0.13.1...@lion/input-datepicker@0.13.2) (2020-05-20)
+
+**Note:** Version bump only for package @lion/input-datepicker
+
+
+
+
+
+## [0.13.1](https://github.com/ing-bank/lion/compare/@lion/input-datepicker@0.13.0...@lion/input-datepicker@0.13.1) (2020-05-19)
+
+**Note:** Version bump only for package @lion/input-datepicker
+
+
+
+
+
+# [0.13.0](https://github.com/ing-bank/lion/compare/@lion/input-datepicker@0.12.0...@lion/input-datepicker@0.13.0) (2020-05-18)
+
+
+### Features
+
+* use singleton manager to support nested npm installations ([e2eb0e0](https://github.com/ing-bank/lion/commit/e2eb0e0077b9efed9382701461753778f63cad48))
+
+
+
+
+
+# [0.12.0](https://github.com/ing-bank/lion/compare/@lion/input-datepicker@0.11.7...@lion/input-datepicker@0.12.0) (2020-05-18)
+
+
+### Bug Fixes
+
+* **overlays:** local backdrop outlet ([e19a0f4](https://github.com/ing-bank/lion/commit/e19a0f483c65a8a758da78b86e3723e9270e5bd3))
+
+
+### Features
+
+* **overlays:** enhance content projection for styling purposes ([f33ea6b](https://github.com/ing-bank/lion/commit/f33ea6b0b0dca88d006762ec5110e5845a73d219))
+
+
+
+
+
+## [0.11.7](https://github.com/ing-bank/lion/compare/@lion/input-datepicker@0.11.6...@lion/input-datepicker@0.11.7) (2020-05-06)
+
+**Note:** Version bump only for package @lion/input-datepicker
+
+
+
+
+
+## [0.11.6](https://github.com/ing-bank/lion/compare/@lion/input-datepicker@0.11.5...@lion/input-datepicker@0.11.6) (2020-04-29)
+
+
+### Bug Fixes
+
+* add display:none for hidden ([#692](https://github.com/ing-bank/lion/issues/692)) ([9731771](https://github.com/ing-bank/lion/commit/9731771c23a5ed8661558e62cb5e34b62cc2b8b7))
+* **input-datepicker:** align template to FormControlMixin ([a02f9e8](https://github.com/ing-bank/lion/commit/a02f9e8b3e734162fe2c43d293a1324515cbfdaf))
+
+
+
+
+
+## [0.11.5](https://github.com/ing-bank/lion/compare/@lion/input-datepicker@0.11.4...@lion/input-datepicker@0.11.5) (2020-04-16)
+
+
+### Bug Fixes
+
+* validators use validatorName instead of name ([4776810](https://github.com/ing-bank/lion/commit/4776810be929951feefdef97318e7f0b2a628b30))
+
+
+
+
+
+## [0.11.4](https://github.com/ing-bank/lion/compare/@lion/input-datepicker@0.11.3...@lion/input-datepicker@0.11.4) (2020-04-15)
+
+**Note:** Version bump only for package @lion/input-datepicker
+
+
+
+
+
+## [0.11.3](https://github.com/ing-bank/lion/compare/@lion/input-datepicker@0.11.2...@lion/input-datepicker@0.11.3) (2020-04-07)
+
+**Note:** Version bump only for package @lion/input-datepicker
+
+
+
+
+
+## [0.11.2](https://github.com/ing-bank/lion/compare/@lion/input-datepicker@0.11.1...@lion/input-datepicker@0.11.2) (2020-04-02)
+
+
+### Bug Fixes
+
+* convert unnecessary backticks to single quotes for unpkg ([5103289](https://github.com/ing-bank/lion/commit/5103289f994c26f63e805be56515f150628acd91))
+
+
+
+
+
+## [0.11.1](https://github.com/ing-bank/lion/compare/@lion/input-datepicker@0.11.0...@lion/input-datepicker@0.11.1) (2020-03-26)
+
+**Note:** Version bump only for package @lion/input-datepicker
+
+
+
+
+
+# [0.11.0](https://github.com/ing-bank/lion/compare/@lion/input-datepicker@0.10.3...@lion/input-datepicker@0.11.0) (2020-03-25)
+
+
+### Features
+
+* refrain from using dynamic vars inside dynamic import ([42c840f](https://github.com/ing-bank/lion/commit/42c840f9498810a81296c9beb8a4f6bbdbc4fa0b))
+* update to stable @open-wc/scoped-elements ([10bac56](https://github.com/ing-bank/lion/commit/10bac5672b406d3f08a89a795ee295f5028ca6d0))
+
+
+
+
+
 ## [0.10.3](https://github.com/ing-bank/lion/compare/@lion/input-datepicker@0.10.2...@lion/input-datepicker@0.10.3) (2020-03-20)
 
 **Note:** Version bump only for package @lion/input-datepicker

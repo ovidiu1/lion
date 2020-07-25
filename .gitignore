@@ -20,12 +20,19 @@ yarn-error.log
 /build/
 /bundlesize/dist/
 
+## types
+*.d.ts
+!packages/*/types/*
+
 ## temp folders
 /.tmp/
 /coverage/
+/storybook-static/
 
 ## temp files
 local.log
 
 ## browserstack
 browserstack.err
+
+!packages/singleton-manager/demo/**/node_modules

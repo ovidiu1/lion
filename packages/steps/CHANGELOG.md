@@ -3,6 +3,90 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.4](https://github.com/ing-bank/lion/compare/@lion/steps@0.5.3...@lion/steps@0.5.4) (2020-07-13)
+
+**Note:** Version bump only for package @lion/steps
+
+
+
+
+
+## [0.5.3](https://github.com/ing-bank/lion/compare/@lion/steps@0.5.2...@lion/steps@0.5.3) (2020-06-18)
+
+**Note:** Version bump only for package @lion/steps
+
+
+
+
+
+## [0.5.2](https://github.com/ing-bank/lion/compare/@lion/steps@0.5.1...@lion/steps@0.5.2) (2020-06-08)
+
+**Note:** Version bump only for package @lion/steps
+
+
+
+
+
+## [0.5.1](https://github.com/ing-bank/lion/compare/@lion/steps@0.5.0...@lion/steps@0.5.1) (2020-06-03)
+
+
+### Bug Fixes
+
+* remove all stories folders from npm ([1e04d06](https://github.com/ing-bank/lion/commit/1e04d06921f9d5e1a446b6d14045154ff83771c3))
+
+
+
+
+
+# [0.5.0](https://github.com/ing-bank/lion/compare/@lion/steps@0.4.0...@lion/steps@0.5.0) (2020-05-29)
+
+
+### Features
+
+* use markdown javascript (mdjs) for documentation ([bcd074d](https://github.com/ing-bank/lion/commit/bcd074d1fbce8754d428538df723ba402603e2c8))
+
+
+
+
+
+# [0.4.0](https://github.com/ing-bank/lion/compare/@lion/steps@0.3.9...@lion/steps@0.4.0) (2020-05-18)
+
+
+### Features
+
+* use singleton manager to support nested npm installations ([e2eb0e0](https://github.com/ing-bank/lion/commit/e2eb0e0077b9efed9382701461753778f63cad48))
+
+
+
+
+
+## [0.3.9](https://github.com/ing-bank/lion/compare/@lion/steps@0.3.8...@lion/steps@0.3.9) (2020-04-29)
+
+
+### Bug Fixes
+
+* add display:none for hidden ([#692](https://github.com/ing-bank/lion/issues/692)) ([9731771](https://github.com/ing-bank/lion/commit/9731771c23a5ed8661558e62cb5e34b62cc2b8b7))
+
+
+
+
+
+## [0.3.8](https://github.com/ing-bank/lion/compare/@lion/steps@0.3.7...@lion/steps@0.3.8) (2020-04-02)
+
+**Note:** Version bump only for package @lion/steps
+
+
+
+
+
+## [0.3.7](https://github.com/ing-bank/lion/compare/@lion/steps@0.3.6...@lion/steps@0.3.7) (2020-03-25)
+
+**Note:** Version bump only for package @lion/steps
+
+
+
+
+
 ## [0.3.6](https://github.com/ing-bank/lion/compare/@lion/steps@0.3.5...@lion/steps@0.3.6) (2020-03-05)
 
 **Note:** Version bump only for package @lion/steps

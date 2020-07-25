@@ -3,6 +3,225 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.11](https://github.com/ing-bank/lion/compare/@lion/dialog@0.7.10...@lion/dialog@0.7.11) (2020-07-13)
+
+**Note:** Version bump only for package @lion/dialog
+
+
+
+
+
+## [0.7.10](https://github.com/ing-bank/lion/compare/@lion/dialog@0.7.9...@lion/dialog@0.7.10) (2020-07-13)
+
+**Note:** Version bump only for package @lion/dialog
+
+
+
+
+
+## [0.7.9](https://github.com/ing-bank/lion/compare/@lion/dialog@0.7.8...@lion/dialog@0.7.9) (2020-07-09)
+
+**Note:** Version bump only for package @lion/dialog
+
+
+
+
+
+## [0.7.8](https://github.com/ing-bank/lion/compare/@lion/dialog@0.7.7...@lion/dialog@0.7.8) (2020-07-07)
+
+**Note:** Version bump only for package @lion/dialog
+
+
+
+
+
+## [0.7.7](https://github.com/ing-bank/lion/compare/@lion/dialog@0.7.6...@lion/dialog@0.7.7) (2020-07-06)
+
+**Note:** Version bump only for package @lion/dialog
+
+
+
+
+
+## [0.7.6](https://github.com/ing-bank/lion/compare/@lion/dialog@0.7.5...@lion/dialog@0.7.6) (2020-06-24)
+
+
+### Bug Fixes
+
+* **overlays:** make focusable slotted buttons ([5e151bb](https://github.com/ing-bank/lion/commit/5e151bb8a41b4fcb37a00c0dcf568f4cb0378259))
+
+
+
+
+
+## [0.7.5](https://github.com/ing-bank/lion/compare/@lion/dialog@0.7.4...@lion/dialog@0.7.5) (2020-06-23)
+
+**Note:** Version bump only for package @lion/dialog
+
+
+
+
+
+## [0.7.4](https://github.com/ing-bank/lion/compare/@lion/dialog@0.7.3...@lion/dialog@0.7.4) (2020-06-18)
+
+**Note:** Version bump only for package @lion/dialog
+
+
+
+
+
+## [0.7.3](https://github.com/ing-bank/lion/compare/@lion/dialog@0.7.2...@lion/dialog@0.7.3) (2020-06-10)
+
+**Note:** Version bump only for package @lion/dialog
+
+
+
+
+
+## [0.7.2](https://github.com/ing-bank/lion/compare/@lion/dialog@0.7.1...@lion/dialog@0.7.2) (2020-06-08)
+
+**Note:** Version bump only for package @lion/dialog
+
+
+
+
+
+## [0.7.1](https://github.com/ing-bank/lion/compare/@lion/dialog@0.7.0...@lion/dialog@0.7.1) (2020-06-03)
+
+
+### Bug Fixes
+
+* define side effects for demo files ([1d40567](https://github.com/ing-bank/lion/commit/1d405671875c1c9c5518a3b7f57814337b3a67d6))
+
+
+
+
+
+# [0.7.0](https://github.com/ing-bank/lion/compare/@lion/dialog@0.6.3...@lion/dialog@0.7.0) (2020-05-29)
+
+
+### Features
+
+* use markdown javascript (mdjs) for documentation ([bcd074d](https://github.com/ing-bank/lion/commit/bcd074d1fbce8754d428538df723ba402603e2c8))
+
+
+
+
+
+## [0.6.3](https://github.com/ing-bank/lion/compare/@lion/dialog@0.6.2...@lion/dialog@0.6.3) (2020-05-25)
+
+
+### Bug Fixes
+
+* add side effects to package.json to fix storybook build ([a7f7b4c](https://github.com/ing-bank/lion/commit/a7f7b4c70d48a78c0a1d5511e54004c157f1dba3))
+
+
+
+
+
+## [0.6.2](https://github.com/ing-bank/lion/compare/@lion/dialog@0.6.1...@lion/dialog@0.6.2) (2020-05-20)
+
+**Note:** Version bump only for package @lion/dialog
+
+
+
+
+
+## [0.6.1](https://github.com/ing-bank/lion/compare/@lion/dialog@0.6.0...@lion/dialog@0.6.1) (2020-05-19)
+
+**Note:** Version bump only for package @lion/dialog
+
+
+
+
+
+# [0.6.0](https://github.com/ing-bank/lion/compare/@lion/dialog@0.5.0...@lion/dialog@0.6.0) (2020-05-18)
+
+
+### Features
+
+* use singleton manager to support nested npm installations ([e2eb0e0](https://github.com/ing-bank/lion/commit/e2eb0e0077b9efed9382701461753778f63cad48))
+
+
+
+
+
+# [0.5.0](https://github.com/ing-bank/lion/compare/@lion/dialog@0.4.18...@lion/dialog@0.5.0) (2020-05-18)
+
+
+### Bug Fixes
+
+* **overlays:** local backdrop outlet ([e19a0f4](https://github.com/ing-bank/lion/commit/e19a0f483c65a8a758da78b86e3723e9270e5bd3))
+* **overlays:** setup/teardown fixes + perf improvements OverlayMixin ([8a6bef8](https://github.com/ing-bank/lion/commit/8a6bef8142d252cde7dd66067ca87acfffb2b9f6))
+
+
+### Features
+
+* **overlays:** enhance content projection for styling purposes ([f33ea6b](https://github.com/ing-bank/lion/commit/f33ea6b0b0dca88d006762ec5110e5845a73d219))
+
+
+
+
+
+## [0.4.18](https://github.com/ing-bank/lion/compare/@lion/dialog@0.4.17...@lion/dialog@0.4.18) (2020-05-06)
+
+
+### Bug Fixes
+
+* **dialog:** teardown open close listeners after initial update complete ([da87445](https://github.com/ing-bank/lion/commit/da87445f33f4a168449ef6e37fc4244f16a0dc00))
+
+
+
+
+
+## [0.4.17](https://github.com/ing-bank/lion/compare/@lion/dialog@0.4.16...@lion/dialog@0.4.17) (2020-04-29)
+
+**Note:** Version bump only for package @lion/dialog
+
+
+
+
+
+## [0.4.16](https://github.com/ing-bank/lion/compare/@lion/dialog@0.4.15...@lion/dialog@0.4.16) (2020-04-15)
+
+**Note:** Version bump only for package @lion/dialog
+
+
+
+
+
+## [0.4.15](https://github.com/ing-bank/lion/compare/@lion/dialog@0.4.14...@lion/dialog@0.4.15) (2020-04-07)
+
+**Note:** Version bump only for package @lion/dialog
+
+
+
+
+
+## [0.4.14](https://github.com/ing-bank/lion/compare/@lion/dialog@0.4.13...@lion/dialog@0.4.14) (2020-04-02)
+
+**Note:** Version bump only for package @lion/dialog
+
+
+
+
+
+## [0.4.13](https://github.com/ing-bank/lion/compare/@lion/dialog@0.4.12...@lion/dialog@0.4.13) (2020-03-26)
+
+**Note:** Version bump only for package @lion/dialog
+
+
+
+
+
+## [0.4.12](https://github.com/ing-bank/lion/compare/@lion/dialog@0.4.11...@lion/dialog@0.4.12) (2020-03-25)
+
+**Note:** Version bump only for package @lion/dialog
+
+
+
+
+
 ## [0.4.11](https://github.com/ing-bank/lion/compare/@lion/dialog@0.4.10...@lion/dialog@0.4.11) (2020-03-20)
 
 **Note:** Version bump only for package @lion/dialog

@@ -1,6 +1,5 @@
-import { html, css, ScopedElementsMixin, getScopedTagName } from '@lion/core';
-import { LionField } from '@lion/field';
-import { ChoiceInputMixin } from '@lion/choice-input';
+import { css, html, ScopedElementsMixin } from '@lion/core';
+import { ChoiceInputMixin, LionField } from '@lion/form-core';
 import { LionSwitchButton } from './LionSwitchButton.js';
 
 export class LionSwitch extends ScopedElementsMixin(ChoiceInputMixin(LionField)) {
@@ -8,6 +7,10 @@ export class LionSwitch extends ScopedElementsMixin(ChoiceInputMixin(LionField))
     return [
       super.styles,
       css`
+        :host([hidden]) {
+          display: none;
+        }
+
         :host([disabled]) {
           color: #adadad;
         }
@@ -25,10 +28,7 @@ export class LionSwitch extends ScopedElementsMixin(ChoiceInputMixin(LionField))
   get slots() {
     return {
       ...super.slots,
-      input: () =>
-        document.createElement(
-          getScopedTagName('lion-switch-button', this.constructor.scopedElements),
-        ),
+      input: () => document.createElement(this.constructor.getScopedTagName('lion-switch-button')),
     };
   }
 
@@ -48,15 +48,11 @@ export class LionSwitch extends ScopedElementsMixin(ChoiceInputMixin(LionField))
   }
 
   _groupOneTemplate() {
-    return html`
-      ${this._labelTemplate()} ${this._helpTextTemplate()} ${this._feedbackTemplate()}
-    `;
+    return html`${this._labelTemplate()} ${this._helpTextTemplate()} ${this._feedbackTemplate()}`;
   }
 
   _groupTwoTemplate() {
-    return html`
-      ${this._inputGroupTemplate()}
-    `;
+    return html`${this._inputGroupTemplate()}`;
   }
 
   connectedCallback() {
@@ -75,7 +71,7 @@ export class LionSwitch extends ScopedElementsMixin(ChoiceInputMixin(LionField))
   }
 
   /**
-   * Override this function from ChoiceInputMixin
+   * Override this function from ChoiceInputMixin.
    */
   // eslint-disable-next-line class-methods-use-this
   _isEmpty() {}

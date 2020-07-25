@@ -1,44 +1,46 @@
 {
   "name": "@lion/steps",
-  "version": "0.3.6",
+  "version": "0.5.4",
   "description": "Breaks a single goal down into dependable sub-tasks.",
+  "license": "MIT",
   "author": "ing-bank",
   "homepage": "https://github.com/ing-bank/lion/",
-  "license": "MIT",
-  "publishConfig": {
-    "access": "public"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/ing-bank/lion.git",
     "directory": "packages/steps"
   },
-  "scripts": {
-    "prepublishOnly": "../../scripts/npm-prepublish.js",
-    "test": "cd ../../ && yarn test --grep \"packages/steps/test/**/*.test.js\"",
-    "test:watch": "cd ../../ && yarn test:watch --grep \"packages/steps/test/**/*.test.js\""
-  },
-  "keywords": [
-    "lion",
-    "web-components",
-    "steps"
-  ],
   "main": "index.js",
   "module": "index.js",
   "files": [
+    "*.d.ts",
+    "*.js",
     "docs",
     "src",
-    "stories",
     "test",
+    "test-helpers",
     "translations",
-    "*.js"
+    "types"
+  ],
+  "scripts": {
+    "prepublishOnly": "../../scripts/npm-prepublish.js",
+    "start": "cd ../../ && yarn dev-server --open packages/steps/README.md",
+    "test": "cd ../../ && yarn test:browser --grep \"packages/steps/test/**/*.test.js\"",
+    "test:watch": "cd ../../ && yarn test:browser:watch --grep \"packages/steps/test/**/*.test.js\""
+  },
+  "sideEffects": [
+    "lion-step.js",
+    "lion-steps.js"
   ],
   "dependencies": {
-    "@lion/core": "0.4.5"
+    "@lion/core": "0.8.0"
   },
-  "devDependencies": {
-    "@open-wc/demoing-storybook": "^1.10.4",
-    "@open-wc/testing": "^2.5.0",
-    "sinon": "^7.2.2"
+  "keywords": [
+    "lion",
+    "steps",
+    "web-components"
+  ],
+  "publishConfig": {
+    "access": "public"
   }
 }

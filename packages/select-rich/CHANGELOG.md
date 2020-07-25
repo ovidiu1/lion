@@ -3,6 +3,355 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.18.20](https://github.com/ing-bank/lion/compare/@lion/select-rich@0.18.19...@lion/select-rich@0.18.20) (2020-07-16)
+
+**Note:** Version bump only for package @lion/select-rich
+
+
+
+
+
+## [0.18.19](https://github.com/ing-bank/lion/compare/@lion/select-rich@0.18.18...@lion/select-rich@0.18.19) (2020-07-13)
+
+**Note:** Version bump only for package @lion/select-rich
+
+
+
+
+
+## [0.18.18](https://github.com/ing-bank/lion/compare/@lion/select-rich@0.18.17...@lion/select-rich@0.18.18) (2020-07-13)
+
+
+### Bug Fixes
+
+* **select-rich:** align teardown phase with OverlayMixin ([97922df](https://github.com/ing-bank/lion/commit/97922df18117812aa816bf2658d162bf29b0b998))
+
+
+
+
+
+## [0.18.17](https://github.com/ing-bank/lion/compare/@lion/select-rich@0.18.16...@lion/select-rich@0.18.17) (2020-07-13)
+
+**Note:** Version bump only for package @lion/select-rich
+
+
+
+
+
+## [0.18.16](https://github.com/ing-bank/lion/compare/@lion/select-rich@0.18.15...@lion/select-rich@0.18.16) (2020-07-09)
+
+**Note:** Version bump only for package @lion/select-rich
+
+
+
+
+
+## [0.18.15](https://github.com/ing-bank/lion/compare/@lion/select-rich@0.18.14...@lion/select-rich@0.18.15) (2020-07-09)
+
+**Note:** Version bump only for package @lion/select-rich
+
+
+
+
+
+## [0.18.14](https://github.com/ing-bank/lion/compare/@lion/select-rich@0.18.13...@lion/select-rich@0.18.14) (2020-07-09)
+
+**Note:** Version bump only for package @lion/select-rich
+
+
+
+
+
+## [0.18.13](https://github.com/ing-bank/lion/compare/@lion/select-rich@0.18.12...@lion/select-rich@0.18.13) (2020-07-09)
+
+
+### Bug Fixes
+
+* **select-rich:** instantiation after first update ([184898c](https://github.com/ing-bank/lion/commit/184898c111dcb81f269fffc6b82688cc6f25aac2))
+
+
+
+
+
+## [0.18.12](https://github.com/ing-bank/lion/compare/@lion/select-rich@0.18.11...@lion/select-rich@0.18.12) (2020-07-07)
+
+**Note:** Version bump only for package @lion/select-rich
+
+
+
+
+
+## [0.18.11](https://github.com/ing-bank/lion/compare/@lion/select-rich@0.18.10...@lion/select-rich@0.18.11) (2020-07-06)
+
+**Note:** Version bump only for package @lion/select-rich
+
+
+
+
+
+## [0.18.10](https://github.com/ing-bank/lion/compare/@lion/select-rich@0.18.9...@lion/select-rich@0.18.10) (2020-06-24)
+
+**Note:** Version bump only for package @lion/select-rich
+
+
+
+
+
+## [0.18.9](https://github.com/ing-bank/lion/compare/@lion/select-rich@0.18.8...@lion/select-rich@0.18.9) (2020-06-24)
+
+**Note:** Version bump only for package @lion/select-rich
+
+
+
+
+
+## [0.18.8](https://github.com/ing-bank/lion/compare/@lion/select-rich@0.18.7...@lion/select-rich@0.18.8) (2020-06-23)
+
+**Note:** Version bump only for package @lion/select-rich
+
+
+
+
+
+## [0.18.7](https://github.com/ing-bank/lion/compare/@lion/select-rich@0.18.6...@lion/select-rich@0.18.7) (2020-06-18)
+
+**Note:** Version bump only for package @lion/select-rich
+
+
+
+
+
+## [0.18.6](https://github.com/ing-bank/lion/compare/@lion/select-rich@0.18.5...@lion/select-rich@0.18.6) (2020-06-10)
+
+**Note:** Version bump only for package @lion/select-rich
+
+
+
+
+
+## [0.18.5](https://github.com/ing-bank/lion/compare/@lion/select-rich@0.18.4...@lion/select-rich@0.18.5) (2020-06-09)
+
+**Note:** Version bump only for package @lion/select-rich
+
+
+
+
+
+## [0.18.4](https://github.com/ing-bank/lion/compare/@lion/select-rich@0.18.3...@lion/select-rich@0.18.4) (2020-06-08)
+
+**Note:** Version bump only for package @lion/select-rich
+
+
+
+
+
+## [0.18.3](https://github.com/ing-bank/lion/compare/@lion/select-rich@0.18.2...@lion/select-rich@0.18.3) (2020-06-08)
+
+**Note:** Version bump only for package @lion/select-rich
+
+
+
+
+
+## [0.18.2](https://github.com/ing-bank/lion/compare/@lion/select-rich@0.18.1...@lion/select-rich@0.18.2) (2020-06-03)
+
+
+### Bug Fixes
+
+* **overlays:** change dropdownConfig inheritsReferenceWidth to min ([16f7afb](https://github.com/ing-bank/lion/commit/16f7afbbdc8316c8da16f6f177c85af0cde4f70d))
+* remove all stories folders from npm ([1e04d06](https://github.com/ing-bank/lion/commit/1e04d06921f9d5e1a446b6d14045154ff83771c3))
+
+
+
+
+
+## [0.18.1](https://github.com/ing-bank/lion/compare/@lion/select-rich@0.18.0...@lion/select-rich@0.18.1) (2020-06-02)
+
+**Note:** Version bump only for package @lion/select-rich
+
+
+
+
+
+# [0.18.0](https://github.com/ing-bank/lion/compare/@lion/select-rich@0.17.5...@lion/select-rich@0.18.0) (2020-05-29)
+
+
+### Features
+
+* merge field/validate/choice-input/form-group into @lion/form-core ([6170374](https://github.com/ing-bank/lion/commit/6170374ee8c058cb95fff79b4953b0535219e9b4))
+* use markdown javascript (mdjs) for documentation ([bcd074d](https://github.com/ing-bank/lion/commit/bcd074d1fbce8754d428538df723ba402603e2c8))
+
+
+
+
+
+## [0.17.5](https://github.com/ing-bank/lion/compare/@lion/select-rich@0.17.4...@lion/select-rich@0.17.5) (2020-05-27)
+
+
+### Bug Fixes
+
+* **select-rich:** prevent scrolling when focused ([dd3053a](https://github.com/ing-bank/lion/commit/dd3053a7bcab59b2c7736e2fa13a53a154953f02))
+
+
+
+
+
+## [0.17.4](https://github.com/ing-bank/lion/compare/@lion/select-rich@0.17.3...@lion/select-rich@0.17.4) (2020-05-27)
+
+**Note:** Version bump only for package @lion/select-rich
+
+
+
+
+
+## [0.17.3](https://github.com/ing-bank/lion/compare/@lion/select-rich@0.17.2...@lion/select-rich@0.17.3) (2020-05-25)
+
+**Note:** Version bump only for package @lion/select-rich
+
+
+
+
+
+## [0.17.2](https://github.com/ing-bank/lion/compare/@lion/select-rich@0.17.1...@lion/select-rich@0.17.2) (2020-05-20)
+
+**Note:** Version bump only for package @lion/select-rich
+
+
+
+
+
+## [0.17.1](https://github.com/ing-bank/lion/compare/@lion/select-rich@0.17.0...@lion/select-rich@0.17.1) (2020-05-19)
+
+**Note:** Version bump only for package @lion/select-rich
+
+
+
+
+
+# [0.17.0](https://github.com/ing-bank/lion/compare/@lion/select-rich@0.16.0...@lion/select-rich@0.17.0) (2020-05-18)
+
+
+### Features
+
+* use singleton manager to support nested npm installations ([e2eb0e0](https://github.com/ing-bank/lion/commit/e2eb0e0077b9efed9382701461753778f63cad48))
+
+
+
+
+
+# [0.16.0](https://github.com/ing-bank/lion/compare/@lion/select-rich@0.15.4...@lion/select-rich@0.16.0) (2020-05-18)
+
+
+### Bug Fixes
+
+* **overlays:** local backdrop outlet ([e19a0f4](https://github.com/ing-bank/lion/commit/e19a0f483c65a8a758da78b86e3723e9270e5bd3))
+
+
+### Features
+
+* **overlays:** enhance content projection for styling purposes ([f33ea6b](https://github.com/ing-bank/lion/commit/f33ea6b0b0dca88d006762ec5110e5845a73d219))
+
+
+
+
+
+## [0.15.4](https://github.com/ing-bank/lion/compare/@lion/select-rich@0.15.3...@lion/select-rich@0.15.4) (2020-05-06)
+
+**Note:** Version bump only for package @lion/select-rich
+
+
+
+
+
+## [0.15.3](https://github.com/ing-bank/lion/compare/@lion/select-rich@0.15.2...@lion/select-rich@0.15.3) (2020-04-29)
+
+
+### Bug Fixes
+
+* add display:none for hidden ([#692](https://github.com/ing-bank/lion/issues/692)) ([9731771](https://github.com/ing-bank/lion/commit/9731771c23a5ed8661558e62cb5e34b62cc2b8b7))
+
+
+
+
+
+## [0.15.2](https://github.com/ing-bank/lion/compare/@lion/select-rich@0.15.1...@lion/select-rich@0.15.2) (2020-04-20)
+
+**Note:** Version bump only for package @lion/select-rich
+
+
+
+
+
+## [0.15.1](https://github.com/ing-bank/lion/compare/@lion/select-rich@0.15.0...@lion/select-rich@0.15.1) (2020-04-15)
+
+**Note:** Version bump only for package @lion/select-rich
+
+
+
+
+
+# [0.15.0](https://github.com/ing-bank/lion/compare/@lion/select-rich@0.14.2...@lion/select-rich@0.15.0) (2020-04-14)
+
+
+### Features
+
+* **select-rich:** added signleoption functionality ([7c37418](https://github.com/ing-bank/lion/commit/7c3741854d75d841a613717761c433cb868f5c49))
+
+
+
+
+
+## [0.14.2](https://github.com/ing-bank/lion/compare/@lion/select-rich@0.14.1...@lion/select-rich@0.14.2) (2020-04-07)
+
+**Note:** Version bump only for package @lion/select-rich
+
+
+
+
+
+## [0.14.1](https://github.com/ing-bank/lion/compare/@lion/select-rich@0.14.0...@lion/select-rich@0.14.1) (2020-04-02)
+
+
+### Bug Fixes
+
+* **select-rich:** wait until mixin overlay is ready before doing setup ([53a21f2](https://github.com/ing-bank/lion/commit/53a21f2baaf048d2138ace5efcb586d0e6d49c31))
+
+
+
+
+
+# [0.14.0](https://github.com/ing-bank/lion/compare/@lion/select-rich@0.13.0...@lion/select-rich@0.14.0) (2020-03-26)
+
+
+### Bug Fixes
+
+* **select-rich:** consider no default select for inheritsReferenceWidth ([e636ce1](https://github.com/ing-bank/lion/commit/e636ce1f9c12c35a0885aa6e991d9554c944def5))
+
+
+### Features
+
+* **select-rich:** add has no default selection feature ([975a01a](https://github.com/ing-bank/lion/commit/975a01aca91d11f25f7391fff3bca692a67681b8))
+
+
+
+
+
+# [0.13.0](https://github.com/ing-bank/lion/compare/@lion/select-rich@0.12.4...@lion/select-rich@0.13.0) (2020-03-25)
+
+
+### Bug Fixes
+
+* **select-rich:** allow hoverable content inside content-wrapper ([eadb0fd](https://github.com/ing-bank/lion/commit/eadb0fd9714207e015862bb7e2f8d623515c2837))
+
+
+### Features
+
+* update to stable @open-wc/scoped-elements ([10bac56](https://github.com/ing-bank/lion/commit/10bac5672b406d3f08a89a795ee295f5028ca6d0))
+
+
+
+
+
 ## [0.12.4](https://github.com/ing-bank/lion/compare/@lion/select-rich@0.12.3...@lion/select-rich@0.12.4) (2020-03-20)
 
 **Note:** Version bump only for package @lion/select-rich

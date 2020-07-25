@@ -1,7 +1,7 @@
 import { css } from '@lion/core';
 import { LionInput } from '@lion/input';
 import { getCurrencyName, localize, LocalizeMixin } from '@lion/localize';
-import { IsNumber } from '@lion/validate';
+import { IsNumber } from '@lion/form-core';
 import { formatAmount, formatCurrencyLabel } from './formatters.js';
 import { parseAmount } from './parsers.js';
 
@@ -82,6 +82,7 @@ export class LionInputAmount extends LocalizeMixin(LionInput) {
     // eslint-disable-next-line wc/guard-super-call
     super.connectedCallback();
     this.type = 'text';
+    this._inputNode.setAttribute('inputmode', 'decimal');
 
     if (this.currency) {
       this.__setCurrencyDisplayLabel();

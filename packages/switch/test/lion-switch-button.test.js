@@ -1,14 +1,11 @@
 import { expect, fixture, html } from '@open-wc/testing';
 import sinon from 'sinon';
-
 import '../lion-switch-button.js';
 
 describe('lion-switch-button', () => {
   let el;
   beforeEach(async () => {
-    el = await fixture(html`
-      <lion-switch-button></lion-switch-button>
-    `);
+    el = await fixture(html`<lion-switch-button></lion-switch-button>`);
   });
 
   it('should be focusable', () => {
@@ -23,6 +20,12 @@ describe('lion-switch-button', () => {
   it('should have checked=false by default', () => {
     expect(el.checked).to.equal(false);
     expect(el.hasAttribute('checked')).to.be.false;
+  });
+
+  it('is hidden when attribute hidden is true', async () => {
+    el.hidden = true;
+    await el.updateComplete;
+    expect(el).not.to.be.displayed;
   });
 
   it('should toggle the value of "checked" on click', async () => {
@@ -104,5 +107,13 @@ describe('lion-switch-button', () => {
       await el.updateComplete;
       expect(el.getAttribute('aria-checked')).to.equal('false');
     });
+  });
+  it('should manage "aria-disabled"', async () => {
+    el.disabled = true;
+    await el.updateComplete;
+    expect(el.getAttribute('aria-disabled')).to.equal('true');
+    el.disabled = false;
+    await el.updateComplete;
+    expect(el.getAttribute('aria-disabled')).to.equal('false');
   });
 });

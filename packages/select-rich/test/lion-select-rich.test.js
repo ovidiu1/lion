@@ -1,10 +1,9 @@
 import { LitElement } from '@lion/core';
+import { formFixture as fixture } from '@lion/form-core/test-helpers.js';
 import { OverlayController } from '@lion/overlays';
-import { Required } from '@lion/validate';
+import { Required } from '@lion/form-core';
 import { aTimeout, defineCE, expect, html, nextFrame, unsafeStatic } from '@open-wc/testing';
-import { formFixture as fixture } from '@lion/field/test-helpers.js';
-
-import { LionSelectRich } from '../index.js';
+import { LionSelectInvoker, LionSelectRich } from '../index.js';
 import '../lion-option.js';
 import '../lion-options.js';
 import '../lion-select-rich.js';
@@ -38,9 +37,7 @@ describe('lion-select-rich', () => {
     expect(el.formElements[0].name).to.equal('foo');
     expect(el.formElements[1].name).to.equal('foo');
 
-    const validChild = await fixture(html`
-      <lion-option .choiceValue=${30}>Item 3</lion-option>
-    `);
+    const validChild = await fixture(html` <lion-option .choiceValue=${30}>Item 3</lion-option> `);
     el.appendChild(validChild);
 
     expect(el.formElements[2].name).to.equal('foo');
@@ -57,9 +54,7 @@ describe('lion-select-rich', () => {
     `);
     await nextFrame();
 
-    const invalidChild = await fixture(html`
-      <lion-option .modelValue=${'Lara'}></lion-option>
-    `);
+    const invalidChild = await fixture(html` <lion-option .modelValue=${'Lara'}></lion-option> `);
 
     expect(() => {
       el.addFormElement(invalidChild);
@@ -189,9 +184,12 @@ describe('lion-select-rich', () => {
     expect(el.hasFeedbackFor.includes('error')).to.be.true;
     expect(el.showsFeedbackFor.includes('error')).to.be.false;
 
+    // test submitted prop explicitly, since we dont extend field, we add the prop manually
+    el.submitted = true;
+    await el.updateComplete;
+    expect(el.showsFeedbackFor.includes('error')).to.be.true;
+
     el._listboxNode.children[1].checked = true;
-    // Set touched to true (needed for feedback show) because we simulate a user touching the select
-    el.touched = true;
     await el.updateComplete;
     expect(el.hasFeedbackFor.includes('error')).to.be.false;
     expect(el.showsFeedbackFor.includes('error')).to.be.false;
@@ -200,6 +198,21 @@ describe('lion-select-rich', () => {
     await el.updateComplete;
     expect(el.hasFeedbackFor.includes('error')).to.be.true;
     expect(el.showsFeedbackFor.includes('error')).to.be.true;
+  });
+
+  it('supports having no default selection initially', async () => {
+    const el = await fixture(html`
+      <lion-select-rich id="color" name="color" label="Favorite color" has-no-default-selected>
+        <lion-options slot="input">
+          <lion-option .choiceValue=${'red'}>Red</lion-option>
+          <lion-option .choiceValue=${'hotpink'} disabled>Hotpink</lion-option>
+          <lion-option .choiceValue=${'teal'}>Teal</lion-option>
+        </lion-options>
+      </lion-select-rich>
+    `);
+
+    expect(el.selectedElement).to.be.undefined;
+    expect(el.modelValue).to.equal('');
   });
 
   describe('Invoker', () => {
@@ -256,6 +269,19 @@ describe('lion-select-rich', () => {
 
       expect(el.hasAttribute('readonly')).to.be.true;
       expect(el._invokerNode.hasAttribute('readonly')).to.be.true;
+    });
+
+    it('delegates singleOption to the invoker', async () => {
+      const el = await fixture(html`
+        <lion-select-rich>
+          <lion-options slot="input">
+            <lion-option .choiceValue=${10}>Item 1</lion-option>
+          </lion-options>
+        </lion-select-rich>
+      `);
+
+      expect(el.singleOption).to.be.true;
+      expect(el._invokerNode.hasAttribute('single-option')).to.be.true;
     });
   });
 
@@ -334,7 +360,7 @@ describe('lion-select-rich', () => {
       expect(options[1].checked).to.be.true;
     });
 
-    it('stays closed on click if it is disabled or readonly', async () => {
+    it('stays closed on click if it is disabled or readonly or has a single option', async () => {
       const elReadOnly = await fixture(html`
         <lion-select-rich readonly>
           <lion-options slot="input">
@@ -353,6 +379,14 @@ describe('lion-select-rich', () => {
         </lion-select-rich>
       `);
 
+      const elSingleoption = await fixture(html`
+        <lion-select-rich>
+          <lion-options slot="input">
+            <lion-option .choiceValue=${10}>Item 1</lion-option>
+          </lion-options>
+        </lion-select-rich>
+      `);
+
       elReadOnly._invokerNode.click();
       await elReadOnly.updateComplete;
       expect(elReadOnly.opened).to.be.false;
@@ -360,6 +394,81 @@ describe('lion-select-rich', () => {
       elDisabled._invokerNode.click();
       await elDisabled.updateComplete;
       expect(elDisabled.opened).to.be.false;
+
+      elSingleoption._invokerNode.click();
+      await elSingleoption.updateComplete;
+      expect(elSingleoption.opened).to.be.false;
+    });
+
+    it('sets inheritsReferenceWidth to min by default', async () => {
+      const el = await fixture(html`
+        <lion-select-rich name="favoriteColor" label="Favorite color">
+          <lion-options slot="input">
+            <lion-option .choiceValue=${'red'}>Red</lion-option>
+            <lion-option .choiceValue=${'hotpink'}>Hotpink</lion-option>
+            <lion-option .choiceValue=${'teal'}>Teal</lion-option>
+          </lion-options>
+        </lion-select-rich>
+      `);
+
+      expect(el._overlayCtrl.inheritsReferenceWidth).to.equal('min');
+      el.opened = true;
+      await el.updateComplete;
+      expect(el._overlayCtrl.inheritsReferenceWidth).to.equal('min');
+    });
+
+    it('should override the inheritsWidth prop when no default selected feature is used', async () => {
+      const el = await fixture(html`
+        <lion-select-rich name="favoriteColor" label="Favorite color" has-no-default-selected>
+          <lion-options slot="input">
+            <lion-option .choiceValue=${'red'}>Red</lion-option>
+            <lion-option .choiceValue=${'hotpink'}>Hotpink</lion-option>
+            <lion-option .choiceValue=${'teal'}>Teal</lion-option>
+          </lion-options>
+        </lion-select-rich>
+      `);
+      // The default is min, so we override that behavior here
+      el._overlayCtrl.inheritsReferenceWidth = 'full';
+      el._initialInheritsReferenceWidth = 'full';
+
+      expect(el._overlayCtrl.inheritsReferenceWidth).to.equal('full');
+      el.opened = true;
+      await el.updateComplete;
+      // Opens while hasNoDefaultSelected = true, so we expect an override
+      expect(el._overlayCtrl.inheritsReferenceWidth).to.equal('min');
+
+      // Emulate selecting hotpink, it closing, and opening it again
+      el.modelValue = 'hotpink';
+      el.opened = false;
+      await el.updateComplete; // necessary for overlay controller to actually close and re-open
+      el.opened = true;
+      await el.updateComplete;
+
+      // noDefaultSelected will now flip the override back to what was the initial reference width
+      expect(el._overlayCtrl.inheritsReferenceWidth).to.equal('full');
+    });
+
+    it('should set singleOption to true when options change dynamically to 1 option', async () => {
+      const elSingleoption = await fixture(html`
+        <lion-select-rich>
+          <lion-options slot="input">
+            <lion-option .choiceValue=${10}>Item 1</lion-option>
+            <lion-option .choiceValue=${20}>Item 2</lion-option>
+          </lion-options>
+        </lion-select-rich>
+      `);
+
+      elSingleoption._invokerNode.click();
+      await elSingleoption.updateComplete;
+      expect(elSingleoption.singleOption).to.be.undefined;
+
+      const optionELm = elSingleoption.querySelectorAll('lion-option')[0];
+      optionELm.parentNode.removeChild(optionELm);
+      elSingleoption.requestUpdate();
+
+      elSingleoption._invokerNode.click();
+      await elSingleoption.updateComplete;
+      expect(elSingleoption.singleOption).to.be.true;
     });
   });
 
@@ -676,13 +785,13 @@ describe('lion-select-rich', () => {
     it('allows to override the type of overlay', async () => {
       const mySelectTagString = defineCE(
         class MySelect extends LionSelectRich {
-          _defineOverlay({ invokerNode, contentNode }) {
+          _defineOverlay({ invokerNode, contentNode, contentWrapperNode }) {
             const ctrl = new OverlayController({
               placementMode: 'global',
               contentNode,
+              contentWrapperNode,
               invokerNode,
             });
-
             this.addEventListener('switch', () => {
               ctrl.updateConfig({ placementMode: 'local' });
             });
@@ -704,10 +813,68 @@ describe('lion-select-rich', () => {
           </lion-options>
         </${mySelectTag}>
       `);
-
+      await el.updateComplete;
       expect(el._overlayCtrl.placementMode).to.equal('global');
       el.dispatchEvent(new Event('switch'));
       expect(el._overlayCtrl.placementMode).to.equal('local');
+    });
+
+    it('supports putting a placeholder template when there is no default selection initially', async () => {
+      const invokerTagName = defineCE(
+        class extends LionSelectInvoker {
+          _noSelectionTemplate() {
+            return html` Please select an option.. `;
+          }
+        },
+      );
+      const invokerTag = unsafeStatic(invokerTagName);
+
+      const selectTagName = defineCE(
+        class extends LionSelectRich {
+          get slots() {
+            return {
+              ...super.slots,
+              invoker: () => document.createElement(invokerTag.d),
+            };
+          }
+        },
+      );
+      const selectTag = unsafeStatic(selectTagName);
+
+      const el = await fixture(html`
+        <${selectTag} id="color" name="color" label="Favorite color" has-no-default-selected>
+          <lion-options slot="input">
+            <lion-option .choiceValue=${'red'}>Red</lion-option>
+            <lion-option .choiceValue=${'hotpink'} disabled>Hotpink</lion-option>
+            <lion-option .choiceValue=${'teal'}>Teal</lion-option>
+          </lion-options>
+        </${selectTag}>
+      `);
+
+      expect(el._invokerNode.shadowRoot.getElementById('content-wrapper')).dom.to.equal(
+        `<div id="content-wrapper">Please select an option..</div>`,
+      );
+      expect(el.modelValue).to.equal('');
+    });
+  });
+
+  describe('Instantiation methods', () => {
+    it('can be instantiated via "document.createElement"', async () => {
+      let properlyInstantiated = false;
+
+      try {
+        const el = document.createElement('lion-select-rich');
+        const optionsEl = document.createElement('lion-options');
+        optionsEl.slot = 'input';
+        const optionEl = document.createElement('lion-option');
+        optionsEl.appendChild(optionEl);
+        el.appendChild(optionsEl);
+        properlyInstantiated = true;
+      } catch (e) {
+        throw Error(e);
+      }
+
+      expect(properlyInstantiated).to.be.true;
     });
   });
 });

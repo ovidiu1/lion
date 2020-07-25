@@ -1,5 +1,5 @@
-import { withModalDialogConfig, OverlayMixin } from '@lion/overlays';
-import { LitElement, html } from '@lion/core';
+import { html, LitElement } from '@lion/core';
+import { OverlayMixin, withModalDialogConfig } from '@lion/overlays';
 
 export class LionDialog extends OverlayMixin(LitElement) {
   // eslint-disable-next-line class-methods-use-this
@@ -30,7 +30,10 @@ export class LionDialog extends OverlayMixin(LitElement) {
   render() {
     return html`
       <slot name="invoker"></slot>
-      <slot name="content"></slot>
+      <slot name="_overlay-shadow-outlet"></slot>
+      <div id="overlay-content-node-wrapper">
+        <slot name="content"></slot>
+      </div>
     `;
   }
 }

@@ -22,7 +22,7 @@ export class LionInputDatepicker extends ScopedElementsMixin(OverlayMixin(LionIn
       /**
        * The heading to be added on top of the calendar overlay.
        * Naming chosen from an Application Developer perspective.
-       * For a Subclasser 'calendarOverlayHeading' would be more appropriate
+       * For a Subclasser 'calendarOverlayHeading' would be more appropriate.
        */
       calendarHeading: {
         type: String,
@@ -138,7 +138,7 @@ export class LionInputDatepicker extends ScopedElementsMixin(OverlayMixin(LionIn
             case 'zh':
               return import('../translations/zh.js');
             default:
-              return import(`../translations/${locale}.js`);
+              return import('../translations/en.js');
           }
         },
       },
@@ -151,7 +151,7 @@ export class LionInputDatepicker extends ScopedElementsMixin(OverlayMixin(LionIn
   }
 
   get _calendarNode() {
-    return this._overlayCtrl.contentNode.querySelector('#calendar');
+    return this._overlayCtrl.contentNode.querySelector('[slot="content"]');
   }
 
   constructor() {
@@ -169,9 +169,7 @@ export class LionInputDatepicker extends ScopedElementsMixin(OverlayMixin(LionIn
   }
 
   __createUniqueIdForA11y() {
-    return `${this.localName}-${Math.random()
-      .toString(36)
-      .substr(2, 10)}`;
+    return `${this.localName}-${Math.random().toString(36).substr(2, 10)}`;
   }
 
   _requestUpdate(name, oldValue) {
@@ -227,8 +225,12 @@ export class LionInputDatepicker extends ScopedElementsMixin(OverlayMixin(LionIn
 
   render() {
     return html`
-      ${this._labelTemplate()} ${this._helpTextTemplate()} ${this._inputGroupTemplate()}
-      ${this._feedbackTemplate()} ${this._overlayTemplate()}
+      <div class="form-field__group-one">
+        ${this._groupOneTemplate()}
+      </div>
+      <div class="form-field__group-two">
+        ${this._groupTwoTemplate()} ${this._overlayTemplate()}
+      </div>
     `;
   }
 
@@ -241,7 +243,6 @@ export class LionInputDatepicker extends ScopedElementsMixin(OverlayMixin(LionIn
     return html`
       <lion-calendar
         slot="content"
-        id="calendar"
         .selectedDate="${this.constructor.__getSyncDownValue(this.modelValue)}"
         .minDate="${this.__calendarMinDate}"
         .maxDate="${this.__calendarMaxDate}"
@@ -333,14 +334,14 @@ export class LionInputDatepicker extends ScopedElementsMixin(OverlayMixin(LionIn
     // On every validator change, synchronize disabled dates: this means
     // we need to extract minDate, maxDate, minMaxDate and disabledDates validators
     validators.forEach(v => {
-      if (v.constructor.name === 'MinDate') {
+      if (v.constructor.validatorName === 'MinDate') {
         this.__calendarMinDate = v.param;
-      } else if (v.constructor.name === 'MaxDate') {
+      } else if (v.constructor.validatorName === 'MaxDate') {
         this.__calendarMaxDate = v.param;
-      } else if (v.constructor.name === 'MinMaxDate') {
+      } else if (v.constructor.validatorName === 'MinMaxDate') {
         this.__calendarMinDate = v.param.min;
         this.__calendarMaxDate = v.param.max;
-      } else if (v.constructor.name === 'IsDateDisabled') {
+      } else if (v.constructor.validatorName === 'IsDateDisabled') {
         this.__calendarDisableDates = v.param;
       }
     });

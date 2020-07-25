@@ -3,6 +3,121 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.5](https://github.com/ing-bank/lion/compare/@lion/icon@0.6.4...@lion/icon@0.6.5) (2020-07-13)
+
+**Note:** Version bump only for package @lion/icon
+
+
+
+
+
+## [0.6.4](https://github.com/ing-bank/lion/compare/@lion/icon@0.6.3...@lion/icon@0.6.4) (2020-06-18)
+
+**Note:** Version bump only for package @lion/icon
+
+
+
+
+
+## [0.6.3](https://github.com/ing-bank/lion/compare/@lion/icon@0.6.2...@lion/icon@0.6.3) (2020-06-10)
+
+**Note:** Version bump only for package @lion/icon
+
+
+
+
+
+## [0.6.2](https://github.com/ing-bank/lion/compare/@lion/icon@0.6.1...@lion/icon@0.6.2) (2020-06-08)
+
+**Note:** Version bump only for package @lion/icon
+
+
+
+
+
+## [0.6.1](https://github.com/ing-bank/lion/compare/@lion/icon@0.6.0...@lion/icon@0.6.1) (2020-06-03)
+
+
+### Bug Fixes
+
+* define side effects for demo files ([1d40567](https://github.com/ing-bank/lion/commit/1d405671875c1c9c5518a3b7f57814337b3a67d6))
+
+
+
+
+
+# [0.6.0](https://github.com/ing-bank/lion/compare/@lion/icon@0.5.2...@lion/icon@0.6.0) (2020-05-29)
+
+
+### Features
+
+* merge field/validate/choice-input/form-group into @lion/form-core ([6170374](https://github.com/ing-bank/lion/commit/6170374ee8c058cb95fff79b4953b0535219e9b4))
+* use markdown javascript (mdjs) for documentation ([bcd074d](https://github.com/ing-bank/lion/commit/bcd074d1fbce8754d428538df723ba402603e2c8))
+
+
+
+
+
+## [0.5.2](https://github.com/ing-bank/lion/compare/@lion/icon@0.5.1...@lion/icon@0.5.2) (2020-05-25)
+
+
+### Bug Fixes
+
+* add side effects to package.json to fix storybook build ([a7f7b4c](https://github.com/ing-bank/lion/commit/a7f7b4c70d48a78c0a1d5511e54004c157f1dba3))
+
+
+
+
+
+## [0.5.1](https://github.com/ing-bank/lion/compare/@lion/icon@0.5.0...@lion/icon@0.5.1) (2020-05-19)
+
+
+### Bug Fixes
+
+* **icon:** export setIcons ([0393427](https://github.com/ing-bank/lion/commit/0393427fa9df50dc4240a6e20115fb4a4d9756ca))
+
+
+
+
+
+# [0.5.0](https://github.com/ing-bank/lion/compare/@lion/icon@0.4.4...@lion/icon@0.5.0) (2020-05-18)
+
+
+### Features
+
+* use singleton manager to support nested npm installations ([e2eb0e0](https://github.com/ing-bank/lion/commit/e2eb0e0077b9efed9382701461753778f63cad48))
+
+
+
+
+
+## [0.4.4](https://github.com/ing-bank/lion/compare/@lion/icon@0.4.3...@lion/icon@0.4.4) (2020-04-29)
+
+
+### Bug Fixes
+
+* add display:none for hidden ([#692](https://github.com/ing-bank/lion/issues/692)) ([9731771](https://github.com/ing-bank/lion/commit/9731771c23a5ed8661558e62cb5e34b62cc2b8b7))
+
+
+
+
+
+## [0.4.3](https://github.com/ing-bank/lion/compare/@lion/icon@0.4.2...@lion/icon@0.4.3) (2020-04-02)
+
+**Note:** Version bump only for package @lion/icon
+
+
+
+
+
+## [0.4.2](https://github.com/ing-bank/lion/compare/@lion/icon@0.4.1...@lion/icon@0.4.2) (2020-03-25)
+
+**Note:** Version bump only for package @lion/icon
+
+
+
+
+
 ## [0.4.1](https://github.com/ing-bank/lion/compare/@lion/icon@0.4.0...@lion/icon@0.4.1) (2020-03-05)
 
 **Note:** Version bump only for package @lion/icon

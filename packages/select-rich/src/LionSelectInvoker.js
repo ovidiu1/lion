@@ -1,5 +1,5 @@
 import { LionButton } from '@lion/button';
-import { html } from '@lion/core';
+import { css, html } from '@lion/core';
 
 /**
  * LionSelectInvoker: invoker button consuming a selected element
@@ -8,6 +8,17 @@ import { html } from '@lion/core';
  * @extends {LionButton}
  */
 export class LionSelectInvoker extends LionButton {
+  static get styles() {
+    return [
+      super.styles,
+      css`
+        #content-wrapper {
+          position: relative;
+        }
+      `,
+    ];
+  }
+
   static get properties() {
     return {
       /**
@@ -17,13 +28,22 @@ export class LionSelectInvoker extends LionButton {
         type: Object,
       },
       /**
-       * @desc When the connected LionSelectRich insteance is readOnly,
+       * @desc When the connected LionSelectRich instance is readOnly,
        * this should be reflected in the invoker as well
        */
       readOnly: {
         type: Boolean,
         reflect: true,
         attribute: 'readonly',
+      },
+      /**
+       * @desc When the connected LionSelectRich instance has only one option,
+       * this should be reflected in the invoker as well
+       */
+      singleOption: {
+        type: Boolean,
+        reflect: true,
+        attribute: 'single-option',
       },
     };
   }
@@ -49,6 +69,30 @@ export class LionSelectInvoker extends LionButton {
     this.type = 'button';
   }
 
+  connectedCallback() {
+    if (super.connectedCallback) {
+      super.connectedCallback();
+    }
+
+    const handleKeydown = event => {
+      switch (event.key) {
+        case 'ArrowDown':
+        case 'ArrowUp':
+          event.preventDefault();
+        /* no default */
+      }
+    };
+    this.handleKeydown = handleKeydown;
+    this.addEventListener('keydown', this.handleKeydown);
+  }
+
+  disconnectedCallback() {
+    if (super.disconnectedCallback) {
+      super.disconnectedCallback();
+    }
+    this.removeEventListener('keydown', this.handleKeydown);
+  }
+
   _contentTemplate() {
     if (this.selectedElement) {
       const labelNodes = Array.from(this.selectedElement.querySelectorAll('*'));
@@ -57,7 +101,15 @@ export class LionSelectInvoker extends LionButton {
       }
       return this.selectedElement.textContent;
     }
-    return ``;
+    return this._noSelectionTemplate();
+  }
+
+  /**
+   * To be overriden for a placeholder, used when `hasNoDefaultSelected` is true on the select rich
+   */
+  // eslint-disable-next-line class-methods-use-this
+  _noSelectionTemplate() {
+    return html``;
   }
 
   _beforeTemplate() {
@@ -70,8 +122,6 @@ export class LionSelectInvoker extends LionButton {
 
   // eslint-disable-next-line class-methods-use-this
   _afterTemplate() {
-    return html`
-      <slot name="after"></slot>
-    `;
+    return html`${!this.singleOption ? html`<slot name="after"></slot>` : ''}`;
   }
 }

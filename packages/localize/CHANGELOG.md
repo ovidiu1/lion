@@ -3,6 +3,123 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.1](https://github.com/ing-bank/lion/compare/@lion/localize@0.13.0...@lion/localize@0.13.1) (2020-07-13)
+
+**Note:** Version bump only for package @lion/localize
+
+
+
+
+
+# [0.13.0](https://github.com/ing-bank/lion/compare/@lion/localize@0.12.1...@lion/localize@0.13.0) (2020-07-07)
+
+
+### Bug Fixes
+
+* **localize:** format hungarian & bulgarian dates ([cddd51a](https://github.com/ing-bank/lion/commit/cddd51adcb1b64da3f6850c8bd7f38830abb8aa8)), closes [#540](https://github.com/ing-bank/lion/issues/540)
+
+
+### BREAKING CHANGES
+
+* **localize:** N
+
+
+
+
+
+## [0.12.1](https://github.com/ing-bank/lion/compare/@lion/localize@0.12.0...@lion/localize@0.12.1) (2020-06-18)
+
+
+### Bug Fixes
+
+* **localize:** loading of new translations ([5b8a991](https://github.com/ing-bank/lion/commit/5b8a9915a3200c1ff9f4d7e0dab44695ace085c7))
+
+
+
+
+
+# [0.12.0](https://github.com/ing-bank/lion/compare/@lion/localize@0.11.2...@lion/localize@0.12.0) (2020-06-08)
+
+
+### Features
+
+* **localize:** support google translate ([271520d](https://github.com/ing-bank/lion/commit/271520d55cff3c182357f792cad6675e54c36be3))
+
+
+
+
+
+## [0.11.2](https://github.com/ing-bank/lion/compare/@lion/localize@0.11.1...@lion/localize@0.11.2) (2020-06-08)
+
+**Note:** Version bump only for package @lion/localize
+
+
+
+
+
+## [0.11.1](https://github.com/ing-bank/lion/compare/@lion/localize@0.11.0...@lion/localize@0.11.1) (2020-06-03)
+
+
+### Bug Fixes
+
+* remove all stories folders from npm ([1e04d06](https://github.com/ing-bank/lion/commit/1e04d06921f9d5e1a446b6d14045154ff83771c3))
+
+
+
+
+
+# [0.11.0](https://github.com/ing-bank/lion/compare/@lion/localize@0.10.0...@lion/localize@0.11.0) (2020-05-29)
+
+
+### Features
+
+* use markdown javascript (mdjs) for documentation ([bcd074d](https://github.com/ing-bank/lion/commit/bcd074d1fbce8754d428538df723ba402603e2c8))
+
+
+
+
+
+# [0.10.0](https://github.com/ing-bank/lion/compare/@lion/localize@0.9.2...@lion/localize@0.10.0) (2020-05-18)
+
+
+### Features
+
+* use singleton manager to support nested npm installations ([e2eb0e0](https://github.com/ing-bank/lion/commit/e2eb0e0077b9efed9382701461753778f63cad48))
+
+
+
+
+
+## [0.9.2](https://github.com/ing-bank/lion/compare/@lion/localize@0.9.1...@lion/localize@0.9.2) (2020-04-29)
+
+
+### Bug Fixes
+
+* **localization:** force TR currency code at the end ([#641](https://github.com/ing-bank/lion/issues/641)) ([89a84a8](https://github.com/ing-bank/lion/commit/89a84a8b29969a018d28af4dadc509709caaa7c3))
+
+
+
+
+
+## [0.9.1](https://github.com/ing-bank/lion/compare/@lion/localize@0.9.0...@lion/localize@0.9.1) (2020-04-02)
+
+**Note:** Version bump only for package @lion/localize
+
+
+
+
+
+# [0.9.0](https://github.com/ing-bank/lion/compare/@lion/localize@0.8.10...@lion/localize@0.9.0) (2020-03-25)
+
+
+### Features
+
+* refrain from using dynamic vars inside dynamic import ([42c840f](https://github.com/ing-bank/lion/commit/42c840f9498810a81296c9beb8a4f6bbdbc4fa0b))
+
+
+
+
+
 ## [0.8.10](https://github.com/ing-bank/lion/compare/@lion/localize@0.8.9...@lion/localize@0.8.10) (2020-03-05)
 
 **Note:** Version bump only for package @lion/localize

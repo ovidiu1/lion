@@ -3,6 +3,112 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.6](https://github.com/ing-bank/lion/compare/@lion/calendar@0.9.5...@lion/calendar@0.9.6) (2020-07-13)
+
+**Note:** Version bump only for package @lion/calendar
+
+
+
+
+
+## [0.9.5](https://github.com/ing-bank/lion/compare/@lion/calendar@0.9.4...@lion/calendar@0.9.5) (2020-07-07)
+
+**Note:** Version bump only for package @lion/calendar
+
+
+
+
+
+## [0.9.4](https://github.com/ing-bank/lion/compare/@lion/calendar@0.9.3...@lion/calendar@0.9.4) (2020-06-18)
+
+**Note:** Version bump only for package @lion/calendar
+
+
+
+
+
+## [0.9.3](https://github.com/ing-bank/lion/compare/@lion/calendar@0.9.2...@lion/calendar@0.9.3) (2020-06-08)
+
+**Note:** Version bump only for package @lion/calendar
+
+
+
+
+
+## [0.9.2](https://github.com/ing-bank/lion/compare/@lion/calendar@0.9.1...@lion/calendar@0.9.2) (2020-06-08)
+
+**Note:** Version bump only for package @lion/calendar
+
+
+
+
+
+## [0.9.1](https://github.com/ing-bank/lion/compare/@lion/calendar@0.9.0...@lion/calendar@0.9.1) (2020-06-03)
+
+
+### Bug Fixes
+
+* remove all stories folders from npm ([1e04d06](https://github.com/ing-bank/lion/commit/1e04d06921f9d5e1a446b6d14045154ff83771c3))
+
+
+
+
+
+# [0.9.0](https://github.com/ing-bank/lion/compare/@lion/calendar@0.8.0...@lion/calendar@0.9.0) (2020-05-29)
+
+
+### Features
+
+* use markdown javascript (mdjs) for documentation ([bcd074d](https://github.com/ing-bank/lion/commit/bcd074d1fbce8754d428538df723ba402603e2c8))
+
+
+
+
+
+# [0.8.0](https://github.com/ing-bank/lion/compare/@lion/calendar@0.7.2...@lion/calendar@0.8.0) (2020-05-18)
+
+
+### Features
+
+* use singleton manager to support nested npm installations ([e2eb0e0](https://github.com/ing-bank/lion/commit/e2eb0e0077b9efed9382701461753778f63cad48))
+
+
+
+
+
+## [0.7.2](https://github.com/ing-bank/lion/compare/@lion/calendar@0.7.1...@lion/calendar@0.7.2) (2020-04-29)
+
+
+### Bug Fixes
+
+* add display:none for hidden ([#692](https://github.com/ing-bank/lion/issues/692)) ([9731771](https://github.com/ing-bank/lion/commit/9731771c23a5ed8661558e62cb5e34b62cc2b8b7))
+
+
+
+
+
+## [0.7.1](https://github.com/ing-bank/lion/compare/@lion/calendar@0.7.0...@lion/calendar@0.7.1) (2020-04-02)
+
+
+### Bug Fixes
+
+* convert unnecessary backticks to single quotes for unpkg ([5103289](https://github.com/ing-bank/lion/commit/5103289f994c26f63e805be56515f150628acd91))
+
+
+
+
+
+# [0.7.0](https://github.com/ing-bank/lion/compare/@lion/calendar@0.6.13...@lion/calendar@0.7.0) (2020-03-25)
+
+
+### Features
+
+* refrain from using dynamic vars inside dynamic import ([42c840f](https://github.com/ing-bank/lion/commit/42c840f9498810a81296c9beb8a4f6bbdbc4fa0b))
+
+
+
+
+
 ## [0.6.13](https://github.com/ing-bank/lion/compare/@lion/calendar@0.6.12...@lion/calendar@0.6.13) (2020-03-05)
 
 **Note:** Version bump only for package @lion/calendar

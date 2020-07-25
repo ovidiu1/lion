@@ -25,6 +25,10 @@ export class LionSwitchButton extends DisabledWithTabIndexMixin(LitElement) {
           outline: 0;
         }
 
+        :host([hidden]) {
+          display: none;
+        }
+
         .btn {
           position: relative;
           height: 100%;
@@ -106,6 +110,12 @@ export class LionSwitchButton extends DisabledWithTabIndexMixin(LitElement) {
   __handleKeyup(e) {
     if ([32 /* space */, 13 /* enter */].indexOf(e.keyCode) !== -1) {
       this.__handleToggleStateChange();
+    }
+  }
+
+  updated(changedProperties) {
+    if (changedProperties.has('disabled')) {
+      this.setAttribute('aria-disabled', `${this.disabled}`); // create mixin if we need it in more places
     }
   }
 

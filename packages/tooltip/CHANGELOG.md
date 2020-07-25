@@ -3,6 +3,243 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.6](https://github.com/ing-bank/lion/compare/@lion/tooltip@0.12.5...@lion/tooltip@0.12.6) (2020-07-13)
+
+**Note:** Version bump only for package @lion/tooltip
+
+
+
+
+
+## [0.12.5](https://github.com/ing-bank/lion/compare/@lion/tooltip@0.12.4...@lion/tooltip@0.12.5) (2020-07-13)
+
+**Note:** Version bump only for package @lion/tooltip
+
+
+
+
+
+## [0.12.4](https://github.com/ing-bank/lion/compare/@lion/tooltip@0.12.3...@lion/tooltip@0.12.4) (2020-07-09)
+
+**Note:** Version bump only for package @lion/tooltip
+
+
+
+
+
+## [0.12.3](https://github.com/ing-bank/lion/compare/@lion/tooltip@0.12.2...@lion/tooltip@0.12.3) (2020-07-07)
+
+**Note:** Version bump only for package @lion/tooltip
+
+
+
+
+
+## [0.12.2](https://github.com/ing-bank/lion/compare/@lion/tooltip@0.12.1...@lion/tooltip@0.12.2) (2020-07-06)
+
+**Note:** Version bump only for package @lion/tooltip
+
+
+
+
+
+## [0.12.1](https://github.com/ing-bank/lion/compare/@lion/tooltip@0.12.0...@lion/tooltip@0.12.1) (2020-06-24)
+
+**Note:** Version bump only for package @lion/tooltip
+
+
+
+
+
+# [0.12.0](https://github.com/ing-bank/lion/compare/@lion/tooltip@0.11.4...@lion/tooltip@0.12.0) (2020-06-23)
+
+
+### Bug Fixes
+
+* **overlays:** accessibility attrs setup/teardown ([dfe1905](https://github.com/ing-bank/lion/commit/dfe1905e7c61007decb27da4dc30ea17fb1de1b1))
+
+
+### Features
+
+* **tooltip:** add invoker relation for accessibility ([3f84a3b](https://github.com/ing-bank/lion/commit/3f84a3bab88cd470007f5a327cfd999d65076992))
+
+
+
+
+
+## [0.11.4](https://github.com/ing-bank/lion/compare/@lion/tooltip@0.11.3...@lion/tooltip@0.11.4) (2020-06-18)
+
+**Note:** Version bump only for package @lion/tooltip
+
+
+
+
+
+## [0.11.3](https://github.com/ing-bank/lion/compare/@lion/tooltip@0.11.2...@lion/tooltip@0.11.3) (2020-06-10)
+
+**Note:** Version bump only for package @lion/tooltip
+
+
+
+
+
+## [0.11.2](https://github.com/ing-bank/lion/compare/@lion/tooltip@0.11.1...@lion/tooltip@0.11.2) (2020-06-08)
+
+**Note:** Version bump only for package @lion/tooltip
+
+
+
+
+
+## [0.11.1](https://github.com/ing-bank/lion/compare/@lion/tooltip@0.11.0...@lion/tooltip@0.11.1) (2020-06-03)
+
+
+### Bug Fixes
+
+* remove all stories folders from npm ([1e04d06](https://github.com/ing-bank/lion/commit/1e04d06921f9d5e1a446b6d14045154ff83771c3))
+
+
+
+
+
+# [0.11.0](https://github.com/ing-bank/lion/compare/@lion/tooltip@0.10.4...@lion/tooltip@0.11.0) (2020-05-29)
+
+
+### Features
+
+* merge field/validate/choice-input/form-group into @lion/form-core ([6170374](https://github.com/ing-bank/lion/commit/6170374ee8c058cb95fff79b4953b0535219e9b4))
+* use markdown javascript (mdjs) for documentation ([bcd074d](https://github.com/ing-bank/lion/commit/bcd074d1fbce8754d428538df723ba402603e2c8))
+
+
+
+
+
+## [0.10.4](https://github.com/ing-bank/lion/compare/@lion/tooltip@0.10.3...@lion/tooltip@0.10.4) (2020-05-25)
+
+**Note:** Version bump only for package @lion/tooltip
+
+
+
+
+
+## [0.10.3](https://github.com/ing-bank/lion/compare/@lion/tooltip@0.10.2...@lion/tooltip@0.10.3) (2020-05-20)
+
+**Note:** Version bump only for package @lion/tooltip
+
+
+
+
+
+## [0.10.2](https://github.com/ing-bank/lion/compare/@lion/tooltip@0.10.1...@lion/tooltip@0.10.2) (2020-05-19)
+
+**Note:** Version bump only for package @lion/tooltip
+
+
+
+
+
+## [0.10.1](https://github.com/ing-bank/lion/compare/@lion/tooltip@0.10.0...@lion/tooltip@0.10.1) (2020-05-18)
+
+
+### Bug Fixes
+
+* tooltip storybook demo fix ([e84dac2](https://github.com/ing-bank/lion/commit/e84dac2a48c0a4dadf87b08f3ec5d252598b8868))
+
+
+
+
+
+# [0.10.0](https://github.com/ing-bank/lion/compare/@lion/tooltip@0.9.0...@lion/tooltip@0.10.0) (2020-05-18)
+
+
+### Features
+
+* use singleton manager to support nested npm installations ([e2eb0e0](https://github.com/ing-bank/lion/commit/e2eb0e0077b9efed9382701461753778f63cad48))
+
+
+
+
+
+# [0.9.0](https://github.com/ing-bank/lion/compare/@lion/tooltip@0.8.13...@lion/tooltip@0.9.0) (2020-05-18)
+
+
+### Bug Fixes
+
+* **overlays:** local backdrop outlet ([e19a0f4](https://github.com/ing-bank/lion/commit/e19a0f483c65a8a758da78b86e3723e9270e5bd3))
+* **tooltip:** tooltip display inline-block ([810bdad](https://github.com/ing-bank/lion/commit/810bdad523695d67217514586c5e509319322795))
+
+
+### Features
+
+* **overlays:** enhance content projection for styling purposes ([f33ea6b](https://github.com/ing-bank/lion/commit/f33ea6b0b0dca88d006762ec5110e5845a73d219))
+* **tooltip:** simplified tooltip component by making arrow a template ([73eb90a](https://github.com/ing-bank/lion/commit/73eb90ab96622fb1c268e03c31707679eaab0bb2))
+
+
+
+
+
+## [0.8.13](https://github.com/ing-bank/lion/compare/@lion/tooltip@0.8.12...@lion/tooltip@0.8.13) (2020-05-06)
+
+**Note:** Version bump only for package @lion/tooltip
+
+
+
+
+
+## [0.8.12](https://github.com/ing-bank/lion/compare/@lion/tooltip@0.8.11...@lion/tooltip@0.8.12) (2020-04-29)
+
+
+### Bug Fixes
+
+* add display:none for hidden ([#692](https://github.com/ing-bank/lion/issues/692)) ([9731771](https://github.com/ing-bank/lion/commit/9731771c23a5ed8661558e62cb5e34b62cc2b8b7))
+
+
+
+
+
+## [0.8.11](https://github.com/ing-bank/lion/compare/@lion/tooltip@0.8.10...@lion/tooltip@0.8.11) (2020-04-15)
+
+**Note:** Version bump only for package @lion/tooltip
+
+
+
+
+
+## [0.8.10](https://github.com/ing-bank/lion/compare/@lion/tooltip@0.8.9...@lion/tooltip@0.8.10) (2020-04-07)
+
+**Note:** Version bump only for package @lion/tooltip
+
+
+
+
+
+## [0.8.9](https://github.com/ing-bank/lion/compare/@lion/tooltip@0.8.8...@lion/tooltip@0.8.9) (2020-04-02)
+
+
+### Bug Fixes
+
+* **tooltip:** support reconnecting tooltip arrow inside other overlays ([78a8554](https://github.com/ing-bank/lion/commit/78a8554019de6c91cae7c0d8e3fd2caa3c2209d1))
+
+
+
+
+
+## [0.8.8](https://github.com/ing-bank/lion/compare/@lion/tooltip@0.8.7...@lion/tooltip@0.8.8) (2020-03-26)
+
+**Note:** Version bump only for package @lion/tooltip
+
+
+
+
+
+## [0.8.7](https://github.com/ing-bank/lion/compare/@lion/tooltip@0.8.6...@lion/tooltip@0.8.7) (2020-03-25)
+
+**Note:** Version bump only for package @lion/tooltip
+
+
+
+
+
 ## [0.8.6](https://github.com/ing-bank/lion/compare/@lion/tooltip@0.8.5...@lion/tooltip@0.8.6) (2020-03-20)
 
 **Note:** Version bump only for package @lion/tooltip

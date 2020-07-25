@@ -1,48 +1,48 @@
 {
   "name": "@lion/radio-group",
-  "version": "0.8.5",
+  "version": "0.11.6",
   "description": "Manage a group of choices",
+  "license": "MIT",
   "author": "ing-bank",
   "homepage": "https://github.com/ing-bank/lion/",
-  "license": "MIT",
-  "publishConfig": {
-    "access": "public"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/ing-bank/lion.git",
     "directory": "packages/radio-group"
   },
-  "scripts": {
-    "prepublishOnly": "../../scripts/npm-prepublish.js",
-    "test": "cd ../../ && yarn test --grep \"packages/radio-group/test/**/*.test.js\"",
-    "test:watch": "cd ../../ && yarn test:watch --grep \"packages/radio-group/test/**/*.test.js\""
-  },
-  "keywords": [
-    "lion",
-    "web-components",
-    "radio-group"
-  ],
   "main": "index.js",
   "module": "index.js",
   "files": [
+    "*.d.ts",
+    "*.js",
     "docs",
     "src",
-    "stories",
     "test",
+    "test-helpers",
     "translations",
-    "*.js"
+    "types"
+  ],
+  "scripts": {
+    "prepublishOnly": "../../scripts/npm-prepublish.js",
+    "test": "cd ../../ && yarn test:browser --grep \"packages/radio-group/test/**/*.test.js\"",
+    "test:watch": "cd ../../ && yarn test:browser:watch --grep \"packages/radio-group/test/**/*.test.js\""
+  },
+  "sideEffects": [
+    "lion-radio.js",
+    "lion-radio-group.js"
   ],
   "dependencies": {
-    "@lion/choice-input": "0.7.7",
-    "@lion/core": "0.4.5",
-    "@lion/fieldset": "0.9.4",
-    "@lion/input": "0.5.19"
+    "@lion/core": "0.8.0",
+    "@lion/fieldset": "0.13.13",
+    "@lion/form-core": "0.2.6",
+    "@lion/input": "0.7.13"
   },
-  "devDependencies": {
-    "@lion/validate": "0.8.0",
-    "@open-wc/demoing-storybook": "^1.10.4",
-    "@open-wc/testing": "^2.5.0",
-    "sinon": "^7.2.2"
+  "keywords": [
+    "lion",
+    "radio-group",
+    "web-components"
+  ],
+  "publishConfig": {
+    "access": "public"
   }
 }

@@ -3,6 +3,193 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.13](https://github.com/ing-bank/lion/compare/@lion/fieldset@0.13.12...@lion/fieldset@0.13.13) (2020-07-16)
+
+**Note:** Version bump only for package @lion/fieldset
+
+
+
+
+
+## [0.13.12](https://github.com/ing-bank/lion/compare/@lion/fieldset@0.13.11...@lion/fieldset@0.13.12) (2020-07-13)
+
+**Note:** Version bump only for package @lion/fieldset
+
+
+
+
+
+## [0.13.11](https://github.com/ing-bank/lion/compare/@lion/fieldset@0.13.10...@lion/fieldset@0.13.11) (2020-07-09)
+
+**Note:** Version bump only for package @lion/fieldset
+
+
+
+
+
+## [0.13.10](https://github.com/ing-bank/lion/compare/@lion/fieldset@0.13.9...@lion/fieldset@0.13.10) (2020-07-09)
+
+**Note:** Version bump only for package @lion/fieldset
+
+
+
+
+
+## [0.13.9](https://github.com/ing-bank/lion/compare/@lion/fieldset@0.13.8...@lion/fieldset@0.13.9) (2020-07-09)
+
+**Note:** Version bump only for package @lion/fieldset
+
+
+
+
+
+## [0.13.8](https://github.com/ing-bank/lion/compare/@lion/fieldset@0.13.7...@lion/fieldset@0.13.8) (2020-07-07)
+
+**Note:** Version bump only for package @lion/fieldset
+
+
+
+
+
+## [0.13.7](https://github.com/ing-bank/lion/compare/@lion/fieldset@0.13.6...@lion/fieldset@0.13.7) (2020-07-06)
+
+**Note:** Version bump only for package @lion/fieldset
+
+
+
+
+
+## [0.13.6](https://github.com/ing-bank/lion/compare/@lion/fieldset@0.13.5...@lion/fieldset@0.13.6) (2020-06-18)
+
+**Note:** Version bump only for package @lion/fieldset
+
+
+
+
+
+## [0.13.5](https://github.com/ing-bank/lion/compare/@lion/fieldset@0.13.4...@lion/fieldset@0.13.5) (2020-06-10)
+
+**Note:** Version bump only for package @lion/fieldset
+
+
+
+
+
+## [0.13.4](https://github.com/ing-bank/lion/compare/@lion/fieldset@0.13.3...@lion/fieldset@0.13.4) (2020-06-09)
+
+**Note:** Version bump only for package @lion/fieldset
+
+
+
+
+
+## [0.13.3](https://github.com/ing-bank/lion/compare/@lion/fieldset@0.13.2...@lion/fieldset@0.13.3) (2020-06-08)
+
+**Note:** Version bump only for package @lion/fieldset
+
+
+
+
+
+## [0.13.2](https://github.com/ing-bank/lion/compare/@lion/fieldset@0.13.1...@lion/fieldset@0.13.2) (2020-06-08)
+
+**Note:** Version bump only for package @lion/fieldset
+
+
+
+
+
+## [0.13.1](https://github.com/ing-bank/lion/compare/@lion/fieldset@0.13.0...@lion/fieldset@0.13.1) (2020-06-03)
+
+
+### Bug Fixes
+
+* define side effects for demo files ([1d40567](https://github.com/ing-bank/lion/commit/1d405671875c1c9c5518a3b7f57814337b3a67d6))
+
+
+
+
+
+# [0.13.0](https://github.com/ing-bank/lion/compare/@lion/fieldset@0.12.0...@lion/fieldset@0.13.0) (2020-05-29)
+
+
+### Features
+
+* merge field/validate/choice-input/form-group into @lion/form-core ([6170374](https://github.com/ing-bank/lion/commit/6170374ee8c058cb95fff79b4953b0535219e9b4))
+* use markdown javascript (mdjs) for documentation ([bcd074d](https://github.com/ing-bank/lion/commit/bcd074d1fbce8754d428538df723ba402603e2c8))
+
+
+
+
+
+# [0.12.0](https://github.com/ing-bank/lion/compare/@lion/fieldset@0.11.2...@lion/fieldset@0.12.0) (2020-05-27)
+
+
+### Features
+
+* **fieldset:** add clearGroup method ([#723](https://github.com/ing-bank/lion/issues/723)) ([8314b1a](https://github.com/ing-bank/lion/commit/8314b1acc24c979e4fc9f53dc0c4b352ff3604fa))
+
+
+
+
+
+## [0.11.2](https://github.com/ing-bank/lion/compare/@lion/fieldset@0.11.1...@lion/fieldset@0.11.2) (2020-05-27)
+
+**Note:** Version bump only for package @lion/fieldset
+
+
+
+
+
+## [0.11.1](https://github.com/ing-bank/lion/compare/@lion/fieldset@0.11.0...@lion/fieldset@0.11.1) (2020-05-25)
+
+
+### Bug Fixes
+
+* add side effects to package.json to fix storybook build ([a7f7b4c](https://github.com/ing-bank/lion/commit/a7f7b4c70d48a78c0a1d5511e54004c157f1dba3))
+
+
+
+
+
+# [0.11.0](https://github.com/ing-bank/lion/compare/@lion/fieldset@0.10.2...@lion/fieldset@0.11.0) (2020-05-18)
+
+
+### Features
+
+* use singleton manager to support nested npm installations ([e2eb0e0](https://github.com/ing-bank/lion/commit/e2eb0e0077b9efed9382701461753778f63cad48))
+
+
+
+
+
+## [0.10.2](https://github.com/ing-bank/lion/compare/@lion/fieldset@0.10.1...@lion/fieldset@0.10.2) (2020-04-29)
+
+**Note:** Version bump only for package @lion/fieldset
+
+
+
+
+
+## [0.10.1](https://github.com/ing-bank/lion/compare/@lion/fieldset@0.10.0...@lion/fieldset@0.10.1) (2020-04-02)
+
+**Note:** Version bump only for package @lion/fieldset
+
+
+
+
+
+# [0.10.0](https://github.com/ing-bank/lion/compare/@lion/fieldset@0.9.4...@lion/fieldset@0.10.0) (2020-03-25)
+
+
+### Features
+
+* **field:** align (pre)filled and empty, fix filled not working ([e397f8d](https://github.com/ing-bank/lion/commit/e397f8d68b44c2ccb6447a908a97ace6568738ad))
+
+
+
+
+
 ## [0.9.4](https://github.com/ing-bank/lion/compare/@lion/fieldset@0.9.3...@lion/fieldset@0.9.4) (2020-03-19)
 
 

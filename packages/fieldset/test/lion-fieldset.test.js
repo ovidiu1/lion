@@ -1,19 +1,18 @@
+import { LionField, IsNumber, Validator } from '@lion/form-core';
+import '@lion/form-core/lion-field.js';
+import { formFixture as fixture } from '@lion/form-core/test-helpers.js';
+import { localizeTearDown } from '@lion/localize/test-helpers.js';
 import {
+  defineCE,
   expect,
   fixtureSync,
   html,
-  unsafeStatic,
-  triggerFocusFor,
   nextFrame,
-  defineCE,
+  triggerFocusFor,
+  unsafeStatic,
 } from '@open-wc/testing';
-import { formFixture as fixture } from '@lion/field/test-helpers.js';
 import sinon from 'sinon';
-import { Validator, IsNumber } from '@lion/validate';
-import { localizeTearDown } from '@lion/localize/test-helpers.js';
 import '../lion-fieldset.js';
-import { LionField } from '@lion/field';
-import '@lion/field/lion-field.js';
 
 const childTagString = defineCE(
   class extends LionField {
@@ -247,7 +246,7 @@ describe('<lion-fieldset>', () => {
           <${childTag} name="d" disabled .modelValue="${'x'}"></${childTag}>
         </${tag}>
         <${tag} name="disabledFieldset" disabled>
-          <${childTag} name="e"  .modelValue="${'x'}"></${childTag}>
+          <${childTag} name="e" .modelValue="${'x'}"></${childTag}>
         </${tag}>
       </${tag}>
     `);
@@ -300,7 +299,9 @@ describe('<lion-fieldset>', () => {
 
   it('does not propagate/override initial disabled value on nested form elements', async () => {
     const el = await fixture(
-      html`<${tag}><${tag} name="sub" disabled>${inputSlots}</${tag}></${tag}>`,
+      html`<${tag}>
+  <${tag} name="sub" disabled>${inputSlots}</${tag}>
+</${tag}>`,
     );
     await el.updateComplete;
     expect(el.disabled).to.equal(false);
@@ -355,10 +356,9 @@ describe('<lion-fieldset>', () => {
 
       const el = await fixture(html`
         <${tag}>
-          <${childTag} name="color"
-            .validators=${[new IsCat()]}
-            .modelValue=${'blue'}
-          ></${childTag}>
+          <${childTag} name="color" .validators=${[
+        new IsCat(),
+      ]} .modelValue=${'blue'}></${childTag}>
         </${tag}>
       `);
       await nextFrame();
@@ -387,10 +387,9 @@ describe('<lion-fieldset>', () => {
 
       const el = await fixture(html`
         <${tag}>
-          <${childTag} name="color"
-            .validators=${[new IsCat()]}
-            .modelValue=${'blue'}
-          ></${childTag}>
+          <${childTag} name="color" .validators=${[
+        new IsCat(),
+      ]} .modelValue=${'blue'}></${childTag}>
         </${tag}>
       `);
       await nextFrame();
@@ -434,6 +433,7 @@ describe('<lion-fieldset>', () => {
       // Edge case: remove all children
       el.removeChild(el.querySelector('[id=c1]'));
       await nextFrame();
+
       expect(el.validationStates.error.HasEvenNumberOfChildren).to.equal(undefined);
     });
   });
@@ -460,9 +460,7 @@ describe('<lion-fieldset>', () => {
       await triggerFocusFor(
         fieldset.formElements['hobbies[]'][fieldset.formElements['gender[]'].length - 1]._inputNode,
       );
-      const el = await fixture(html`
-        <button></button>
-      `);
+      const el = await fixture(html`<button></button>`);
       el.focus();
 
       expect(fieldset.touched).to.be.true;
@@ -539,9 +537,7 @@ describe('<lion-fieldset>', () => {
       `);
 
       await nextFrame();
-      const outside = await fixture(html`
-        <button>outside</button>
-      `);
+      const outside = await fixture(html`<button>outside</button>`);
 
       outside.click();
       expect(el.touched, 'unfocused fieldset should stay untouched').to.be.false;
@@ -568,9 +564,7 @@ describe('<lion-fieldset>', () => {
         }
       }
 
-      const outSideButton = await fixture(html`
-        <button>outside</button>
-      `);
+      const outSideButton = await fixture(html`<button>outside</button>`);
       const el = await fixture(html`
         <${tag} .validators=${[new Input1IsTen()]}>
           <${childTag} name="input1" .validators=${[new IsNumber()]}></${childTag}>
@@ -598,9 +592,7 @@ describe('<lion-fieldset>', () => {
           return hasError;
         }
       }
-      const outSideButton = await fixture(html`
-        <button>outside</button>
-      `);
+      const outSideButton = await fixture(html`<button>outside</button>`);
       const el = await fixture(html`
         <${tag} .validators=${[new Input1IsTen()]}>
           <${childTag} name="input1" .validators=${[new IsNumber()]}></${childTag}>
@@ -630,8 +622,7 @@ describe('<lion-fieldset>', () => {
       const spyB = sinon.spy(childB, 'initInteractionState');
       expect(fieldset.prefilled).to.be.false;
       expect(fieldset.dirty).to.be.false;
-      await fieldset.registrationReady;
-      await nextFrame();
+      await fieldset.registrationComplete;
       expect(spyA).to.have.been.called;
       expect(spyB).to.have.been.called;
       expect(fieldset.prefilled).to.be.true;
@@ -990,7 +981,7 @@ describe('<lion-fieldset>', () => {
       it('calls resetGroup on children fieldsets', async () => {
         const el = await fixture(html`
           <${tag} name="parentFieldset">
-          <${tag} name="childFieldset">
+            <${tag} name="childFieldset">
               <${childTag} name="child[]" .modelValue="${'foo1'}">
               </${childTag}>
             </${tag}>
@@ -1005,7 +996,7 @@ describe('<lion-fieldset>', () => {
       it('calls reset on children fields', async () => {
         const el = await fixture(html`
           <${tag} name="parentFieldset">
-          <${tag} name="childFieldset">
+            <${tag} name="childFieldset">
               <${childTag} name="child[]" .modelValue="${'foo1'}">
               </${childTag}>
             </${tag}>
@@ -1015,6 +1006,51 @@ describe('<lion-fieldset>', () => {
         const resetSpy = sinon.spy(childFieldsetEl, 'reset');
         el.resetGroup();
         expect(resetSpy.callCount).to.equal(1);
+      });
+    });
+
+    describe('clearGroup method', () => {
+      it('calls clearGroup on children fieldset', async () => {
+        const el = await fixture(html`
+          <${tag} name="parentFieldset">
+          <${tag} name="childFieldset">
+              <${childTag} name="child[]" .modelValue="${'foo1'}">
+              </${childTag}>
+            </${tag}>
+          </${tag}>
+        `);
+        const childFieldsetEl = el.querySelector(tagString);
+        const clearGroupSpy = sinon.spy(childFieldsetEl, 'clearGroup');
+        el.clearGroup();
+        expect(clearGroupSpy.callCount).to.equal(1);
+      });
+
+      it('calls clear on children fields', async () => {
+        const el = await fixture(html`
+          <${tag} name="parentFieldset">
+          <${tag} name="childFieldset">
+              <${childTag} name="child[]" .modelValue="${'foo1'}">
+              </${childTag}>
+            </${tag}>
+          </${tag}>
+        `);
+        const childFieldsetEl = el.querySelector(childTagString);
+        const clearSpy = sinon.spy(childFieldsetEl, 'clear');
+        el.clearGroup();
+        expect(clearSpy.callCount).to.equal(1);
+      });
+
+      it('should clear the value of  fields', async () => {
+        const el = await fixture(html`
+          <${tag} name="parentFieldset">
+          <${tag} name="childFieldset">
+              <${childTag} name="child" .modelValue="${'foo1'}">
+              </${childTag}>
+            </${tag}>
+          </${tag}>
+        `);
+        el.clearGroup();
+        expect(el.querySelector('[name="child"]').modelValue).to.equal('');
       });
     });
   });

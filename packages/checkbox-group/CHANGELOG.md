@@ -3,6 +3,190 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.6](https://github.com/ing-bank/lion/compare/@lion/checkbox-group@0.11.5...@lion/checkbox-group@0.11.6) (2020-07-16)
+
+**Note:** Version bump only for package @lion/checkbox-group
+
+
+
+
+
+## [0.11.5](https://github.com/ing-bank/lion/compare/@lion/checkbox-group@0.11.4...@lion/checkbox-group@0.11.5) (2020-07-13)
+
+**Note:** Version bump only for package @lion/checkbox-group
+
+
+
+
+
+## [0.11.4](https://github.com/ing-bank/lion/compare/@lion/checkbox-group@0.11.3...@lion/checkbox-group@0.11.4) (2020-07-09)
+
+**Note:** Version bump only for package @lion/checkbox-group
+
+
+
+
+
+## [0.11.3](https://github.com/ing-bank/lion/compare/@lion/checkbox-group@0.11.2...@lion/checkbox-group@0.11.3) (2020-07-09)
+
+**Note:** Version bump only for package @lion/checkbox-group
+
+
+
+
+
+## [0.11.2](https://github.com/ing-bank/lion/compare/@lion/checkbox-group@0.11.1...@lion/checkbox-group@0.11.2) (2020-07-09)
+
+**Note:** Version bump only for package @lion/checkbox-group
+
+
+
+
+
+## [0.11.1](https://github.com/ing-bank/lion/compare/@lion/checkbox-group@0.11.0...@lion/checkbox-group@0.11.1) (2020-07-07)
+
+**Note:** Version bump only for package @lion/checkbox-group
+
+
+
+
+
+# [0.11.0](https://github.com/ing-bank/lion/compare/@lion/checkbox-group@0.10.6...@lion/checkbox-group@0.11.0) (2020-07-06)
+
+
+### Features
+
+* **choice-input:** add rendering of help-text ([5cd36ca](https://github.com/ing-bank/lion/commit/5cd36cac20c763d47ee495daede421bb66c4d0ba))
+
+
+
+
+
+## [0.10.6](https://github.com/ing-bank/lion/compare/@lion/checkbox-group@0.10.5...@lion/checkbox-group@0.10.6) (2020-06-18)
+
+**Note:** Version bump only for package @lion/checkbox-group
+
+
+
+
+
+## [0.10.5](https://github.com/ing-bank/lion/compare/@lion/checkbox-group@0.10.4...@lion/checkbox-group@0.10.5) (2020-06-10)
+
+**Note:** Version bump only for package @lion/checkbox-group
+
+
+
+
+
+## [0.10.4](https://github.com/ing-bank/lion/compare/@lion/checkbox-group@0.10.3...@lion/checkbox-group@0.10.4) (2020-06-09)
+
+**Note:** Version bump only for package @lion/checkbox-group
+
+
+
+
+
+## [0.10.3](https://github.com/ing-bank/lion/compare/@lion/checkbox-group@0.10.2...@lion/checkbox-group@0.10.3) (2020-06-08)
+
+**Note:** Version bump only for package @lion/checkbox-group
+
+
+
+
+
+## [0.10.2](https://github.com/ing-bank/lion/compare/@lion/checkbox-group@0.10.1...@lion/checkbox-group@0.10.2) (2020-06-08)
+
+**Note:** Version bump only for package @lion/checkbox-group
+
+
+
+
+
+## [0.10.1](https://github.com/ing-bank/lion/compare/@lion/checkbox-group@0.10.0...@lion/checkbox-group@0.10.1) (2020-06-03)
+
+
+### Bug Fixes
+
+* remove all stories folders from npm ([1e04d06](https://github.com/ing-bank/lion/commit/1e04d06921f9d5e1a446b6d14045154ff83771c3))
+
+
+
+
+
+# [0.10.0](https://github.com/ing-bank/lion/compare/@lion/checkbox-group@0.9.3...@lion/checkbox-group@0.10.0) (2020-05-29)
+
+
+### Features
+
+* merge field/validate/choice-input/form-group into @lion/form-core ([6170374](https://github.com/ing-bank/lion/commit/6170374ee8c058cb95fff79b4953b0535219e9b4))
+* use markdown javascript (mdjs) for documentation ([bcd074d](https://github.com/ing-bank/lion/commit/bcd074d1fbce8754d428538df723ba402603e2c8))
+
+
+
+
+
+## [0.9.3](https://github.com/ing-bank/lion/compare/@lion/checkbox-group@0.9.2...@lion/checkbox-group@0.9.3) (2020-05-27)
+
+**Note:** Version bump only for package @lion/checkbox-group
+
+
+
+
+
+## [0.9.2](https://github.com/ing-bank/lion/compare/@lion/checkbox-group@0.9.1...@lion/checkbox-group@0.9.2) (2020-05-27)
+
+**Note:** Version bump only for package @lion/checkbox-group
+
+
+
+
+
+## [0.9.1](https://github.com/ing-bank/lion/compare/@lion/checkbox-group@0.9.0...@lion/checkbox-group@0.9.1) (2020-05-25)
+
+**Note:** Version bump only for package @lion/checkbox-group
+
+
+
+
+
+# [0.9.0](https://github.com/ing-bank/lion/compare/@lion/checkbox-group@0.8.8...@lion/checkbox-group@0.9.0) (2020-05-18)
+
+
+### Features
+
+* use singleton manager to support nested npm installations ([e2eb0e0](https://github.com/ing-bank/lion/commit/e2eb0e0077b9efed9382701461753778f63cad48))
+
+
+
+
+
+## [0.8.8](https://github.com/ing-bank/lion/compare/@lion/checkbox-group@0.8.7...@lion/checkbox-group@0.8.8) (2020-04-29)
+
+**Note:** Version bump only for package @lion/checkbox-group
+
+
+
+
+
+## [0.8.7](https://github.com/ing-bank/lion/compare/@lion/checkbox-group@0.8.6...@lion/checkbox-group@0.8.7) (2020-04-02)
+
+**Note:** Version bump only for package @lion/checkbox-group
+
+
+
+
+
+## [0.8.6](https://github.com/ing-bank/lion/compare/@lion/checkbox-group@0.8.5...@lion/checkbox-group@0.8.6) (2020-03-25)
+
+
+### Bug Fixes
+
+* **overlays:** support backdrop with local overlay ([e472b64](https://github.com/ing-bank/lion/commit/e472b64f7bc7c7c3ecf1e50f3f2b245c36c387f1))
+
+
+
+
+
 ## [0.8.5](https://github.com/ing-bank/lion/compare/@lion/checkbox-group@0.8.4...@lion/checkbox-group@0.8.5) (2020-03-19)
 
 **Note:** Version bump only for package @lion/checkbox-group

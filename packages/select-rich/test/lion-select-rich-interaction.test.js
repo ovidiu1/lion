@@ -1,6 +1,6 @@
-import { Required } from '@lion/validate';
+import { Required } from '@lion/form-core';
 import { expect, html, triggerBlurFor, triggerFocusFor } from '@open-wc/testing';
-import { formFixture as fixture } from '@lion/field/test-helpers.js';
+import { formFixture as fixture } from '@lion/form-core/test-helpers.js';
 
 import '../lion-option.js';
 import '../lion-options.js';
@@ -398,29 +398,6 @@ describe('lion-select-rich interactions', () => {
       await el.updateComplete;
       expect(options[0].disabled).to.be.true;
       expect(options[1].disabled).to.be.false;
-    });
-  });
-
-  // TODO: nice to have
-  describe.skip('Read only', () => {
-    it('can be focused if readonly', async () => {
-      const el = await fixture(html`
-        <lion-listbox readonly> </lion-listbox>
-      `);
-      expect(el.tabIndex).to.equal('-1');
-    });
-
-    it('cannot be navigated with keyboard if readonly', async () => {
-      const el = await fixture(html`
-        <lion-select-rich>
-          <lion-options slot="input" name="foo">
-            <lion-option .choiceValue=${10}>Item 1</lion-option>
-            <lion-option .choiceValue=${20}>Item 2</lion-option>
-          </lion-options>
-        </lion-select-rich>
-      `);
-      el._listboxNode.dispatchEvent(new KeyboardEvent('keyup', { key: 'ArrowDown' }));
-      expect(el.choiceValue).to.equal(10);
     });
   });
 

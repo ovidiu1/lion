@@ -1,4 +1,4 @@
-import { LitElement, html, css } from '@lion/core';
+import { css, html, LitElement } from '@lion/core';
 
 /**
  * `LionSteps` is a controller for a multi step system.
@@ -54,14 +54,16 @@ export class LionSteps extends LitElement {
         :host {
           display: block;
         }
+
+        :host([hidden]) {
+          display: none;
+        }
       `,
     ];
   }
 
   render() {
-    return html`
-      <slot></slot>
-    `;
+    return html`<slot></slot>`;
   }
 
   firstUpdated() {

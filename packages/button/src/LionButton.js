@@ -1,14 +1,14 @@
 import {
-  css,
-  html,
   browserDetection,
-  SlotMixin,
+  css,
   DisabledWithTabIndexMixin,
+  html,
   LitElement,
+  SlotMixin,
 } from '@lion/core';
 
 const isKeyboardClickEvent = e => e.keyCode === 32 /* space */ || e.keyCode === 13; /* enter */
-const isSpaceKeyboardClickEvent = e => e.keyCode === 32; /* space */
+const isSpaceKeyboardClickEvent = e => e.keyCode === 32 || e.key === 32; /* space */
 
 export class LionButton extends DisabledWithTabIndexMixin(SlotMixin(LitElement)) {
   static get properties() {
@@ -31,17 +31,13 @@ export class LionButton extends DisabledWithTabIndexMixin(SlotMixin(LitElement))
   render() {
     return html`
       <div class="btn">
+        <div class="click-area"></div>
         ${this._beforeTemplate()}
         ${browserDetection.isIE11
-          ? html`
-              <div id="${this._buttonId}"><slot></slot></div>
-            `
-          : html`
-              <slot></slot>
-            `}
+          ? html`<div id="${this._buttonId}"><slot></slot></div>`
+          : html`<slot></slot>`}
         ${this._afterTemplate()}
         <slot name="_button"></slot>
-        <div class="click-area"></div>
       </div>
     `;
   }
@@ -61,8 +57,6 @@ export class LionButton extends DisabledWithTabIndexMixin(SlotMixin(LitElement))
       css`
         :host {
           display: inline-block;
-          padding-top: 2px;
-          padding-bottom: 2px;
           min-height: 40px; /* src = https://www.smashingmagazine.com/2012/02/finger-friendly-design-ideal-mobile-touchscreen-target-sizes/ */
           outline: 0;
           background-color: transparent;
@@ -75,18 +69,22 @@ export class LionButton extends DisabledWithTabIndexMixin(SlotMixin(LitElement))
           align-items: center;
           position: relative;
           background: #eee; /* minimal styling to make it recognizable as btn */
-          padding: 7px 15px;
+          padding: 8px; /* vertical padding to fix with host min-height */
           outline: none; /* focus style handled below, else it follows boundaries of click-area */
         }
 
         :host .btn ::slotted(button) {
           position: absolute;
+          top: 0;
+          left: 0;
           clip: rect(0 0 0 0);
           clip-path: inset(50%);
           overflow: hidden;
           white-space: nowrap;
           height: 1px;
           width: 1px;
+          padding: 0; /* reset default agent styles */
+          border: 0; /* reset default agent styles */
         }
 
         .click-area {
@@ -95,7 +93,7 @@ export class LionButton extends DisabledWithTabIndexMixin(SlotMixin(LitElement))
           right: 0;
           bottom: 0;
           left: 0;
-          margin: -3px -1px;
+          margin: 0;
           padding: 0;
         }
 
@@ -117,6 +115,10 @@ export class LionButton extends DisabledWithTabIndexMixin(SlotMixin(LitElement))
 
         :host([disabled]) {
           pointer-events: none;
+        }
+
+        :host([hidden]) {
+          display: none;
         }
 
         :host([disabled]) .btn {
@@ -159,9 +161,7 @@ export class LionButton extends DisabledWithTabIndexMixin(SlotMixin(LitElement))
     this.__setupDelegationInConstructor();
 
     if (browserDetection.isIE11) {
-      this._buttonId = `button-${Math.random()
-        .toString(36)
-        .substr(2, 10)}`;
+      this._buttonId = `button-${Math.random().toString(36).substr(2, 10)}`;
       this.updateComplete.then(() => this.setAttribute('aria-labelledby', this._buttonId));
     }
   }
@@ -184,6 +184,9 @@ export class LionButton extends DisabledWithTabIndexMixin(SlotMixin(LitElement))
         native.type = this.type;
       }
     }
+    if (changedProperties.has('disabled')) {
+      this.setAttribute('aria-disabled', `${this.disabled}`); // create mixin if we need it in more places
+    }
   }
 
   /**
@@ -204,7 +207,7 @@ export class LionButton extends DisabledWithTabIndexMixin(SlotMixin(LitElement))
   }
 
   __setupDelegationInConstructor() {
-    // do not move to connectedCallback, otherwise IE11 breaks
+    // do not move to connectedCallback, otherwise IE11 breaks.
     // more info: https://github.com/ing-bank/lion/issues/179#issuecomment-511763835
     this.addEventListener('click', this.__clickDelegationHandler, true);
   }
@@ -226,12 +229,17 @@ export class LionButton extends DisabledWithTabIndexMixin(SlotMixin(LitElement))
     const mouseupHandler = () => {
       this.active = false;
       document.removeEventListener('mouseup', mouseupHandler);
+      this.removeEventListener('mouseup', mouseupHandler);
     };
     document.addEventListener('mouseup', mouseupHandler);
+    this.addEventListener('mouseup', mouseupHandler);
   }
 
   __keydownHandler(e) {
     if (this.active || !isKeyboardClickEvent(e)) {
+      if (isSpaceKeyboardClickEvent(e)) {
+        e.preventDefault();
+      }
       return;
     }
 
